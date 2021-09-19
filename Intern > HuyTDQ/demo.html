@@ -9,14 +9,13 @@
 </head>
 <body>
     <div class="demo-container">
-        <img id="emilia" onload="getImageInform()" src="./static/media/athea.png" alt="emilia-tan" width="500" height="500">
-        <div class="image-inform">
-            <p>Image's width and height: <span></span> </p>
-            <p>Div's postion: <span></span></p>
-            <p>Div's width and height: <span></span></p>
+        <div id="emilia" onload="getImageInform()">
+            <img src="./static/media/athea.png" alt="emilia-tan" width="500" height="500">
+            <p>Image's width and height: <span id="img_w_h">none</span></p>
+            <p>Div's postion: <span id="div_pos">none</span></p>
+            <p>Div's width and height: <span id="div_w_h">none</span></p>
         </div>
     </div>
-
     <script src="./static/js/App.js"></script>
 </body>
 </html>
