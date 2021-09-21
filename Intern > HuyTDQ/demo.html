@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="./static/css/style.css"/>
     <title>Document</title>
 </head>
-<body>
+<body onresize="getImageInform()" onload="getImageInform()">
     <div class="demo-container">
-        <div id="emilia" onload="getImageInform()">
+        <div id="emilia">
             <img src="./static/media/athea.png" alt="emilia-tan" width="500" height="500">
             <p>Image's width and height: <span id="img_w_h">none</span></p>
             <p>Div's postion: <span id="div_pos">none</span></p>
