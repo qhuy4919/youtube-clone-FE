@@ -6,15 +6,26 @@
     text-decoration: none;
 }
 
-.sidebar{
+header {
+    display: flex;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+
+header h2{
+    margin: auto;
+}
+
+#sidebar{
     position: fixed;
-    left: 0;
+    left: -250px;
     width: 250px;
     height: 100%;
     background-color: #042331;
 }
 
-.sidebar .logo{
+#sidebar .logo{
     font-size: 22px;
     color: white;
     text-align: center;
@@ -23,7 +34,7 @@
     user-select: none;
 }
 
-.sidebar ul a {
+#sidebar ul a {
     display: block;
     height: 100%;
     width: 100%;
@@ -37,7 +48,22 @@
     transition: .4s;
 }
 
-.sidebar li:hover a{
+#sidebar li:hover a{
     padding-left: 50px;
     font-size: 35px;
 }
+
+#open-menu, #close-menu{
+    position: absolute;
+    cursor: pointer;
+}
+#open-menu{
+    font-size: 35px;
+}
+#close-menu{
+    z-index: 1000;
+    left: 200px;
+    top: 20px;
+    font-size: 30px;
+}
+

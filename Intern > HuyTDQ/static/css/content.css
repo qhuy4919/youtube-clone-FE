@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+#section{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+}
+
+#section .user-card{
+    width: 30rem;
+    height: 15rem;
+    margin: 0 10px;
+    padding: 10px 10px;
+    background: rgb(102, 98, 98);
+    border-radius: 4px;
+    box-shadow: 
+        0 12.5px 10px rgba(0, 0, 0, 0.035),
+        0 100px 80px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
