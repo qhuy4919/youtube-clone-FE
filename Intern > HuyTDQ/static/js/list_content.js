@@ -134,7 +134,7 @@ const items = mock_data.map(item => {
                 <h3>${item.title}</h3>
             </div>
             <div class="card-footer">
-                <a href="${item.link_direct}"><button type="button">Read more</button></a>
+                <a href="${item.link_direct}?id=${item.id}"><button type="button">Read more</button></a>
             </div>
         </div>
     `
