@@ -3,17 +3,22 @@ let mock_data = [
         id: 0,
         name: 'Onepiece',
         preview_pic: '../static/media/list_post/post0',
-        author: 'Admin',
+        author: 'QHuy',
         created: '2021/09/24',
-        vols: '100',
         title: 'Onepiece review',
-        scores: '10.0',
+        scores: '8.5',
         link_direct: "./content/content0.html",
         detail: {
-            background_pic: 'https://images.alphacoders.com/846/84631.jpg',
-            content: `Gol D. Roger was known as the "Pirate King," the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King.
-            Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy's reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece.`,
-            profile_pic: 'https://cdn.myanimelist.net/images/anime/6/73245.jpg'
+            background_pic: 'https://s4.anilist.co/file/anilistcdn/media/manga/banner/117802-Esqkc7DfRvfh.jpg',
+            content: `As a child, Monkey D. Luffy was inspired to become a pirate by listening to the tales of the buccaneer "Red-Haired" Shanks. But his life changed when Luffy accidentally ate the Gum-Gum Devil Fruit and gained the power to stretch like rubber...at the cost of never being able to swim again! Years later, still vowing to become the king of the pirates, Luffy sets out on his 
+            adventure...one guy alone in a rowboat, in search of the legendary "One Piece," said to be the greatest treasure in the world...
+            `,
+            profile_pic: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx30013-oT7YguhEK1TE.jpg',
+            vols: '100',
+            start_date: 'Jul 22, 1997',
+            end_data: 'on going',
+            mangaka: 'Eiichirou Oda'
+
 
         },
         
@@ -24,17 +29,21 @@ let mock_data = [
         preview_pic: '../static/media/list_post/post1',
         author: 'QHuy',
         created: '',
-        vols: '100',
         title: 'Claymore',
         scores: '10.0',
-        link_direct: "./content/content1.html",
+        link_direct: "./content/content0.html",
         detail: {
             background_pic: '../../static/media/background_post/post1',
             content: `In this world, humans coexist with demonic predators called Yoma. These demonic beasts feast on human innards and can blend into human society by taking on human appearance. As a counter force, a mysterious organization created half-human, half-Yoma warriors known as the "Silver Eyed Witches" or "Claymores", after the huge claymore swords they carry. They are detested by humanity however necessary.
 
             The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
             `,
-            profile_pic: './../static/media/profile_post/post1'
+            profile_pic: './../static/media/profile_post/post1',
+            vols: '159',
+            start_date: 'May 6, 2001',
+            end_data: 'Oct 4, 2014',
+            mangaka: 'Norihiro Yagi'
+
 
         },
     },
@@ -42,19 +51,23 @@ let mock_data = [
         id: 2,
         name: '',
         preview_pic: '../static/media/list_post/post2', 
-        author: 'user01',
+        author: 'QHuy',
         created: '2021/09/24',
-        vols: '100',
         title: 'Assassination Classroom',
-        scores: '10.0',
-        link_direct: "./content/content1.html",
+        scores: '8.0',
+        link_direct: "./content/content0.html",
         detail: {
-            background_pic: '../../static/media/background_post/post1',
-            content: `In this world, humans coexist with demonic predators called Yoma. These demonic beasts feast on human innards and can blend into human society by taking on human appearance. As a counter force, a mysterious organization created half-human, half-Yoma warriors known as the "Silver Eyed Witches" or "Claymores", after the huge claymore swords they carry. They are detested by humanity however necessary.
-
-            The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
+            background_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/banner/20755-D4ipww9U8YkC.jpg',
+            content: `The students of class 3-E have a mission: kill their teacher before graduation. He has already destroyed the moon, and has promised to destroy the Earth if he can not be killed within a year. 
+            But how can this class of misfits kill a tentacled monster, capable of reaching Mach 20 speed, who may be the best teacher any of them have ever had?
             `,
-            profile_pic: './../static/media/profile_post/post1'
+            profile_pic: 'https://cdn.myanimelist.net/images/anime/12/64043l.jpg?_gl=1*1cpgxc9*_ga*MTA0MzI5MTA0LjE2MzIzMjYwNTI.*_ga_26FEP9527K*MTYzMjY2MTM5OS40LjEuMTYzMjY2MjU2My40Mg..',
+            vols: '21',
+            start_date: 'Jul 2, 2012',
+            end_data: 'Apr 25, 2016',
+            mangaka: 'Yuusei Matsui'
+
+
 
         },
     },
@@ -62,39 +75,48 @@ let mock_data = [
         id: 3,
         name: '',
         preview_pic: '../static/media/list_post/post3',
-        author: 'user02',
+        author: 'QHuy',
         created: '2021/09/24',
-        vols: '100',
-        title: 'Claymore',
-        scores: '10.0',
-        link_direct: "./content/content1.html",
+        title: 'Haikyuu!!',
+        scores: '7.0',
+        link_direct: "./content/content0.html",
         detail: {
-            background_pic: '../../static/media/background_post/post1',
-            content: `In this world, humans coexist with demonic predators called Yoma. These demonic beasts feast on human innards and can blend into human society by taking on human appearance. As a counter force, a mysterious organization created half-human, half-Yoma warriors known as the "Silver Eyed Witches" or "Claymores", after the huge claymore swords they carry. They are detested by humanity however necessary.
+            background_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/banner/20464-HbmkPacki4sl.jpg',
+            content: `spired after watching a volleyball ace nicknamed "Little Giant" in action, small-statured Shouyou Hinata revives the volleyball club at his middle school. 
+            The newly-formed team even makes it to a tournament; however, their first match turns out to be their last when they are brutally squashed by the "King of the Court," Tobio Kageyama. Hinata vows to surpass Kageyama, and so after graduating from middle school, he joins Karasuno High School's volleyball team—only to find that his sworn rival, Kageyama, is now his teammate.
 
-            The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
+            Thanks to his short height, Hinata struggles to find his role on the team, even with his superior jumping power. 
+            Surprisingly, Kageyama has his own problems that only Hinata can help with, and learning to work together appears to be the only way for the team to be successful. 
+            Based on Haruichi Furudate's popular shounen manga of the same name, Haikyuu!! is an exhilarating and emotional sports comedy following two determined athletes as they attempt to patch a heated rivalry in order to make their high school volleyball team the best in Japan.
             `,
-            profile_pic: './../static/media/profile_post/post1'
+            profile_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20464-eW7ZDBOcn74a.png',
+            vols: '34',
+            start_date: 'Jul 2, 2012',
+            end_data: 'Apr 25, 2016',
+            mangaka: 'Yuusei Matsui'
 
         },
     },
     {
         id: 4,
         name: '',
-        preview_pic: '../static/media/list_post/post4',
-        author: 'user000',
+        preview_pic: 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx86303-DItZrA3hbaJf.jpg',
+        author: 'QHuy',
         created: '2021/09/24',
-        vols: '100',
-        title: 'Claymore',
+        title: 'Kobayashi-san Chi no Maidragon S',
         scores: '10.0',
-        link_direct: "./content/content1.html",
+        link_direct: "./content/content0.html",
         detail: {
-            background_pic: '../../static/media/background_post/post1',
-            content: `In this world, humans coexist with demonic predators called Yoma. These demonic beasts feast on human innards and can blend into human society by taking on human appearance. As a counter force, a mysterious organization created half-human, half-Yoma warriors known as the "Silver Eyed Witches" or "Claymores", after the huge claymore swords they carry. They are detested by humanity however necessary.
-
-            The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
+            background_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/banner/107717-xi8BDn9kucOI.jpg',
+            content: `A strange turn of events leads the Dragon, Tohru, to work as Miss Kobayashi's maid. She occasionally (that's a lie, she often) causes trouble for her beloved Miss Kobayashi while blending into human society and splendidly (that's a lie, only mediocrely) carrying out her maid duties. Her fellow dragons, Kanna, Lucoa, Fafnir, and Elma all find their own places to fit in as well and enjoy interspecies interactions with the humans.
+            Yet while they're all enjoying that laid-back and occasionally turbulent left, the threat of a new Dragon swoops down upon Miss Kobayashi.
             `,
-            profile_pic: './../static/media/profile_post/post1'
+            profile_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx107717-bixaW1NTGBra.jpg',
+            vols: '12',
+            start_date: 'Jul 2, 2012',
+            end_data: 'Apr 25, 2016',
+            mangaka: 'Yuusei Matsui'
+
 
         },
     },
@@ -102,23 +124,28 @@ let mock_data = [
         id: 5,
         name: '',
         preview_pic: '../static/media/list_post/post5',
-        author: 'user123',
+        author: 'QHuy',
         created: '2021/09/24',
-        vols: '100',
-        title: 'Claymore',
+        title: 'Dragonball',
         scores: '10.0',
-        link_direct: "./content/content1.html",
+        link_direct: "./content/content0.html",
         detail: {
-            background_pic: '../../static/media/background_post/post1',
-            content: `In this world, humans coexist with demonic predators called Yoma. These demonic beasts feast on human innards and can blend into human society by taking on human appearance. As a counter force, a mysterious organization created half-human, half-Yoma warriors known as the "Silver Eyed Witches" or "Claymores", after the huge claymore swords they carry. They are detested by humanity however necessary.
-
-            The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
+            background_pic: 'https://s4.anilist.co/file/anilistcdn/media/manga/banner/30042-4aSSSOxCNWgE.jpg',
+            content: `A remastered version of Dragon Ball Z that adheres more to the manga's story. This version includes newly recorded dialog by the original voice actors, 
+            new sound effects, new OP/ED sequences, and a brand new HD video transfer.
             `,
-            profile_pic: './../static/media/profile_post/post1'
+            profile_pic: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/6033-POX2sGuDcySH.png',
+            vols: '100',
+            start_date: 'Jul 2, 2012',
+            end_data: 'Apr 25, 2016',
+            mangaka: 'Yuusei Matsui'
+
 
         },
     }
 ];
+
+
 
 // render data
 var url = new URL(window.location.href);
@@ -143,7 +170,7 @@ function render(data){
                     </div>
                 </div>
                 <div class="header-content">
-                    <h1>Claymore</h1>
+                    <h1>${data.title}</h1>
                     <p class="description">
                         ${data.detail.content}
                     </p>
@@ -158,23 +185,23 @@ function render(data){
             <div class="common-content">
                 <div class="common-content__items">
                     <p>chappter</p>
-                    <p>1</p>
+                    <p>${data.detail.vols}</p>
                 </div>
                 <div class="common-content__items">
                     <p>status</p>
-                    <p>1</p>
+                    <p>${data.detail.status}</p>
                 </div>
                 <div class="common-content__items">
                     <p>start date</p>
-                    <p>1</p>
+                    <p>${data.detail.start_date}</p>
                 </div>
                 <div class="common-content__items">
                     <p>end date</p>
-                    <p>1</p>
+                    <p>${data.detail.end_data}</p>
                 </div>
                 <div class="common-content__items">
                     <p>mangaka</p>
-                    <p>1</p>
+                    <p>${data.detail.mangaka}</p>
                 </div>
             </div>
             <div class="gallery">
