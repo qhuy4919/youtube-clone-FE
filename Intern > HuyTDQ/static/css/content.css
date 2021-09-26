@@ -6,30 +6,105 @@
 }
 img{
     display: block;
+    width: 100%;
+}
+
+body{
+    background-color: rgb(245,246,246);
+}
+
+.page-header{
+    background: #fff;
+    position: relative;
+}
+
+.page-banner img{
+    background-position: 50% 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    /* margin-top: -58px; */
+}
+
+.header-container{
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: 215px auto;
+
+    max-width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.profile{
+    margin-top: -125px;
+    position: relative;
+}
+
+.profile .profile-inform{
+    display: grid;
+    grid-template-columns: auto 35px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    grid-gap: 15px;
+}
+
+.header-content{
+    display: inline-grid;
+    padding-top: 25px;
+}
+
+.header-content h1{
+    color: black;
+
+}
+
+.header-content .description{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 900px;
+    padding: 15px 0;
+}
+
+.header-content .author{
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 
-.news-container{
-    margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    width: 1060px;
-    
+
+.page-content{
+    height: auto;
+    display: grid;
+    grid-column-gap: 40px;
+    grid-template-columns: 208px auto;
+    margin-top: 30px;
+    max-width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.news-container img{
-    float: right;
-    padding-left: 8px;
-    padding-top: 4px;
-
+.common-content{
+    background-color: rgb(250,250,250);
 }
 
-.news-container .news-content{
-    background-color: #fff;
-    border-color: #ebebeb;
-    border-style: solid;
-    border-width: 0 1px 1px;
-    padding: 5px 10px 10px;
-    text-align: left;
+.common-content__items{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 10px 10px;
+    border-radius: 3px;
+    box-shadow: 1px 3px 6px #888888;
+
+
+
+}
+.common-content__items p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }

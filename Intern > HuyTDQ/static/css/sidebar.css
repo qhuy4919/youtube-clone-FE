@@ -26,8 +26,9 @@ header h2{
     left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #042331;
-    transition: all .5s ease;   
+    background-color: #a5a8aa;
+    transition: all .5s ease;
+    z-index: 1;
 }
 
 #sidebar .logo{
@@ -35,7 +36,7 @@ header h2{
     color: white;
     text-align: center;
     line-height: 70px;
-    background-color: #063146;
+    background-color: #a5a8aa;
     user-select: none;
 }
 
