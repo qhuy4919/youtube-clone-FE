@@ -104,6 +104,28 @@ body{
     font-size: 1rem;
     font-weight: 500;
 }
+
+.rankings{
+    display: block;
+
+}
+.rankings .rankings__items{
+    display: flex;
+    padding: 8px 20px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid;
+
+}
+.rankings__items span{
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    width: calc(100% - 20px);
+}
 .gallery{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

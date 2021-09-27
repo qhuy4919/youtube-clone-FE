@@ -1,5 +1,3 @@
-let list_manga = document.getElementById('section');
-
 let mock_data = [
     {
         id: 0,
@@ -163,5 +161,6 @@ const items = mock_data.map(item => {
             </div>
         </div>
     `
-})
+});
+let list_manga = document.getElementById('page-content-list');
 list_manga.innerHTML = items.join("");
