@@ -1,16 +1,12 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-}
+@import './helpers/reset.css';
+@import './helpers/variables.css';
 img{
     display: block;
     width: 100%;
 }
 
 body{
-    background-color: rgb(245,246,246);
+    background-color: rgb(var(--color-background));
 }
 
 .page-header{
@@ -85,9 +81,6 @@ body{
     padding-right: 10%;
 }
 
-.common-content{
-    background-color: rgb(250,250,250);
-}
 
 .common-content__items{
     display: flex;
@@ -110,21 +103,24 @@ body{
 
 }
 .rankings .rankings__items{
-    display: flex;
+    display: inline-block;
     padding: 8px 20px;
     margin-top: 10px;
     margin-bottom: 16px;
     border-radius: 10px;
     border: 1px solid;
-
+    width: 100%;
 }
 .rankings__items span{
     display: inline-block;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-align: center;
     text-transform: capitalize;
-    width: calc(100% - 20px);
+}
+.rankings__items i{
+    font-size: 0.65rem;
+    width: 10%;
 }
 .gallery{
     display: grid;

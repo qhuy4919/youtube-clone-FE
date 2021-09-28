@@ -1,19 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
+@import'./helpers/reset.css';
+@import'./helpers/variables.css';
 header {
     display: flex;
     overflow: hidden;
-    background-color: #f1f1f1;
+    background-color: var(--color-header);
     padding: 20px 10px;
 }
 

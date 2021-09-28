@@ -1,0 +1,29 @@
+:root{
+    /* main color */
+    --color-background: 237,241,245;
+    --color-foreground: 250,250,250;
+    --color-header: #2b2d42;
+
+    /* sub color */
+    --color-blue: 61,180,242;
+    --color-blue-dim: 141,178,219;
+    --color-white: 255,255,255;
+    --color-black: 0,0,0;
+    --color-red: 232,93,117;
+    --color-peach: 250,122,122;
+    --color-orange: 247,154,99;
+    --color-yellow: 247,191,99;
+    --color-green: 123,213,85;
+
+    /* text color */
+    --color-text: 92,114,138;
+    --color-text-light: 122,133,143;
+    --color-text-lighter: 146,153,161;
+    --color-text-bright: 237,241,245;
+
+    /* font size */
+    --font-size: 15px
+
+
+    
+}
