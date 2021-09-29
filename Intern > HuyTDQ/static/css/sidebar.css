@@ -3,7 +3,7 @@
 header {
     display: flex;
     overflow: hidden;
-    background-color: var(--color-header);
+    background-color: var(--main-color-header);
     padding: 20px 10px;
 }
 

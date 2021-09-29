@@ -204,11 +204,14 @@ function render(data){
                     <p>${data.detail.mangaka}</p>
                 </div>
             </div>
-            <div class="gallery">
-                <img src="../../static/media/athea.png" alt="">
-                <img src="../../static/media/athea.png" alt="">
-                <img src="../../static/media/athea.png" alt="">
-                <img src="../../static/media/athea.png" alt="">
+            <div class="overview">
+                <div class="video-preview">
+                    <h2>Preview</h2>
+                    <iframe src="https://www.youtube.com/embed/t_i_Dq2GjAI"></iframe>
+                </div>
+                <div class="Characters">
+                    
+                </div>
             </div>
         </div>
         `

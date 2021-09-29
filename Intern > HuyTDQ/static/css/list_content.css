@@ -3,7 +3,7 @@
 img{
     display: block;
     max-width: 100%;
-    height: auto;
+    height: 75%;
 }
 
 #page-container{
@@ -11,7 +11,7 @@ img{
     transition: all .5s;
     padding-left: 30px;
     padding-right: 30px;
-    background-color: rgb(var(--color-background));;
+    background-color: rgb(var(--main-color-background));;
 }
 
 .search-filter{
@@ -22,10 +22,11 @@ img{
 }
 
 .search-filter__item .title-name{
-    font-size: 1.5rem;
+    font-size: var(--font-size);
     font-weight: 600;
     padding: 10px 0;
     text-transform: capitalize;
+
 }
 #page-content-list{
     display: flex;
@@ -36,40 +37,52 @@ img{
     width: calc((100% - 200px)/ 5);
     margin: 10px 20px;
     background: rgb(255, 255, 255);
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 
         0 12.5px 10px rgba(0, 0, 0, 0.035),
         0 100px 80px rgba(0, 0, 0, 0.07);
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .user-cards .card-image{
     width: 100%;
     object-fit: cover;
     vertical-align: bottom;
+    flex-shrink: 0;
 }
 
-.user-cards .card-content{
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.user-cards .card-middle{
     display: flex;
     justify-content: space-between;
-    padding: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 25px;
 
+}
 .user-cards .card-content h2{
-    color: rgb(201, 12, 12);
+    color: rgb(var(--color-red));
+    font-weight: 600;
 }
 
 .user-cards .card-content h3{
+    font-size: calc(1.2 * var(--font-size));
+    font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.user-cards .card-footer{
+.user-cards .card-bottom{
     display: flex;
     justify-content: flex-end;
-    padding: 1rem;
+    align-items: center;
     border-top: 1px solid #eee;
+    padding: 10px;
+    margin-top: auto;
+
 }

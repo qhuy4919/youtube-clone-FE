@@ -1,8 +1,8 @@
 :root{
     /* main color */
-    --color-background: 237,241,245;
-    --color-foreground: 250,250,250;
-    --color-header: #2b2d42;
+    --main-color-background: 237,241,245;
+    --main-color-foreground: 250,250,250;
+    --main-color-header: #2b2d42;
 
     /* sub color */
     --color-blue: 61,180,242;
@@ -22,7 +22,12 @@
     --color-text-bright: 237,241,245;
 
     /* font size */
-    --font-size: 15px
+    --font-size: 15px;
+
+    /* spacing */
+    --spacing-unit: 6px;
+    --margin: 1rem;
+    --padding: 1rem;
 
 
     
