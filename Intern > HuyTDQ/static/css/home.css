@@ -40,12 +40,12 @@
   
 .home .image{
     flex: 2 2;
-    height: 40vh;
+    height: 44vh;
 
 }
 
 .home .image img{
-    width:80%;
+    width:75%;
     height: 100%;
     animation:float 3s linear infinite;
 }

@@ -39,6 +39,7 @@ header h2{
     border-bottom: 0.5px solid black;
     box-sizing: border-box;
     text-transform: uppercase;
+    text-decoration: none;
     /* pop out effect */
     transition: .4s;
 }
