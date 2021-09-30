@@ -23,3 +23,7 @@ a{
     transition: .15s;
     outline: 0;
 }
+
+img{
+    width: 100%;
+}

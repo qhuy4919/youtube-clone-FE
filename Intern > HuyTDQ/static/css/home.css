@@ -4,13 +4,12 @@
 #page-container{
   transition: all .2s linear; 
 }
-#section{
+.home{
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: center;
-    padding: 2rem 9%;
-    
+    padding: 2rem 9%;    
 }
 
 .home .content{

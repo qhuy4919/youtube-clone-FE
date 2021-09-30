@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/76a5e1c7ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./static/css/sidebar.css"/>
     <link rel="stylesheet" href="./static/css/home.css"> 
+    <link rel="stylesheet" href="./static/css/components/carousel.css">
     <title>MangaList</title>
 </head>
 <body>  
@@ -28,7 +29,40 @@
       </ul>
     </div>
     <div id="page-container">
-      <section class="home" id="section">
+      <div class="carousel">
+        <div class="carousel-inner">
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
+            <div class="carousel-item">
+                <img src="https://s4.anilist.co/file/anilistcdn/media/anime/banner/128712-ten1GvlORgaw.jpg">
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <img src="https://s4.anilist.co/file/anilistcdn/media/anime/banner/1535.jpg">
+            </div>
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item">
+                <img src="https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg">
+            </div>
+            <label for="carousel-3" class="carousel-control prev control-1">‹</label>
+            <label for="carousel-2" class="carousel-control next control-1">›</label>
+            <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+            <label for="carousel-3" class="carousel-control next control-2">›</label>
+            <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+            <label for="carousel-1" class="carousel-control next control-3">›</label>
+            <ol class="carousel-indicators">
+                <li>
+                    <label for="carousel-1" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-2" class="carousel-bullet">•</label>
+                </li>
+                <li>
+                    <label for="carousel-3" class="carousel-bullet">•</label>
+                </li>
+            </ol>
+        </div>
+      </div>
+      <section class="home">
         <div class="content">
             <h3>Manga List</h3>
             <p>My very first review website</p>
@@ -40,8 +74,7 @@
         </div>
     
     </section>
-    </div>
-   
+    <div>
     <script src="./static/js/sidebar.js"></script>
 </body>
 </html>
