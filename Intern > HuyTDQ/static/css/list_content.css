@@ -1,5 +1,4 @@
 @import './helpers/reset.css';
-@import './helpers/variables.css';
 img{
     display: block;
     max-width: 100%;
@@ -18,7 +17,7 @@ img{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-gap: 1.2rem;
-    margin: 40px  0;
+    padding: 40px  0;
 }
 
 .search-filter__item .title-name{

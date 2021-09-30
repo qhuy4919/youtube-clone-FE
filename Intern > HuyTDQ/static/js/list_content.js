@@ -23,7 +23,7 @@ let mock_data = [
         },
         
     },
-    {
+    {   
         id: 1,
         name: '',
         preview_pic: '../static/media/list_post/post1',

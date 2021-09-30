@@ -1,5 +1,3 @@
-@import'./helpers/reset.css';
-@import'./helpers/variables.css';
 header {
     display: flex;
     overflow: hidden;
