@@ -24,6 +24,9 @@
     /* font size */
     --font-size: 15px;
 
+    /* line-height */
+    --line-height: 1;
+
     /* spacing */
     --spacing-unit: 6px;
     --margin: 1rem;

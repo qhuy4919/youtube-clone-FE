@@ -8,14 +8,19 @@
     list-style: none;
     text-decoration: none;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
     background: rgb(var(--color-background));
     color: rgb(var(--color-text));
     font-size: var(--font-size);
-    height: 100%;
     text-decoration: none;
+    line-height: var(--line-height);
 }
 
 a{
@@ -26,5 +31,6 @@ a{
 }
 
 img{
-    width: 100%;
+    display: block;
+    max-width: 100%
 }
