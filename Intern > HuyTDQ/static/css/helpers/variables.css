@@ -33,5 +33,9 @@
     --padding: 1rem;
 
 
+    /* sidebar properties */
+    --lg-heigth-sidebar: 44px; 
+
+
     
 }

@@ -1,6 +1,7 @@
 @import './helpers/reset.css';
 #page-container{
   transition: all .2s linear;
+  height: auto;
 }
 .home{
     display: flex;
