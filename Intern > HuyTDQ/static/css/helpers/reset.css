@@ -16,7 +16,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: rgb(var(--color-background));
+    background: rgb(var(--main-color-background));
     color: rgb(var(--color-text));
     font-size: var(--font-size);
     text-decoration: none;

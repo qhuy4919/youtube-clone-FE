@@ -38,7 +38,7 @@ export var mock_data = [
 
             The story begins with a young boy, Raki, who has lost everything in a Yoma attack, and the Claymore, Clare, who is generally detested by society. Throughout the series, Clare and Raki show their deeper qualities, powers and Clare's never ending devotion to the goal she swore to fulfill in her childhood.
             `,
-            profile_pic: '../../static/media/profile_post/post1',
+            profile_pic: '../../static/media/Profile_post/post1',
             vols: '159',
             start_date: 'May 6, 2001',
             end_data: 'Oct 4, 2014',
