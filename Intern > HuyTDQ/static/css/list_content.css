@@ -4,6 +4,9 @@ img{
     max-width: 100%;
     height: 75%;
 }
+button{
+    cursor: pointer;
+}
 
 #page-container{
     display: block;
@@ -86,4 +89,29 @@ img{
     padding: 10px;
     margin-top: auto;
 
+}
+
+.page-bottom{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.adding-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(var(--color-background-400));
+    border-radius: 6px;
+    box-shadow: 0 14px 30px rgba(var(--color-shadow-blue),.15),0 4px 4px rgba(var(--color-shadow-blue),.05);
+    color: rgb(var(--color-gray-500));
+    cursor: pointer;
+    font-size: 1.8rem;
+    height: 38px;
+    width: 90%;
+    transition: color .3s ease-in-out;
+}
+.adding-form:hover{
+    text-decoration: none;
+    background: rgb(var(--color-background-500));
 }

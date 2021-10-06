@@ -13,9 +13,11 @@ const items = mock_data.map(item => {
                 <a href="${item.link_direct}?id=${item.id}"><button type="button">Read more</button></a>
             </div>
             </div>
-            
         </div>
     `
 });
+
 let list_manga = document.getElementById('page-content-list');
 list_manga.innerHTML = items.join("");
+
+

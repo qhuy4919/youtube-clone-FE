@@ -15,6 +15,8 @@
     --color-orange: 247,154,99;
     --color-yellow: 247,191,99;
     --color-green: 123,213,85;
+    --color-white: 255,255,255;
+    --color-black: 0,0,0;
 
     /* background color */
     --color-background-100: 251,251,251;
@@ -37,14 +39,15 @@
     --color-text-bright: 237,241,245;
 
     /* font size */
-    --font-size-sm: 14px;
-    --font-size-me: 20px;
-    --font-size--lg: 32px;
+    --font-size-sm: 14;
+    --font-size-me: 20;
+    --font-size-lg: 32;
+    --font-size-slg: 60;
 
     /* line-height */
-    --line-height-sm: 20px;
-    --line-height-me: 30px;
-    --line-height-lg: 42px;
+    --line-height-sm: 20;
+    --line-height-me: 30;
+    --line-height-lg: 42;
 
     /* font-weight */
     --font-weight-regular: 400;
@@ -53,10 +56,16 @@
     --font-weight-bold: 700;
 
     /* spacing */
-    --base-spacing: 15px;
+    --base-spacing: 15;
+
+    /* margin */
+    --margin-sm: 10;
+    --marin-me: 40;
+    --margin-lg: 60;
+    --margin-slg: 80;
 
     /* sidebar properties */
-    --lg-heigth-sidebar: 44px; 
+    --lg-heigth-sidebar: 44; 
 
 
     
