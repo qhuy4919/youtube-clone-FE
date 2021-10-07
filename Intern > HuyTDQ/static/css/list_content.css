@@ -56,9 +56,7 @@ button{
 }
 
 .card-content {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
+    display: block;
 }
 .user-cards .card-middle{
     display: flex;
@@ -87,14 +85,16 @@ button{
     align-items: center;
     border-top: 1px solid #eee;
     padding: 10px;
-    margin-top: auto;
+}
 
+.card-bottom a{
+    width: 80%;
+    margin: 0 auto;
 }
 
 .page-bottom{
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
 }
 
 .adding-form{
@@ -115,3 +115,4 @@ button{
     text-decoration: none;
     background: rgb(var(--color-background-500));
 }
+

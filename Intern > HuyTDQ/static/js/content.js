@@ -6,7 +6,6 @@ var data = mock_data.find(obj => {
     return obj.id == id;
 })
 function render(data){
-    console.log(data.detail.profile_pic);
     return `
             <div class="page-header">
             <div class="page-banner">
@@ -31,6 +30,9 @@ function render(data){
                     </div>
                 </div>
             </div>
+            <div class="btn-edit">
+                <a href="../../form/edit_form.html?id=${data.id}"> <i class="fas fa-edit"></i></a>
+             </div>
         </div>
 
         <div class="page-content">

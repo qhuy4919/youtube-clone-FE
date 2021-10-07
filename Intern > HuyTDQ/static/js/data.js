@@ -297,8 +297,6 @@ export var mock_data = [
             start_date: 'Jul 2, 2012',
             end_data: 'Apr 25, 2016',
             mangaka: 'Yuusei Matsui'
-
-
         },
     },
 ];

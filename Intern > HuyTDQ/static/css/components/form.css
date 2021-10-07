@@ -39,3 +39,14 @@
     padding: 0 15px;
     width: 100%;
 }
+
+.error-message::before{
+    content: "\00A0";
+    margin-bottom: 10px;
+}
+.error-message{
+    color: rgb(var(--color-red));
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 10px;
+    font-size: var(--font-size-me);
+}

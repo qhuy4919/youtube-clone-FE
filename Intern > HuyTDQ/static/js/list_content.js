@@ -1,6 +1,6 @@
 import { mock_data }  from "./data.js";
-
-const items = mock_data.map(item => {
+var data = localStorage.getItem("data") !== null ? JSON.parse(localStorage.getItem("data")) : mock_data;
+const items = data.map(item => {
     return `
         <div class="user-cards">
             <img src="${item.preview_pic}" alt="" class="card-image">
@@ -10,14 +10,22 @@ const items = mock_data.map(item => {
                     <h2>${item.scores}</h2>
                 </div> 
                 <div class="card-bottom">
-                <a href="${item.link_direct}?id=${item.id}"><button type="button">Read more</button></a>
+                   <button class="btn-primary myBtn" type="button">Read more</button>
+                    <a href="${item.link_direct}?id=${item.id}"></a>
+                </div>
             </div>
+            <div class="myModal modal">
+            <!-- Nội Dung Modal -->
+                <div class="modal-content">
+                <span class="close">×</span>
+                <p></p>
             </div>
+         </div>
         </div>
+  
     `
 });
 
 let list_manga = document.getElementById('page-content-list');
 list_manga.innerHTML = items.join("");
-
 

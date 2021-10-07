@@ -3,7 +3,9 @@ img{
     display: block;
     width: 100%;
 }
-
+p{
+    font-weight: var(--font-weight-semibold);
+}
 #page-container{
     display: block;
     transition: all .5s;
@@ -145,3 +147,4 @@ img{
     height: 25rem;
     margin: 0 var(--margin);
 }
+

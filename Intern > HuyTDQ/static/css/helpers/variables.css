@@ -39,10 +39,10 @@
     --color-text-bright: 237,241,245;
 
     /* font size */
-    --font-size-sm: 14;
-    --font-size-me: 20;
-    --font-size-lg: 32;
-    --font-size-slg: 60;
+    --font-size-sm: 14px;
+    --font-size-me: 20px;
+    --font-size-lg: 32px;
+    --font-size-slg: 60px;
 
     /* line-height */
     --line-height-sm: 20;
