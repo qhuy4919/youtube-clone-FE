@@ -5,6 +5,9 @@ var id = url.searchParams.get('id');
 var data = mock_data.find(obj => {
     return obj.id == id;
 })
+//
+data = localStorage.getItem("new_data") !== null ? JSON.parse(localStorage.getItem("new_data"))[id] : data;
+
 function render(data){
     return `
             <div class="page-header">

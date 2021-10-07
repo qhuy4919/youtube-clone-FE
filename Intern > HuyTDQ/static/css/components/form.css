@@ -50,3 +50,16 @@
     margin-bottom: 10px;
     font-size: var(--font-size-me);
 }
+
+.success-message::before{
+    content: "\00A0";
+    margin-bottom: 10px;
+}
+
+.success-message{
+    color: rgb(var(--color-green));
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 10px;
+    font-size: var(--font-size-me);
+
+}

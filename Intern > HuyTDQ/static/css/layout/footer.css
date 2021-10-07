@@ -47,5 +47,5 @@ footer{
 }
 
 .footer-link-socials li:hover i{
-    font-size: calc(1.5*var(--font-size--lg));
+    font-size: var(--font-size-lg);
 }

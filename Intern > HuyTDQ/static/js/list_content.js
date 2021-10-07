@@ -10,8 +10,9 @@ const items = data.map(item => {
                     <h2>${item.scores}</h2>
                 </div> 
                 <div class="card-bottom">
-                   <button class="btn-primary myBtn" type="button">Read more</button>
-                    <a href="${item.link_direct}?id=${item.id}"></a>
+                    <a href="${item.link_direct}?id=${item.id}">
+                        <button class="btn-primary myBtn" type="button">Read more</button>
+                    </a>
                 </div>
             </div>
             <div class="myModal modal">
