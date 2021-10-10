@@ -1,0 +1,65 @@
+@import '../helpers/reset.css';
+@import '../components/button.css';
+.page-container{
+    background: rbg(var(--main-color-background));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.form-container{
+    max-width: 400px;
+    width: 100%;
+    background: rgb(var(--main-color-foreground));
+    border-radius: 4px;
+    padding: 40px;
+    text-align: center;
+    margin: 60px auto;
+    min-width: 320px;
+}
+
+.title{
+    font-size: 2.4rem;
+    font-weight: var(--font-weight-bold);
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.form-container input{
+    background: rgba(var(--main-color-background));
+    border-radius: 4px;
+    border: 0;
+    box-shadow: none;
+    color: rgb(var(--color-text-light));
+    font-size: 1rem;
+    font-weight: 600;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.error-message::before{
+    content: "\00A0";
+    margin-bottom: 10px;
+}
+.error-message{
+    color: rgb(var(--color-red));
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 10px;
+    font-size: var(--font-size-me);
+}
+
+.success-message::before{
+    content: "\00A0";
+    margin-bottom: 10px;
+}
+
+.success-message{
+    color: rgb(var(--color-green));
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 10px;
+    font-size: var(--font-size-me);
+
+}

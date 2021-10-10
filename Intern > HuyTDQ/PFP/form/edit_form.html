@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/76a5e1c7ee.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/helpers/reset.css">
+    <link rel="stylesheet" href="../static/css/sidebar.css">
+    <link rel="stylesheet" href="../static/css/components/form.css">
+    <title>Qhuy</title>
+</head>
+<body>
+    <header>
+        <i onclick="activate_menu()" id="open-menu" class="fas fa-bars"></i>
+        <h2>Adding list item Form</h2>
+    </header>
+    <div id="sidebar">
+        <div class="logo">
+          <h3>My App</h3>
+        </div>
+        <i onclick="close_menu()" id="close-menu" class="far fa-times-circle"></i>
+        <ul>
+          <li><a href="../index.html">home</a></li>
+          <li><a href="../page/content-list.html">list</a></li>
+          <li><a href="">about us</a></li>
+        </ul>
+    </div>
+    <div class="page-container">
+      <div class="form-container">
+        <!-- <div class="title">Edit manga</div>
+        <p class="error-message active"></p>
+        <form action="" class="adding-manga-form">
+          <input type="text" placeholder="ID" id="id">
+          <input type="text" placeholder="title" id="title">
+          <input type="text" placeholder="scores" id="scores">
+          <input type="text" placeholder="avatar" id="preview_pic">
+          <input type="text" placeholder="background image" id="background_pic">
+          <input type="text" placeholder="vols" id="vols">
+          <input type="text" placeholder="mangaka" id="mangaka">
+          <textarea name="" id="mangaka" cols="30" rows="10" placeholder="content"></textarea>
+
+          <button type="submit" class="btn-submit">Submit</button>
+        </form> -->
+      </div>
+    </div>
+  <script src="../static/js/sidebar.js"></script>
+  <script type="module" src="../static/js/data.js"></script>
+  <script type="module" src="../static/js/components/edit_form.js"></script>
+</body>
+</html>
