@@ -1,5 +1,18 @@
 import { mock_data } from "./data.js";
 
+const getData = (mock_data) => {
+    let prob = Math.random();
+    if (prob >=0.5) return mock_data;
+    else throw new Error('Query failed');   
+}
+
+try {
+    mock_data = getData(mock_data);
+} catch (error) {
+    alert(error);
+}
+
+
 var data = localStorage.getItem("data") !== null ? JSON.parse(localStorage.getItem("data")) : mock_data;
 const items = data.map(item => {
     return `
