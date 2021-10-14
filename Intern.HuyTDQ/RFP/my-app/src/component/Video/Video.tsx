@@ -17,18 +17,19 @@ function Video(props: any) {
     useEffect(() => {
       function updateSize() {
         setScreen([window.innerWidth, window.innerHeight]);
-        setAttribute({
+        setAttribute(attribute =>({
           ...attribute,
           top : videoAttibute.current.offsetTop,
           left : videoAttibute.current.offsetLeft,
           width : videoAttibute.current.offsetWidth,
           height : videoAttibute.current.offsetHeight,
-        })
+        }))
       }
       window.addEventListener('resize', updateSize);
       updateSize();
       return () => window.removeEventListener('resize', updateSize);
     },[])
+    console.log('1');
     return (
       <div className='video-container'>
         <div className="video" ref={videoAttibute}>
