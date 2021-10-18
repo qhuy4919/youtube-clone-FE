@@ -2,7 +2,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const axiosClient = axios.create({
-    baseURL: process.env.YOUTUBE_API_KEY,
+    baseURL: '',
     headers: {
         'content-type': 'application/json',
         // 'Access-Control-Allow-Origin': '*',

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import API_playlist from '../../api/API_playlist';
+import API_playlist from '../../access/api/API_playlist';
 
 
 function Home() {
@@ -11,12 +11,13 @@ function Home() {
             try {
                 const response = await API_playlist.getPlaylist({});
                 if(response ){
-
+                    console.log(response);
                 }
             } catch (error) {
                 throw new Error("fetch error");
             }
         }
+        fetchPlaylist();
     }, [])
     return (
         <div>
