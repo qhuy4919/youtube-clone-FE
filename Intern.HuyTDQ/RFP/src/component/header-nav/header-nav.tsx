@@ -26,7 +26,7 @@ function Header() {
           <Form>
             {/* 4 */}
             <Form.Field>
-              <Input className="search-bar" placeholder='Search' size='small' action='Go' />
+              <Input  placeholder='Search' size='small' action='Go' />
             </Form.Field>
           </Form>
         </Menu.Item>
