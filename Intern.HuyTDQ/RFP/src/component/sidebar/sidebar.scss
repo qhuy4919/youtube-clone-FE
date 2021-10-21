@@ -1,7 +1,4 @@
-$sidebar-hover-color: #ebebeb;
-$header-nav-height: 64px;
-$sidebar-left-width: 17rem;
-
+@import '../../style/helpers/reset.scss';
 .ui.menu.fixed.side-nav {
   background-color: #f5f5f5;
   margin-top: $header-nav-height;

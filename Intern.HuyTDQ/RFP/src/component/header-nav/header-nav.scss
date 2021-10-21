@@ -1,6 +1,9 @@
 .top-menu{
+    width: 100%;
     justify-content: space-between;
-
+    position: fixed;
+    z-index: 999;
+    top: 0;
     i{
         cursor: pointer;
     }

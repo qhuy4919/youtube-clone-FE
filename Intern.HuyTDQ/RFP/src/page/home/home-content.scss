@@ -1,0 +1,8 @@
+@import '../../style/helpers/reset.scss';
+
+.home-content{
+    padding-left: 8px;
+    display: grid;
+    grid: auto / auto;
+    // justify-content: center;
+}
