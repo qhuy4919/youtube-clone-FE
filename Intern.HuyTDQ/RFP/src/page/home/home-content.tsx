@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import VideoGrid from "../../component/video-grid/video-grid";
 import Slider from "../../component/slider/slider";
 
-import API_list from "../../access/api/API_playlist";
+import API_list from "../../access/api/api-playlist";
 import "./home-content.scss";
 function HomeContent() {
   const [video, setVideo] = useState();

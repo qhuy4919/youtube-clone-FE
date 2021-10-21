@@ -15,12 +15,7 @@ function VideoGrid(props: any) {
 
   const gridItems: any = videos.map((video: any) => {
     return (
-      <VideoPreview
-        video={video.snippet}
-        key={video.id}
-        pathname="/watch"
-        search={`?v=${video.id}`}
-      />
+      <VideoPreview video={video.snippet} key={video.id} pathname="/watch/" />
     );
   });
   return (

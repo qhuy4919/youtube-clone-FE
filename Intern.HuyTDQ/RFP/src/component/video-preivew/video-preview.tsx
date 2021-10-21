@@ -5,12 +5,13 @@ import { Image } from "semantic-ui-react";
 import "./video-preview.scss";
 
 function VideoPreview(props: any) {
-  const { video, pathname, search } = props;
+  const { video, pathname } = props;
 
   const description = video.expanded ? video.snippet.description : null;
+  const video_url = pathname.concat(video.resourceId.videoId);
   return (
     <>
-      <Link to={{ pathname: pathname, search: search }}>
+      <Link to={{ pathname: video_url }}>
         <div className="video-preview">
           <div className="image-container">
             <Image src={video.thumbnails.medium.url} />

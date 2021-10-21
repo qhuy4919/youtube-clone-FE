@@ -14,9 +14,9 @@ function Slider(props: any) {
     return video.snippet.thumbnails;
   });
 
-  const slider_item: any = trending_video.map((image: any) => {
+  const slider_item: any = trending_video.map((image: any, index: number) => {
     return (
-      <SwiperSlide>
+      <SwiperSlide key={index}>
         <Image src={image.high.url}></Image>
       </SwiperSlide>
     );
