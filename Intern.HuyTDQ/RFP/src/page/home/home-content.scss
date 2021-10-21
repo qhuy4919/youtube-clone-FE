@@ -1,8 +1,12 @@
-@import '../../style/helpers/reset.scss';
+@import "../../style/helpers/reset.scss";
 
-.home-content{
-    padding-left: 8px;
-    display: grid;
-    grid: auto / auto;
-    // justify-content: center;
+.home-content {
+  .slider {
+    margin-top: 10px;
+  }
+}
+.home-content__item {
+  display: grid;
+  grid: auto / auto;
+  justify-content: space-around;
 }

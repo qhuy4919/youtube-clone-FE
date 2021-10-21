@@ -1,0 +1,45 @@
+import React from "react";
+import { Image } from "semantic-ui-react";
+import VideoGridHeader from "../video-grid/video-grid-header/video-grid-header";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.scss";
+import "./slider.scss";
+function Slider(props: any) {
+  const { title, videos } = props;
+  if (!videos || !videos.length) {
+    return <div />;
+  }
+  const trending_video = videos.map((video: any) => {
+    return video.snippet.thumbnails;
+  });
+
+  const slider_item: any = trending_video.map((image: any) => {
+    return (
+      <SwiperSlide>
+        <Image src={image.high.url}></Image>
+      </SwiperSlide>
+    );
+  });
+  return (
+    <>
+      <VideoGridHeader title={title} />
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={5}
+        slidesPerGroup={4}
+        loop={true}
+        loopFillGroupWithBlank={true}
+        pagination={{
+          clickable: true,
+        }}
+        // navigation={true}
+        className="mySwiper"
+      >
+        {slider_item}
+      </Swiper>
+    </>
+  );
+}
+
+export default Slider;

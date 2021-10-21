@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import VideoGrid from "../../component/video-grid/video-grid";
+import Slider from "../../component/slider/slider";
 
 import API_list from "../../access/api/API_playlist";
 import "./home-content.scss";
@@ -12,7 +13,6 @@ function HomeContent() {
         const response: any = await API_list.getPlaylist();
         if (response) {
           setVideo(response.items);
-          console.log(response);
         }
       } catch (error) {
         throw new Error("fetch video was fail");
@@ -22,7 +22,12 @@ function HomeContent() {
   }, []);
   return (
     <div className="home-content">
-      <VideoGrid videos={video} />
+      <div className="slider">
+        <Slider title="trending" videos={video} />
+      </div>
+      <div className="home-content__item">
+        <VideoGrid title="recommend" videos={video} />
+      </div>
     </div>
   );
 }
