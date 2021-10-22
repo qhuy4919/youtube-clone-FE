@@ -8,14 +8,15 @@ function WatchContent(props: any) {
   const { video_id } = props;
 
   const [videoInformation, setVideoInformation] = useState([]);
-
+  const [channelId, setChannelId] = useState("UC5Ce1XGat0JJOXcFWZl1jcg");
   //fetch video
   useEffect(() => {
     const fetchVideo = async () => {
       try {
         const response: any = await API_Playlist.getPlaylistItem({ video_id });
         if (response) {
-          setVideoInformation(response.items);
+          setVideoInformation(response.items[0]);
+          setChannelId(response.items[0].snippet.channelId);
         }
       } catch (error) {
         throw new Error("fetch video was fail");
@@ -24,11 +25,16 @@ function WatchContent(props: any) {
     fetchVideo();
   }, [video_id]);
 
+  console.log(videoInformation);
   return (
     <div className="watch-grid">
       <Video className="video" id={video_id} />
-      <VideoMetadata className="metadata" video={videoInformation[0]} />
-      <VideoInfoBox className="video-info-box" video={videoInformation[0]} />
+      <VideoMetadata className="metadata" video={videoInformation} />
+      <VideoInfoBox
+        className="video-info-box"
+        video={videoInformation}
+        channelId={channelId}
+      />
     </div>
   );
 }

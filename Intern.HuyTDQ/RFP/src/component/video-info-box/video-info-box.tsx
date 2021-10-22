@@ -5,51 +5,65 @@ import API_channel from "../../access/api/api-channel";
 import "./video-info-box.scss";
 
 function VideoInfoBox(props: any) {
-  const { video } = props;
-  console.log(video);
-  //   const channelId = video.snippet.channelId;
-  const [channel, setChannel] = useState({});
+  const { video, channelId } = props;
+  const [channel, setChannel] = useState<any>([]);
+  const [check, setCheck] = useState(false);
 
-  //fetch channel
-  //   useEffect(() => {
-  //     const fetchVideo = async () => {
-  //       try {
-  //         const response: any = await API_channel.getChannel({ channelId });
-  //         if (response) {
-  //           setChannel(response.items[0]);
-  //         }
-  //       } catch (error) {
-  //         throw new Error("fetch video was fail");
-  //       }
-  //     };
-  //     fetchVideo();
-  //   }, [channelId]);
+  //fecth channel information
+  useEffect(() => {
+    const fetchChannel = async () => {
+      try {
+        const response: any = await API_channel.getChannel({ channelId });
+        if (response) {
+          setChannel(response.items);
+          setCheck(true);
+        }
+      } catch (error) {
+        throw new Error("fetch channel fail");
+      }
+    };
+    fetchChannel();
+
+    return () => {
+      setCheck(false);
+    };
+  }, [channelId]);
 
   if (!video) {
     return <div />;
   }
+  // let channelThumbnail: any = "";
+
+  // var channelThumbnail = channel.snippet.thumbnails.medium.url ?? "";
+  // var channelTitle = channel.snippet.title ?? "";
   console.log(channel);
-  const channelThumbnail: any = video.snippet.thumbnails.medium.url;
-  const channelTitle: any = video.snippet.title;
   return (
     <div>
-      <div className="video-info-box">
-        <Image className="channel-image" src={channelThumbnail} circular />
-        <div className="video-info">
-          <div className="channel-name">{channelTitle}</div>
-          {/* <div className="video-publication-date">{publishedAtString}</div> */}
-        </div>
-        <Button className="subscribe" color="youtube">
-          Subcribe
-        </Button>
-        {/* <div className="video-description">
+      {check && (
+        <>
+          <div className="video-info-box">
+            <Image
+              className="channel-image"
+              src={channel[0].snippet.thumbnails.medium.url}
+              circular
+            />
+            <div className="video-info">
+              <div className="channel-name">{channel[0].snippet.title}</div>
+              {/* <div className="video-publication-date">{publishedAtString}</div> */}
+            </div>
+            <Button className="subscribe" color="youtube">
+              Subcribe
+            </Button>
+            {/* <div className="video-description">
           <div className={descriptionTextClass}>{descriptionParagraphs}</div>
           <Button compact onClick={this.onToggleCollapseButtonClick}>
             {buttonTitle}
           </Button>
         </div> */}
-      </div>
-      <Divider />
+          </div>
+          <Divider />
+        </>
+      )}
     </div>
   );
 }

@@ -10,7 +10,9 @@ import "./watch.scss";
 // }
 function Watch() {
   const { video_id }: any = useParams();
-
+  if (!video_id) {
+    return <div />;
+  }
   return (
     <div>
       <Header />
