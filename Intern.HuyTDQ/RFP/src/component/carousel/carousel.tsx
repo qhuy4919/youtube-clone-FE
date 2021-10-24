@@ -1,25 +1,25 @@
-import { PropsWithChildren, useState } from "react";
+import { useState } from "react";
 
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 import "./carousel.scss";
-// import { ImageSlider } from "../../model/carousel";
+import { ImageSlider } from "../../model/carousel";
 
-type Props = PropsWithChildren<{
-  slide?: Array<any>;
-}>;
+type Props = {
+  slide?: ImageSlider;
+};
 
 export function Carousel({ slide }: Props) {
   const [current, setCurrent] = useState(0);
-  const length = slide?.length || 0;
+  const length = slide?.image.length || 0;
   //get image from prop
   var image_list: Array<string> = [];
   if (slide) {
-    image_list = slide.map((item) => {
+    image_list = slide.image.map((item) => {
       return item.snippet.thumbnails.standard.url;
     });
   }
-  console.log(slide);
+  console.log(image_list);
   //
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);

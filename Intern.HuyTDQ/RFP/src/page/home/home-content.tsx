@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { VideoGrid } from "../../component/video-grid/video-grid";
-import { Slider } from "../../component/index";
+// import { Slider } from "../../component/index";
 import { Carousel } from "../../component/index";
 import API_list from "../../access/api/api-playlist";
+
+import { ImageSlider } from "../../model/carousel";
 import "./home-content.scss";
 function HomeContent() {
-  const [video, setVideo] = useState<[]>();
+  const [video, setVideo] = useState([]);
 
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const response: any = await API_list.getPlaylist();
+        const response: ImageSlider = await API_list.getPlaylist();
         if (response) {
           setVideo(response.items);
         }
