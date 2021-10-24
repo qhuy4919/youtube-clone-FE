@@ -3,19 +3,19 @@ import { useState } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 import "./carousel.scss";
-import { ImageSlider } from "../../model/carousel";
+// import { ImageSlider } from "../../model/carousel";
 
 type Props = {
-  slide?: ImageSlider;
+  slide?: Array<any>;
 };
 
 export function Carousel({ slide }: Props) {
   const [current, setCurrent] = useState(0);
-  const length = slide?.image.length || 0;
+  const length = slide?.length || 0;
   //get image from prop
   var image_list: Array<string> = [];
   if (slide) {
-    image_list = slide.image.map((item) => {
+    image_list = slide.map((item) => {
       return item.snippet.thumbnails.standard.url;
     });
   }

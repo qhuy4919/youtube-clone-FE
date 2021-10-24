@@ -7,3 +7,4 @@ export { VideoInfoBox } from "./video-info-box/video-info-box";
 export { VideoMetadata } from "./video-metadata/video-metadata";
 export { VideoPreview } from "./video-preivew/video-preview";
 export { Carousel } from "./carousel/carousel";
+export { Loader } from "./loader/loader";
