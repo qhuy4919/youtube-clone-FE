@@ -5,7 +5,7 @@ import VideoGridHeader from "../video-grid/video-grid-header/video-grid-header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 import "./slider.scss";
-function Slider(props: any) {
+export function Slider(props: any) {
   const { title, videos } = props;
   if (!videos || !videos.length) {
     return <div />;
@@ -41,5 +41,3 @@ function Slider(props: any) {
     </>
   );
 }
-
-export default Slider;

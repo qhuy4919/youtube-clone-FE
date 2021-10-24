@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Divider, Icon } from "semantic-ui-react";
 import "./video-metadata.scss";
 
-function VideoMetadata(props: any) {
+export function VideoMetadata(props: any) {
   const { video } = props;
   if (!video || video.length <= 0) {
     return <div />;
@@ -30,5 +30,3 @@ function VideoMetadata(props: any) {
     </div>
   );
 }
-
-export default VideoMetadata;

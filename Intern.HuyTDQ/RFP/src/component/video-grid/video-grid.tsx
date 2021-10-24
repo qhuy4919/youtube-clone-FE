@@ -1,5 +1,5 @@
 import React from "react";
-import VideoPreview from "../video-preivew/video-preview";
+import { VideoPreview } from "../video-preivew/video-preview";
 import VideoGridHeader from "./video-grid-header/video-grid-header";
 import "./video-grid.scss";
 
@@ -7,7 +7,7 @@ import "./video-grid.scss";
 //   video?: string[];
 //   id?: string[];
 // };
-function VideoGrid(props: any) {
+export function VideoGrid(props: any) {
   const { title, videos } = props;
   if (!videos || !videos.length) {
     return <div />;
@@ -25,5 +25,3 @@ function VideoGrid(props: any) {
     </>
   );
 }
-
-export default VideoGrid;

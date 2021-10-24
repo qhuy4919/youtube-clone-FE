@@ -1,7 +1,7 @@
 import React from "react";
 import "./video.scss";
 const BASE_EMBED_URL = "https://www.youtube.com/embed/";
-function Video(props: any) {
+export function Video(props: any) {
   const { id } = props;
   const embedUrl = id
     ? `${BASE_EMBED_URL}${id}`
@@ -22,5 +22,3 @@ function Video(props: any) {
     </div>
   );
 }
-
-export default Video;

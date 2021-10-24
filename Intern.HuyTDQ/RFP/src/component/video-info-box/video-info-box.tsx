@@ -4,7 +4,7 @@ import API_channel from "../../access/api/api-channel";
 
 import "./video-info-box.scss";
 
-function VideoInfoBox(props: any) {
+export function VideoInfoBox(props: any) {
   const { video, channelId } = props;
   const [channel, setChannel] = useState<any>([]);
   const [check, setCheck] = useState(false);
@@ -36,7 +36,6 @@ function VideoInfoBox(props: any) {
 
   // var channelThumbnail = channel.snippet.thumbnails.medium.url ?? "";
   // var channelTitle = channel.snippet.title ?? "";
-  console.log(channel);
   return (
     <div>
       {check && (
@@ -67,5 +66,3 @@ function VideoInfoBox(props: any) {
     </div>
   );
 }
-
-export default VideoInfoBox;

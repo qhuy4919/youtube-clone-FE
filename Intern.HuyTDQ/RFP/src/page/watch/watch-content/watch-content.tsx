@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Video from "../../../component/video/video";
 import API_Playlist from "../../../access/api/api-playlist";
-import VideoMetadata from "../../../component/video-metadata/video-metadata";
-import VideoInfoBox from "../../../component/video-info-box/video-info-box";
+import { Video, VideoMetadata, VideoInfoBox } from "../../../component/index";
 import "./watch-content.scss";
+
 function WatchContent(props: any) {
   const { video_id } = props;
 
   const [videoInformation, setVideoInformation] = useState([]);
   const [channelId, setChannelId] = useState("UC5Ce1XGat0JJOXcFWZl1jcg");
+
   //fetch video
   useEffect(() => {
     const fetchVideo = async () => {
@@ -25,7 +25,6 @@ function WatchContent(props: any) {
     fetchVideo();
   }, [video_id]);
 
-  console.log(videoInformation);
   return (
     <div className="watch-grid">
       <Video className="video" id={video_id} />

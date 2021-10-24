@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Header from "../../component/header-nav/header-nav";
-import Sidebar from "../../component/sidebar/sidebar";
+import { Header, Sidebar } from "../../component/index";
 import HomeContent from "./home-content";
 
 import "./home.scss";
-function Home() {
-  const [playlist, setPlaylist] = useState({});
+export function Home() {
+  // const [playlist, setPlaylist] = useState({});
 
   return (
     <div className="">
@@ -17,5 +15,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

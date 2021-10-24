@@ -4,7 +4,7 @@ import { Image } from "semantic-ui-react";
 
 import "./video-preview.scss";
 
-function VideoPreview(props: any) {
+export function VideoPreview(props: any) {
   const { video, pathname } = props;
 
   const description = video.expanded ? video.snippet.description : null;
@@ -33,5 +33,3 @@ function VideoPreview(props: any) {
     </>
   );
 }
-
-export default VideoPreview;
