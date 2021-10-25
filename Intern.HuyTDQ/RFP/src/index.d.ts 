@@ -1,4 +1,6 @@
-declare module "*.jpg" {
+ddeclare module '*';
+
+eclare module "*.jpg" {
   export default "" as string;
 }
 declare module "*.png" {

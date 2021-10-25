@@ -1,6 +1,6 @@
 E01*/
-./README.md
-.vscode
+README.md
+.vscode/*
 ##
 node_modules/
 ##

@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../../component/header-nav/header-nav'
+import { Header, Sidebar } from "../../component/index";
+import HomeContent from "./home-content";
 
-function Home() {
-    const [ playlist, setPlaylist ] = useState({})
+import "./home.scss";
+export function Home() {
+  // const [playlist, setPlaylist] = useState({});
 
-    return (
-        <div>
-            <Header/>
-            <h1>Hello World</h1>
-        </div>
-    )
+  return (
+    <div className="">
+      <Header />
+      <Sidebar />
+      <div className="home-container">
+        <HomeContent />
+      </div>
+    </div>
+  );
 }
-
-export default Home
