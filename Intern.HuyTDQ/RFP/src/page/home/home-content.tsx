@@ -38,6 +38,7 @@ function HomeContent() {
         <>
           <div className="slider">
             {/* <Slider title="trending" videos={video} /> */}
+            {console.log(video)}
             <Carousel slide={video}></Carousel>
           </div>
           <div className="home-content__item">
