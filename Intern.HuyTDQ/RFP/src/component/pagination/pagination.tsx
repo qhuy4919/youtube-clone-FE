@@ -29,7 +29,7 @@ export function Pagination(props: any) {
                     key={index}
                     id={number.toString()}
                     onClick={() => handlePageChange(number)}
-                    className={currentPage == number ? "active" : undefined}
+                    className={currentPage === number ? "active" : undefined}
                 >
                     {number}
                 </li>
@@ -45,7 +45,7 @@ export function Pagination(props: any) {
                 <li>
                     <button
                         onClick={() => handlePageChange(_page - 1)}
-                        disabled={_page == 1 ? true : false}
+                        disabled={_page === 1 ? true : false}
                     >
                         Prev
                     </button>
@@ -54,7 +54,7 @@ export function Pagination(props: any) {
                 <li>
                     <button
                         onClick={() => handlePageChange(_page + 1)}
-                        disabled={_page == totalPage ? true : false}
+                        disabled={_page === totalPage ? true : false}
                     >
                         Next
                     </button>

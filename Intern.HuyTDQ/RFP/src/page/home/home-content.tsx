@@ -11,11 +11,11 @@ function HomeContent() {
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
     _page: 1,
-    _limit: 3,
+    _limit: 6,
     totalRow: 12,
   });
   const [filter, setFilter] = useState({
-    _limit: 3,
+    _limit: 6,
     _page: 1,
   });
 
