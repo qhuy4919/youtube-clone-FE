@@ -16,10 +16,9 @@ export function Carousel({ slide }: Props) {
   var image_list: Array<string> = [];
   if (slide) {
     image_list = slide.map((item) => {
-      return item.snippet.thumbnails.standard.url;
+      return item.snippet.thumbnails.high.url
     });
   }
-  console.log(image_list);
   //
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -45,7 +44,7 @@ export function Carousel({ slide }: Props) {
               key={index}
             >
               {index === current && (
-                <img src={slide_item} alt="travel" className="image" />
+                <img src={slide_item} alt="video" className="image" />
               )}
             </div>
           );

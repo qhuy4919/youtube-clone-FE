@@ -15,11 +15,11 @@ export function VideoInfoBox(props: any) {
       try {
         const response: any = await API_channel.getChannel({ channelId });
         if (response) {
+          console.log(response);
           setChannel(response.items);
-          setCheck(true);
         }
       } catch (error) {
-        throw new Error("fetch channel fail");
+        console.log("fetch channel fail");
       }
     };
     fetchChannel();

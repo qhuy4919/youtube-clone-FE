@@ -5,10 +5,10 @@ import { Image } from "semantic-ui-react";
 import "./video-preview.scss";
 
 export function VideoPreview(props: any) {
-  const { video, pathname } = props;
+  const { video, pathname ,video_id} = props;
 
   const description = video.expanded ? video.snippet.description : null;
-  const video_url = pathname.concat(video.resourceId.videoId);
+  const video_url = pathname.concat(video_id);
   return (
     <>
       <Link to={{ pathname: video_url }}>

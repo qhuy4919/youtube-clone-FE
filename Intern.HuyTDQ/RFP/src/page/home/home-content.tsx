@@ -17,14 +17,14 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist();
         if (response) {
-          setVideo(response.items);
+          setVideo(response);
         }
       } catch (error) {
         setHasError(true);
       }
       setIsLoading(false);
     };
-    setTimeout(() => fetchVideo(), 1000);
+    setTimeout(() => fetchVideo(), 100);
   }, []);
   return (
     <div className="home-content">

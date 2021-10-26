@@ -5,9 +5,8 @@ import "./watch-content.scss";
 
 function WatchContent(props: any) {
   const { video_id } = props;
-
   const [videoInformation, setVideoInformation] = useState([]);
-  const [channelId, setChannelId] = useState("UC5Ce1XGat0JJOXcFWZl1jcg");
+  const [channelId, setChannelId] = useState('');
 
   //fetch video
   useEffect(() => {
@@ -15,8 +14,8 @@ function WatchContent(props: any) {
       try {
         const response: any = await API_Playlist.getPlaylistItem({ video_id });
         if (response) {
-          setVideoInformation(response.items[0]);
-          setChannelId(response.items[0].snippet.channelId);
+          setVideoInformation(response);
+          setChannelId(response.snippet.channelId);
         }
       } catch (error) {
         throw new Error("fetch video was fail");
@@ -24,7 +23,6 @@ function WatchContent(props: any) {
     };
     fetchVideo();
   }, [video_id]);
-
   return (
     <div className="watch-grid">
       <Video className="video" id={video_id} />
