@@ -14,12 +14,15 @@ export function VideoInfoBox(props: any) {
     const fetchChannel = async () => {
       try {
         const response: any = await API_channel.getChannel({ channelId });
+        console.log(response);
         if (response) {
-          console.log(response);
-          setChannel(response.items);
+          setChannel(response.items[0]);
+
         }
       } catch (error) {
         console.log("fetch channel fail");
+      } finally {
+        setCheck(true);
       }
     };
     fetchChannel();
@@ -43,22 +46,22 @@ export function VideoInfoBox(props: any) {
           <div className="video-info-box">
             <Image
               className="channel-image"
-              src={channel[0].snippet.thumbnails.medium.url}
+              src={channel.snippet.thumbnails.medium.url}
               circular
             />
             <div className="video-info">
-              <div className="channel-name">{channel[0].snippet.title}</div>
+              <div className="channel-name">{channel.snippet.title}</div>
               {/* <div className="video-publication-date">{publishedAtString}</div> */}
             </div>
             <Button className="subscribe" color="youtube">
               Subcribe
             </Button>
             {/* <div className="video-description">
-          <div className={descriptionTextClass}>{descriptionParagraphs}</div>
-          <Button compact onClick={this.onToggleCollapseButtonClick}>
-            {buttonTitle}
-          </Button>
-        </div> */}
+              <div className={descriptionTextClass}>{descriptionParagraphs}</div>
+              <Button compact onClick={this.onToggleCollapseButtonClick}>
+                {buttonTitle}
+              </Button>
+            </div> */}
           </div>
           <Divider />
         </>
