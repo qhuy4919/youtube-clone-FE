@@ -22,14 +22,13 @@ export function Header() {
 
       {/* 3 */}
       <Menu.Menu className="nav-center">
-        <Menu.Item className="search-input">
+        {/* <Menu.Item className="search-input">
           <Form>
-            {/* 4 */}
             <Form.Field>
               <Input placeholder="Search" size="small" action="Go" />
             </Form.Field>
           </Form>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu.Menu>
 
       {/* 5 */}

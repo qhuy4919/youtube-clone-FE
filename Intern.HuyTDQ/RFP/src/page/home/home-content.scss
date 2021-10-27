@@ -1,8 +1,12 @@
-@import "../../style/helpers/reset.scss";
+@import '../../style/helpers/reset.scss';
 
 .home-content {
   .slider {
     margin-top: 10px;
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: center;
   }
 }
 .home-content__item {

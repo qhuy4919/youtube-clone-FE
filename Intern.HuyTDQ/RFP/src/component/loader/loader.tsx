@@ -1,14 +1,14 @@
-import "./loader.scss";
+import './loader.scss';
 
 export function Loader() {
   return (
-    <div className="loader">
+    <div className='loader'>
       <img
-        className="loader__spinner"
-        src="http://www.myeurostarscity.com/templates/cadenas/myeurostarscity/imagenes/home/loader.gif"
-        alt="Spinner"
-        width="30"
-        height="30"
+        className='loader__spinner'
+        src='http://www.myeurostarscity.com/templates/cadenas/myeurostarscity/imagenes/home/loader.gif'
+        alt='Spinner'
+        width='30'
+        height='30'
       />
     </div>
   );

@@ -27,11 +27,11 @@ function WatchContent(props: any) {
     <div className="watch-grid">
       <Video className="video" id={video_id} />
       <VideoMetadata className="metadata" video={videoInformation} />
-      <VideoInfoBox
+      {/* <VideoInfoBox
         className="video-info-box"
         video={videoInformation}
         channelId={channelId}
-      />
+      /> */}
     </div>
   );
 }
