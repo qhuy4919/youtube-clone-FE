@@ -1,19 +1,17 @@
-@import '../../style/helpers/reset.scss';
-
 .home-content {
-  .slider {
-    margin-top: 10px;
-  }
+  // .slider {
+  //   margin-top: 10px;
+  // }
   .pagination-container {
     display: flex;
     justify-content: center;
   }
 }
-.home-content__item {
-  // display: grid;
-  // grid: auto / auto;
-  // justify-content: space-around;
-}
+// .home-content__item {
+//   display: grid;
+//   grid: auto / auto;
+//   justify-content: space-around;
+// }
 
 .loader {
   position: absolute;

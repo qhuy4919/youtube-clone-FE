@@ -1,6 +1,7 @@
-@import '../../style/helpers/reset.scss';
+@import '../../style/helpers/variable.scss';
+
 .ui.menu.fixed.side-nav {
-  background-color: #f5f5f5;
+  background-color: var(--primary-background-color);
   margin-top: $header-nav-height;
   overflow-y: auto;
   padding-bottom: $header-nav-height;
@@ -10,7 +11,7 @@
   }
 
   .subscription:hover {
-    background: #ebebeb;
+    background: var(--icon-hover-color);
     cursor: pointer;
   }
 }

@@ -1,7 +1,7 @@
-import React from "react";
-import { VideoPreview } from "../video-preivew/video-preview";
-import VideoGridHeader from "./video-grid-header/video-grid-header";
-import "./video-grid.scss";
+import React from 'react';
+import { VideoPreview } from '../video-preivew/video-preview';
+import VideoGridHeader from './video-grid-header/video-grid-header';
+import './video-grid.scss';
 
 // type Videos = {
 //   video?: string[];
@@ -15,13 +15,18 @@ export function VideoGrid(props: any) {
 
   const gridItems: any = videos.map((video: any) => {
     return (
-      <VideoPreview video={video.snippet} key={video.id} pathname="/watch/" video_id={video.id}/>
+      <VideoPreview
+        video={video.snippet}
+        key={video.id}
+        pathname='/watch/'
+        video_id={video.id}
+      />
     );
   });
   return (
     <>
       <VideoGridHeader title={title} />
-      <div className="video-grid">{gridItems}</div>
+      <div className='video-grid'>{gridItems}</div>
     </>
   );
 }

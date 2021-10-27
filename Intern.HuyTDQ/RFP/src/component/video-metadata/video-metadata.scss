@@ -1,12 +1,12 @@
-@import "../../style/helpers/reset.scss";
+@import '../../style/helpers/variable.scss';
 
 .video-metadata {
-  color: #707070;
-  font-size: 16px;
+  color: $primary-text-color;
+  font-size: $font-size-medium;
 
   h3 {
-    font-weight: 700;
-    color: $text-color-dark;
+    font-weight: $font-weight-bold;
+    color: --text-primary-color;
   }
 
   .video-stats {

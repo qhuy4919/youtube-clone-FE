@@ -2,37 +2,37 @@
   list-style: none;
   display: flex;
 
-    li {
-        padding: 10px;
-        border: 1px solid white;
-        cursor: pointer;
-        opacity: 0.6;
-        transition: 0.3s;
+  li {
+    padding: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+    border-radius: 20px;
 
-        &:active, &:hover {
-            background-color: rgb(44, 44, 44);
-            color: black;
-        }
-
-        button {
-            background-color: transparent;
-            border: none;
-            color: black;
-            font-size: 1.5rem;
-            cursor: pointer;
-            // opacity: 0.6;
-            // transition: 0.3s;
-
-            // &:hover{
-            //     background-color:  rgb(44, 44, 44);;
-            //     color: black;
-            // }
-
-            &:focus{
-                outline: none;
-            }
-        }
+    &:active,
+    &:hover {
+      background-color: rgb(44, 44, 44);
+      color: black;
     }
 
-}
+    button {
+      background-color: transparent;
+      border: none;
+      color: black;
+      font-size: 1.5rem;
+      cursor: pointer;
+      // opacity: 0.6;
+      // transition: 0.3s;
 
+      // &:hover{
+      //     background-color:  rgb(44, 44, 44);;
+      //     color: black;
+      // }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

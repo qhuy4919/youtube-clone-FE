@@ -1,0 +1,65 @@
+//header
+$header-nav-height: 64px;
+//sidebar
+$sidebar-hover-color: #ebebeb;
+$sidebar-left-width: 17rem;
+//video avatar
+$avatar-diameter: 48px;
+$avatar-margin: 10px;
+$text-color-dark: #111111;
+$avatar-diameter: 48px;
+$avatar-margin: 10px;
+
+//theme color
+$light-theme-secondary-color: #737373;
+$light-theme-primary-color: #c5cae9;
+
+// background color
+$light-theme-background-color: rgb(250, 250, 250);
+
+//text-color
+$primary-text-color: #212121;
+$secondary-text-color: #737373;
+$tertiary-text-color: rgb(255, 229, 229);
+
+//divider
+$light-theme-divider-color: #dbdbdb;
+
+//disable color
+$light-theme-disabled-color: #9b9b9b;
+
+//error color
+$error-color: #dd2c00;
+
+//accent
+$accent-color: #ff4081;
+$light-accent-color: #ff80ab;
+
+$light-theme-base-color: #000;
+$primary-color: #3f51b5;
+
+//hover color
+$icon-hover-color: hsla(0, 100%, 100%, 0.74);
+
+//pading - margin
+$spacing-unit: 0.5rem;
+$spacing-unit-xs: $spacing-unit; // 8px
+$spacing-unit-sm: $spacing-unit * 2; // 16px Base
+$spacing-unit-md: $spacing-unit * 3; // 24px
+$spacing-unit-lg: $spacing-unit * 4; // 32px
+$spacing-unit-xl: $spacing-unit * 5; // 40px
+$spacing-unit-xxl: $spacing-unit * 8; // 64px
+
+//font size
+$font-size-ssmall: 10px;
+$font-size-small: 16px;
+$font-size-medium: 20px;
+$font-size-large: 32px;
+$font-size-xlarge: 60px;
+
+//font weight
+$font-weight-regular: 400;
+$font-weight-lighter: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weith-bolder: 800;

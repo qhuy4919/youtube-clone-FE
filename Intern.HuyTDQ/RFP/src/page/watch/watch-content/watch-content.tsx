@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import API_Playlist from "../../../access/api/api-playlist";
-import { Video, VideoMetadata, VideoInfoBox } from "../../../component/index";
-import "./watch-content.scss";
+import React, { useState, useEffect } from 'react';
+import API_Playlist from '../../../access/api/api-playlist';
+import { Video, VideoMetadata, VideoInfoBox } from '../../../component/index';
+import './watch-content.scss';
 
 function WatchContent(props: any) {
   const { video_id } = props;
@@ -18,20 +18,24 @@ function WatchContent(props: any) {
           setChannelId(response.snippet.channelId);
         }
       } catch (error) {
-        throw new Error("fetch video was fail");
+        throw new Error('fetch video was fail');
       }
     };
     fetchVideo();
   }, [video_id]);
   return (
-    <div className="watch-grid">
-      <Video className="video" id={video_id} />
-      <VideoMetadata className="metadata" video={videoInformation} />
-      {/* <VideoInfoBox
-        className="video-info-box"
-        video={videoInformation}
-        channelId={channelId}
-      /> */}
+    <div className='watch-grid'>
+      <Video className='video' id={video_id} />
+      <VideoMetadata className='metadata' video={videoInformation} />
+      {channelId.length <= 0 ? (
+        <></>
+      ) : (
+        <VideoInfoBox
+          className='video-info-box'
+          video={videoInformation}
+          channelId={channelId}
+        />
+      )}
     </div>
   );
 }

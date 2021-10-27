@@ -1,9 +1,9 @@
-import axiosClient from "./axios-client";
+import axiosClient from './axios-client';
 import queryString from 'query-string';
 
 const API_Playlist = {
   getPlaylist: (filter: any) => {
-    const param = queryString.stringify(filter)
+    const param = queryString.stringify(filter);
     const url = `${process.env.REACT_APP_API_URL}/video?${param}`;
     return axiosClient.get(url);
   },

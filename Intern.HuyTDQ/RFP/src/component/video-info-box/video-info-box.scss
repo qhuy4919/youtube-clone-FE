@@ -1,5 +1,4 @@
-@import "../../style/helpers/reset.scss";
-
+@import '../../style/helpers/variable.scss';
 .video-info-box {
   display: grid;
   grid: auto auto / calc(#{$avatar-diameter} + #{$avatar-margin}) auto max-content;

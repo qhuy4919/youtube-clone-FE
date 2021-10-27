@@ -1,10 +1,9 @@
-import React from "react";
-import { useParams } from "react-router";
+import { useParams } from 'react-router';
 // import { get_param } from "../../util/get-param";
-import WatchContent from "./watch-content/watch-content";
-import { Header } from "../../component/index";
+import WatchContent from './watch-content/watch-content';
+import { Header } from '../../component/index';
 
-import "./watch.scss";
+import './watch.scss';
 // interface MatchParams {
 //   name: string;
 // }
@@ -16,7 +15,7 @@ export function Watch() {
   return (
     <div>
       <Header />
-      <div className="watch-container">
+      <div className='watch-container'>
         <WatchContent video_id={video_id} />
       </div>
     </div>

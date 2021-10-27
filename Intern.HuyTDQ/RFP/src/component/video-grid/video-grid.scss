@@ -1,10 +1,13 @@
+@import '../../style/helpers/variable.scss';
+
 .video-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-right: -1 * $spacing-unit-sm;
 
   & > * {
-    margin-right: 16px;
-    margin-bottom: 24px;
+    margin-right: $spacing-unit-sm;
+    margin-bottom: $spacing-unit-md;
   }
 }

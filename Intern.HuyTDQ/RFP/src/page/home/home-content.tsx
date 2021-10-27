@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { VideoGrid } from '../../component/video-grid/video-grid';
-// import { Slider } from "../../component/index";
-import { Loader, Pagination } from '../../component/index';
+import { Loader, Pagination } from '../../component/';
 import API_list from '../../access/api/api-playlist';
 
 import './home-content.scss';
