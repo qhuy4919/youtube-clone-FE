@@ -1,11 +1,9 @@
-@import '../../../style/helpers/variable.scss';
-
 .video-grid-header {
-  padding-bottom: $spacing-unit-md;
-  padding-top: $spacing-unit-sm;
-  padding-left: $spacing-unit-sm;
+  padding-bottom: var(--spacing-unit-md);
+  padding-top: var(--spacing-unit-sm);
+  padding-left: var(--spacing-unit-sm);
   .title {
-    font-size: $font-size-medium;
-    font-weight: $font-weight-bold;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
   }
 }

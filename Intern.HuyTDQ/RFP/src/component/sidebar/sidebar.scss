@@ -2,12 +2,12 @@
 
 .ui.menu.fixed.side-nav {
   background-color: var(--primary-background-color);
-  margin-top: $header-nav-height;
+  margin-top: var(--header-nav-height);
   overflow-y: auto;
-  padding-bottom: $header-nav-height;
+  padding-bottom: var(--header-nav-height);
 
   .sidebar-item:hover {
-    background: $sidebar-hover-color;
+    background: var(--sidebar-hover-color);
   }
 
   .subscription:hover {
@@ -17,5 +17,5 @@
 }
 
 .side-nav.ui.vertical.menu {
-  width: $sidebar-left-width;
+  width: var(--sidebar-left-width);
 }

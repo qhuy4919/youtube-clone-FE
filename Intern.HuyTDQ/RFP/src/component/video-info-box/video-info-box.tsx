@@ -6,10 +6,45 @@ import './video-info-box.scss';
 
 export function VideoInfoBox(props: any) {
   const { video, channelId } = props;
-  console.log(channelId);
   const [channel, setChannel] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState<any | undefined>();
+  const [collapsed, setCollapsed] = useState(true);
+
+  const getDescriptionParagraphs = () => {
+    const videoDescription = video.snippet ? video.snippet.description : null;
+    if (!videoDescription) {
+      return null;
+    }
+    return videoDescription
+      .split('\n')
+      .map((paragraph: string, index: number) => (
+        <p key={index}>
+          <li>{paragraph}</li>
+        </p>
+      ));
+  };
+
+  const getConfig = () => {
+    let descriptionTextClass = 'collapsed';
+    let buttonTitle = 'Show More';
+    if (!collapsed) {
+      descriptionTextClass = 'expanded';
+      buttonTitle = 'Show Less';
+    }
+    return {
+      descriptionTextClass,
+      buttonTitle,
+    };
+  };
+
+  const onToggleCollapseButtonClick = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const { descriptionTextClass, buttonTitle } = getConfig();
+  const publishedAtString = video.snippet.publishedAt;
+
   //fecth channel information
   useEffect(() => {
     let relevant = true;
@@ -18,7 +53,6 @@ export function VideoInfoBox(props: any) {
         setIsLoading(true);
         const response: any = await API_channel.getChannel({ channelId });
         if (response && relevant) {
-          console.log(response.items[0]);
           setChannel(response.items[0]);
           setIsLoading(false);
         }
@@ -31,7 +65,6 @@ export function VideoInfoBox(props: any) {
       }
     };
     fetchChannel();
-
     return () => {
       relevant = false;
     };
@@ -40,15 +73,10 @@ export function VideoInfoBox(props: any) {
   if (!video) {
     return <div />;
   }
-  // let channelThumbnail: any = "";
-
-  // var channelThumbnail = channel.snippet.thumbnails.medium.url ?? "";
-  // var channelTitle = channel.snippet.title ?? "";
   return (
     <div>
       {!isLoading && (
         <>
-          {console.log(channel)}
           <div className='video-info-box'>
             <Image
               className='channel-image'
@@ -57,17 +85,19 @@ export function VideoInfoBox(props: any) {
             />
             <div className='video-info'>
               <div className='channel-name'>{channel.snippet.title}</div>
-              {/* <div className="video-publication-date">{publishedAtString}</div> */}
+              <div className='video-publication-date'>{publishedAtString}</div>
             </div>
             <Button className='subscribe' color='youtube'>
               Subcribe
             </Button>
-            {/* <div className="video-description">
-              <div className={descriptionTextClass}>{descriptionParagraphs}</div>
-              <Button compact onClick={this.onToggleCollapseButtonClick}>
+            <div className='video-description'>
+              <div className={descriptionTextClass}>
+                {getDescriptionParagraphs()}
+              </div>
+              <Button compact onClick={() => onToggleCollapseButtonClick()}>
                 {buttonTitle}
               </Button>
-            </div> */}
+            </div>
           </div>
           <Divider />
         </>

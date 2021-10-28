@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Divider, Icon } from "semantic-ui-react";
-import "./video-metadata.scss";
+import React from 'react';
+import { Button, Divider, Icon } from 'semantic-ui-react';
+import './video-metadata.scss';
 
 export function VideoMetadata(props: any) {
   const { video } = props;
@@ -9,12 +9,12 @@ export function VideoMetadata(props: any) {
   }
 
   return (
-    <div className="video-metadata">
+    <div className='video-metadata'>
       <h3>{video.snippet.title}</h3>
-      <div className="video-stats">
+      <div className='video-stats'>
         <span>100.000 views</span>
-        <div className="video-actions">
-          <Button basic icon labelPosition="left">
+        <div className='video-actions'>
+          {/* <Button basic icon labelPosition="left">
             <Icon name="share" />
             Share
           </Button>
@@ -23,7 +23,7 @@ export function VideoMetadata(props: any) {
           </Button>
           <Button basic icon>
             <Icon name="ellipsis horizontal" />
-          </Button>
+          </Button> */}
         </div>
       </div>
       <Divider />

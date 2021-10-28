@@ -1,18 +1,24 @@
 .pageNumbers {
   list-style: none;
   display: flex;
+  padding: 0;
+  margin: 0;
+  opacity: 0.6;
+  box-shadow: 0 10px 20px 0 rgba(black, 0.15);
 
   li {
-    padding: 10px;
+    padding: var(--spacing-unit-sm);
     border: 1px solid white;
+    flex: 1;
+    list-style: none;
+    text-align: center;
     cursor: pointer;
-    opacity: 0.6;
     transition: 0.3s;
-    border-radius: 20px;
+    // border-radius: 20px;
 
-    &:active,
+    &.active,
     &:hover {
-      background-color: rgb(44, 44, 44);
+      border-bottom: 2px solid var(--light-theme-tertiary-color);
       color: black;
     }
 
@@ -20,7 +26,7 @@
       background-color: transparent;
       border: none;
       color: black;
-      font-size: 1.5rem;
+      font-size: var(--font-size-ssmall);
       cursor: pointer;
       // opacity: 0.6;
       // transition: 0.3s;

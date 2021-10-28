@@ -1,8 +1,7 @@
-import React from 'react';
-import './style/app.scss';
-import './style/helpers/variable.scss';
+import './style/index.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home, Watch } from './page/index';
+
 function App(props: any) {
   return (
     <Router>

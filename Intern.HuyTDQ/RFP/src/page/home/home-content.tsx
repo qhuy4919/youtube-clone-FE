@@ -14,8 +14,8 @@ function HomeContent() {
     totalRow: 12,
   });
   const [filter, setFilter] = useState({
-    _limit: 6,
     _page: 1,
+    _limit: 6,
   });
 
   function handlePageChange(newPage: number) {
@@ -23,7 +23,6 @@ function HomeContent() {
       ...filter,
       _page: newPage,
     });
-    console.log(newPage);
   }
 
   useEffect(() => {
@@ -34,10 +33,11 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist(filter);
         if (response && relevant) {
+          let newPage = filter._page;
           setVideo(response);
           setPagination((prev) => ({
             ...prev,
-            ...filter,
+            _page: newPage,
           }));
           setHasError(false);
         }
@@ -65,23 +65,18 @@ function HomeContent() {
         </>
       ) : (
         <>
-          <div className='slider'>
-            {/* <Slider title="trending" videos={video} /> */}
-            {/* <Carousel slide={video}></Carousel> */}
-          </div>
+          {/* <div className='slider'>
+            <Slider title="trending" videos={video} />
+            <Carousel slide={video}></Carousel>
+          </div> */}
           <div className='home-content__item'>
             <VideoGrid title='recommend' videos={video} />
           </div>
-          <div className='pagination-container'>
-            {
-              <Pagination
-                pagination={pagination}
-                onPageChange={handlePageChange}
-              />
-            }
-          </div>
         </>
       )}
+      <div className='pagination-container'>
+        {<Pagination pagination={pagination} onPageChange={handlePageChange} />}
+      </div>
     </div>
   );
 }

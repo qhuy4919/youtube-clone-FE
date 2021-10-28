@@ -1,17 +1,12 @@
 .home-content {
-  // .slider {
-  //   margin-top: 10px;
-  // }
+  height: 100%;
+
   .pagination-container {
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    bottom: var(--spacing-unit-md);
+    right: calc(50% - var(--sidebar-left-width));
   }
 }
-// .home-content__item {
-//   display: grid;
-//   grid: auto / auto;
-//   justify-content: space-around;
-// }
 
 .loader {
   position: absolute;
