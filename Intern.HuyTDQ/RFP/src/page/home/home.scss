@@ -1,4 +1,6 @@
-@import '../../style/helpers/variable.scss';
+.home-sidebar {
+  transition: all 1s linear;
+}
 
 .home-container {
   padding-left: var(--sidebar-left-width);
@@ -7,4 +9,5 @@
   // display: grid;
   // grid: auto / auto;
   // justify-content: center;
+  transition: all 0.2s linear;
 }

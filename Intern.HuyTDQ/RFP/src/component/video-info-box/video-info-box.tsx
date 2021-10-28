@@ -102,6 +102,7 @@ export function VideoInfoBox(props: any) {
           <Divider />
         </>
       )}
+      {hasError && <>something wrong</>}
     </div>
   );
 }
