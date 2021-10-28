@@ -11,7 +11,7 @@ function HomeContent() {
   const [pagination, setPagination] = useState({
     _page: 1,
     _limit: 6,
-    totalRow: 12,
+    totalRow: 21,
   });
   const [filter, setFilter] = useState({
     _page: 1,
