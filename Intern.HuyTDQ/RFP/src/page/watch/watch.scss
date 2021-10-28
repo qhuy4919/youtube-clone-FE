@@ -1,8 +1,10 @@
-@import '../../style/helpers/variable.scss';
 .watch-container {
   margin-left: var(--sidebar-left-width);
   margin-top: var(--header-nav-height);
   // display: grid;
   // grid: auto / auto;
   // justify-content: center;
+  .watch-sidebar {
+    transition: all 0.2s linear;
+  }
 }

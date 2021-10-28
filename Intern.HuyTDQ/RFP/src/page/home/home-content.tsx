@@ -10,12 +10,12 @@ function HomeContent() {
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
     _page: 1,
-    _limit: 6,
+    _limit: 8,
     totalRow: 21,
   });
   const [filter, setFilter] = useState({
     _page: 1,
-    _limit: 6,
+    _limit: 8,
   });
 
   function handlePageChange(newPage: number) {
@@ -56,7 +56,6 @@ function HomeContent() {
   }, [filter]);
   return (
     <div className='home-content'>
-      {hasError && <> no data...</>}
       {isLoading ? (
         <>
           <div className='loader'>
@@ -74,6 +73,7 @@ function HomeContent() {
           </div>
         </>
       )}
+      {hasError && <> no data...</>}
       <div className='pagination-container'>
         {<Pagination pagination={pagination} onPageChange={handlePageChange} />}
       </div>

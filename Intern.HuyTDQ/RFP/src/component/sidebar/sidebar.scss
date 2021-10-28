@@ -1,11 +1,8 @@
-@import '../../style/helpers/variable.scss';
-
 .ui.menu.fixed.side-nav {
   background-color: var(--primary-background-color);
   margin-top: var(--header-nav-height);
   overflow-y: auto;
   padding-bottom: var(--header-nav-height);
-
   .sidebar-item:hover {
     background: var(--sidebar-hover-color);
   }

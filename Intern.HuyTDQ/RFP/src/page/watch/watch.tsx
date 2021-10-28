@@ -1,7 +1,7 @@
+import { useState, useRef } from 'react';
 import { useParams } from 'react-router';
-// import { get_param } from "../../util/get-param";
 import WatchContent from './watch-content/watch-content';
-import { Header } from '../../component/index';
+import { Header, Sidebar } from '../../component/index';
 
 import './watch.scss';
 // interface MatchParams {
@@ -9,14 +9,31 @@ import './watch.scss';
 // }
 export function Watch() {
   const { video_id }: any = useParams();
+  const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);
+  const watchContainer = useRef<HTMLHeadingElement>(null);
+  const sidebarRef = useRef<HTMLHeadingElement>(null);
+
   if (!video_id) {
     return <div />;
   }
+  function handleActiveSidebar() {
+    setActiveSidebar(!acitveSidebar);
+    if (acitveSidebar) {
+      if (watchContainer.current) {
+        watchContainer.current.style.paddingLeft = '0';
+      }
+    } else {
+      if (watchContainer.current) {
+        watchContainer.current.style.paddingLeft = 'var(--sidebar-left-width)';
+      }
+    }
+  }
   return (
     <div>
-      <Header />
+      <Header onActiveSidebar={handleActiveSidebar} />
       <div className='watch-container'>
-        <WatchContent video_id={video_id} />
+        <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div>
+        <WatchContent video_id={video_id} ref={watchContainer} />
       </div>
     </div>
   );
