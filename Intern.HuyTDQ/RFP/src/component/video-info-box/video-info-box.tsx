@@ -101,7 +101,7 @@ export function VideoInfoBox(props: any) {
               <div className={descriptionTextClass}>
                 {getDescriptionParagraphs()}
               </div>
-              <Button compact onClick={() => onToggleCollapseButtonClick()}>
+              <Button onClick={() => onToggleCollapseButtonClick()}>
                 {buttonTitle}
               </Button>
             </div>

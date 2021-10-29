@@ -11,7 +11,7 @@ function HomeContent() {
   const [pagination, setPagination] = useState({
     _page: 1,
     _limit: 8,
-    totalRow: 21,
+    totalRow: 10,
   });
   const [filter, setFilter] = useState({
     _page: 1,
@@ -33,11 +33,14 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist(filter);
         if (response && relevant) {
+          console.log(response);
           let newPage = filter._page;
           setVideo(response);
+          console.log(response.headers);
           setPagination((prev) => ({
             ...prev,
             _page: newPage,
+            totalRow: 1,
           }));
           setHasError(false);
         }
