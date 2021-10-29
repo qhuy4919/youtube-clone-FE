@@ -60,7 +60,7 @@ export function VideoInfoBox(props: any) {
         setIsLoading(true);
         const response: any = await API_channel.getChannel({ channelId });
         if (response && relevant) {
-          setChannel(response.items[0]);
+          setChannel(response.data.items[0]);
           setIsLoading(false);
         }
       } catch (error) {

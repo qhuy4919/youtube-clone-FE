@@ -33,14 +33,13 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist(filter);
         if (response && relevant) {
-          console.log(response);
           let newPage = filter._page;
-          setVideo(response);
+          setVideo(response.data);
           console.log(response.headers);
           setPagination((prev) => ({
             ...prev,
             _page: newPage,
-            totalRow: 1,
+            totalRow: response.headers['x-total-count'] ?? 1,
           }));
           setHasError(false);
         }
@@ -77,9 +76,16 @@ function HomeContent() {
         </>
       )}
       {hasError && <> no data...</>}
-      <div className='pagination-container'>
-        {<Pagination pagination={pagination} onPageChange={handlePageChange} />}
-      </div>
+      {!isLoading && (
+        <div className='pagination-container'>
+          {
+            <Pagination
+              pagination={pagination}
+              onPageChange={handlePageChange}
+            />
+          }
+        </div>
+      )}
     </div>
   );
 }

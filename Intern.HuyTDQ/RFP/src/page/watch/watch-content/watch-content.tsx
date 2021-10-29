@@ -24,8 +24,8 @@ function WatchContent(props: any) {
       try {
         const response: any = await API_Playlist.getPlaylistItem({ video_id });
         if (response && relevant) {
-          setVideoInformation(response);
-          setChannelId(response.snippet.channelId);
+          setVideoInformation(response.data);
+          setChannelId(response.data.snippet.channelId);
         }
       } catch (error) {
         if (relevant) setHasError(true);
