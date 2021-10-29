@@ -1,5 +1,4 @@
-import { cleanup } from '@testing-library/react';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import API_Playlist from '../../../access/api/api-playlist';
 import {
   Video,

@@ -29,10 +29,11 @@
   grid-row: 2 / 3; /* is overriden when VideoPreview is horizontal */
   grid-column: 1 / 2; /* is overriden when VideoPreview is horizontal */
   color: var(--text-color-dark);
+  font-weight: var(--font-weight-semibold);
 
   .video-preview-metadata-container {
-    padding-top: 5px;
-    font-size: 14px;
+    padding-top: var(--spacing-unit-xs);
+    font-size: var(--font-size-small);
     color: #6e6e6e;
 
     .channel-title {
@@ -70,12 +71,12 @@
   /* Video duration label at bottom right */
   .time-label {
     position: absolute;
-    background: --light-theme-text-color;
+    background: var(--primary-text-color);
     bottom: 0;
     right: 0;
     opacity: 0.8;
     border-radius: 2px;
-    font-weight: 500;
+    font-weight: var(--font-weight-semibold);
     color: white;
     margin: 4px;
     padding: 2px 4px;

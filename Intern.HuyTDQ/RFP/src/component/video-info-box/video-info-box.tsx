@@ -6,7 +6,7 @@ import './video-info-box.scss';
 
 export function VideoInfoBox(props: any) {
   const { video, channelId } = props;
-  const [channel, setChannel] = useState<any>([]);
+  const [channel, setChannel] = useState<any | undefined>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState<any | undefined>();
   const [collapsed, setCollapsed] = useState(true);
@@ -40,6 +40,13 @@ export function VideoInfoBox(props: any) {
 
   const onToggleCollapseButtonClick = () => {
     setCollapsed(!collapsed);
+  };
+
+  const getSubscriberButtonText = () => {
+    if (channel) {
+      // const subscriberCount = channel;
+      return `Subscribe 10M`;
+    }
   };
 
   const { descriptionTextClass, buttonTitle } = getConfig();
@@ -88,7 +95,7 @@ export function VideoInfoBox(props: any) {
               <div className='video-publication-date'>{publishedAtString}</div>
             </div>
             <Button className='subscribe' color='youtube'>
-              Subcribe
+              {getSubscriberButtonText()}
             </Button>
             <div className='video-description'>
               <div className={descriptionTextClass}>

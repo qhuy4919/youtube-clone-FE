@@ -31,8 +31,9 @@ export function Watch() {
     <div>
       <Header onActiveSidebar={handleActiveSidebar} />
       <div className='watch-container'>
-        <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div>
-        <WatchContent video_id={video_id} ref={watchContainer} />
+        <Sidebar />
+        {/* <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div> */}
+        <WatchContent video_id={video_id} />
       </div>
     </div>
   );
