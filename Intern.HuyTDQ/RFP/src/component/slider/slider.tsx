@@ -14,13 +14,6 @@ export function Slider(props: any) {
     return video.snippet.thumbnails;
   });
 
-  const slider_item: any = trending_video.map((image: any, index: number) => {
-    return (
-      <SwiperSlide key={index}>
-        <Image src={image.high.url}></Image>
-      </SwiperSlide>
-    );
-  });
   return (
     <>
       <VideoGridHeader title={title} />
@@ -36,7 +29,13 @@ export function Slider(props: any) {
         // navigation={true}
         className="mySwiper"
       >
-        {slider_item}
+        {trending_video.map((image: any, index: number) => {
+          return (
+            <SwiperSlide key={index}>
+              <Image src={image.high.url}></Image>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

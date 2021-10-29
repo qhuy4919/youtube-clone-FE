@@ -31,13 +31,13 @@ export function Carousel({ slide }: Props) {
   if (!Array.isArray(slide) || slide.length <= 0) {
     return null;
   }
-
+  // TODO: index as key
   return (
     <div className="slider">
       <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
       <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      {image_list &&
-        image_list.map((slide_item, index) => {
+      {(image_list ?? [])
+        .map((slide_item, index) => {
           return (
             <div
               className={index === current ? "slide active" : "slide"}

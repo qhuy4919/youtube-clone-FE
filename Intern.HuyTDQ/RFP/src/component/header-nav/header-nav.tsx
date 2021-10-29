@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Icon, Image, Input, Menu } from 'semantic-ui-react';
+import { Form, Icon, Image, Input, Menu, SemanticICONS } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './header-nav.scss';
 
@@ -11,7 +11,7 @@ export function Header({ onActiveSidebar }: Prop) {
     onActiveSidebar();
   }
   return (
-    <Menu borderless className='top-menu'>
+    <Menu borderless className='header-nav'>
       {/* 2 */}
       <Menu.Menu className='nav-left'>
         <Menu.Item>
@@ -20,7 +20,7 @@ export function Header({ onActiveSidebar }: Prop) {
             name='list'
             size='large'
             onClick={() => handleClickMenu()}
-          ></Icon>
+          />
         </Menu.Item>
         <Menu.Item header className='logo'>
           <Link to='/'>
@@ -45,19 +45,16 @@ export function Header({ onActiveSidebar }: Prop) {
 
       {/* 5 */}
       <Menu.Menu className='nav-right'>
-        <Menu.Item>
-          {/* 6 */}
-          <Icon className='header-icon' name='video camera' size='large' />
-        </Menu.Item>
-        <Menu.Item>
-          <Icon className='header-icon' name='grid layout' size='large' />
-        </Menu.Item>
-        <Menu.Item>
-          <Icon className='header-icon' name='chat' size='large' />
-        </Menu.Item>
-        <Menu.Item>
-          <Icon className='header-icon' name='alarm' size='large' />
-        </Menu.Item>
+        {[
+          'video camera',
+          'grid layout',
+          'chat',
+          'alarm'
+        ].map(entry => {
+          return <Menu.Item key={entry}>
+            <Icon className='header-icon' name={entry as SemanticICONS | undefined} size='large' />
+          </Menu.Item>
+        })}
         {/* 7*/}
         <Menu.Item name='avatar'>
           <Image src='https://via.placeholder.com/80x80' avatar />

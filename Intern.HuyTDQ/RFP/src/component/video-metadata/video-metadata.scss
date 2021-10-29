@@ -1,4 +1,4 @@
-@import '../../style/helpers/variable.scss';
+@import "../../style/helpers/variable.scss";
 
 .video-metadata {
   color: var(--primary-text-color);
@@ -6,7 +6,7 @@
 
   h3 {
     font-weight: var(--font-weight-bold);
-    color: --text-primary-color;
+    color: var(--text-primary-color);
   }
 
   .video-stats {

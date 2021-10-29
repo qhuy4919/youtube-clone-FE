@@ -5,7 +5,7 @@ import API_list from '../../access/api/api-playlist';
 
 import './home-content.scss';
 function HomeContent() {
-  const [video, setVideo] = useState([]);
+  const [videoList, setVideoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
@@ -33,11 +33,10 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist(filter);
         if (response && relevant) {
-          let newPage = filter._page;
-          setVideo(response);
+          setVideoList(response);
           setPagination((prev) => ({
             ...prev,
-            _page: newPage,
+            _page: filter._page,
           }));
           setHasError(false);
         }
@@ -48,11 +47,11 @@ function HomeContent() {
           setIsLoading(false);
         }
       }
-      return function cleanup() {
-        relevant = false;
-      };
     };
     fetchVideo();
+    return () => {
+      relevant = false;
+    };
   }, [filter]);
   return (
     <div className='home-content'>
@@ -69,7 +68,7 @@ function HomeContent() {
             <Carousel slide={video}></Carousel>
           </div> */}
           <div className='home-content__item'>
-            <VideoGrid title='recommend' videos={video} />
+            <VideoGrid title='recommend' videos={videoList} />
           </div>
         </>
       )}

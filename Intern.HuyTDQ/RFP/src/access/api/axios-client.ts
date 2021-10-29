@@ -2,12 +2,11 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const axiosClient = axios.create({
-    baseURL: '',
     headers: {
-        'content-type': 'application/json',
+        // 'content-type': 'application/json',
         // 'Access-Control-Allow-Origin': '*',
     },
-    
+    timeout: 30000,
     paramsSerializer: params => queryString.stringify(params),
     });
 

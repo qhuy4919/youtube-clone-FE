@@ -1,19 +1,19 @@
-.top-menu{
+.header-nav {
     width: 100%;
     justify-content: space-between;
     position: fixed;
     z-index: 999;
     top: 0;
-    i{
+    i {
         cursor: pointer;
     }
 
-    .nav-center{
+    .nav-center {
         flex-grow: 1;
         padding: 0;
         justify-content: center;
 
-        .search-input{
+        .search-input {
             width: 500px;
             padding: 0;
 
