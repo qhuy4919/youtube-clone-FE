@@ -10,12 +10,12 @@ function HomeContent() {
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
     _page: 1,
-    _limit: 8,
+    _limit: 12,
     totalRow: 21,
   });
   const [filter, setFilter] = useState({
     _page: 1,
-    _limit: 8,
+    _limit: 12,
   });
 
   function handlePageChange(newPage: number) {
