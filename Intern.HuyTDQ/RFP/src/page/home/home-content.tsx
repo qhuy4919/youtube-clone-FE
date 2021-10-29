@@ -5,7 +5,7 @@ import API_list from '../../access/api/api-playlist';
 
 import './home-content.scss';
 function HomeContent() {
-  const [video, setVideo] = useState([]);
+  const [videoList, setVideoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
@@ -33,13 +33,11 @@ function HomeContent() {
       try {
         const response: any = await API_list.getPlaylist(filter);
         if (response && relevant) {
-          let newPage = filter._page;
-          setVideo(response.data);
-          console.log(response.headers);
+          setVideoList(response.data);
           setPagination((prev) => ({
             ...prev,
-            _page: newPage,
-            totalRow: response.headers['x-total-count'] ?? 1,
+            _page: filter._page,
+            totalRow: response.headers['x-total-count'],
           }));
           setHasError(false);
         }
@@ -50,11 +48,11 @@ function HomeContent() {
           setIsLoading(false);
         }
       }
-      return function cleanup() {
-        relevant = false;
-      };
     };
     fetchVideo();
+    return () => {
+      relevant = false;
+    };
   }, [filter]);
   return (
     <div className='home-content'>
@@ -71,21 +69,14 @@ function HomeContent() {
             <Carousel slide={video}></Carousel>
           </div> */}
           <div className='home-content__item'>
-            <VideoGrid title='recommend' videos={video} />
+            <VideoGrid title='recommend' videos={videoList} />
           </div>
         </>
       )}
       {hasError && <> no data...</>}
-      {!isLoading && (
-        <div className='pagination-container'>
-          {
-            <Pagination
-              pagination={pagination}
-              onPageChange={handlePageChange}
-            />
-          }
-        </div>
-      )}
+      <div className='pagination-container'>
+        {<Pagination pagination={pagination} onPageChange={handlePageChange} />}
+      </div>
     </div>
   );
 }

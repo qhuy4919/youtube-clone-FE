@@ -15,9 +15,8 @@ export function VideoGrid(props: any) {
 
   const gridItems: any = videos.map((video: any) => {
     return (
-      <VideoPreview
+      <VideoPreview key={video.id}
         video={video}
-        key={video.id}
         pathname='/watch/'
         video_id={video.id}
       />

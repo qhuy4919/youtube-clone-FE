@@ -4,6 +4,29 @@ import API_channel from '../../access/api/api-channel';
 
 import './video-info-box.scss';
 
+export type DescriptionParagraphsProps = {
+  video: any;
+  descriptionTextClass?: string;
+};
+export const DescriptionParagraphs = ({
+  video,
+  descriptionTextClass,
+}: DescriptionParagraphsProps) => {
+  const videoDescription = video.snippet ? video.snippet.description : null;
+  if (!videoDescription) {
+    return null;
+  }
+  return (
+    <div className={descriptionTextClass}>
+      {videoDescription.split('\n').map((paragraph: string, index: number) => (
+        <p key={index}>
+          <li>{paragraph}</li>
+        </p>
+      ))}
+    </div>
+  );
+};
+
 export function VideoInfoBox(props: any) {
   const { video, channelId } = props;
   const [channel, setChannel] = useState<any | undefined>([]);
@@ -11,21 +34,7 @@ export function VideoInfoBox(props: any) {
   const [hasError, setHasError] = useState<any | undefined>();
   const [collapsed, setCollapsed] = useState(true);
 
-  const getDescriptionParagraphs = () => {
-    const videoDescription = video.snippet ? video.snippet.description : null;
-    if (!videoDescription) {
-      return null;
-    }
-    return videoDescription
-      .split('\n')
-      .map((paragraph: string, index: number) => (
-        <p key={index}>
-          <li>{paragraph}</li>
-        </p>
-      ));
-  };
-
-  const getConfig = () => {
+  const getDescriptionText = () => {
     let descriptionTextClass = 'collapsed';
     let buttonTitle = 'Show More';
     if (!collapsed) {
@@ -49,7 +58,7 @@ export function VideoInfoBox(props: any) {
     }
   };
 
-  const { descriptionTextClass, buttonTitle } = getConfig();
+  const { descriptionTextClass, buttonTitle } = getDescriptionText();
   const publishedAtString = video.snippet.publishedAt;
 
   //fecth channel information
@@ -64,7 +73,9 @@ export function VideoInfoBox(props: any) {
           setIsLoading(false);
         }
       } catch (error) {
-        setHasError(error);
+        if (relevant) {
+          setHasError(error);
+        }
       } finally {
         if (relevant) {
           setIsLoading(false);
@@ -98,10 +109,11 @@ export function VideoInfoBox(props: any) {
               {getSubscriberButtonText()}
             </Button>
             <div className='video-description'>
-              <div className={descriptionTextClass}>
-                {getDescriptionParagraphs()}
-              </div>
-              <Button onClick={() => onToggleCollapseButtonClick()}>
+              <DescriptionParagraphs
+                video={video}
+                descriptionTextClass={descriptionTextClass}
+              />
+              <Button compact onClick={onToggleCollapseButtonClick}>
                 {buttonTitle}
               </Button>
             </div>
