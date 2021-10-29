@@ -8,6 +8,15 @@ export function VideoPreview(props: any) {
   const duration = video.contentDetails ? video.contentDetails.duration : null;
   const videoDuration = getVideoDurationString(duration);
   const video_url = pathname.concat(video_id);
+
+  const getFormattedViewAndTime = (video: any) => {
+    const viewCount = video.statistics ? video.statistics.viewCount : null;
+    if (viewCount) {
+      const viewCountShort = video.statistics.viewCount;
+      return `${viewCountShort} views • 1 year ago`;
+    }
+    return '';
+  };
   return (
     <>
       <Link to={{ pathname: video_url }}>
@@ -23,7 +32,9 @@ export function VideoPreview(props: any) {
             <div>{video.snippet.title}</div>
             <div className='video-preview-metadata-container'>
               <div className='channel-title'>{video.snippet.channelTitle}</div>
-              {/* <div className="view-and-time">{viewAndTimeString}</div> */}
+              <div className='view-and-time'>
+                {getFormattedViewAndTime(video)}
+              </div>
               {/* <div className='show-max-two-lines'>{description}</div> */}
             </div>
           </div>
