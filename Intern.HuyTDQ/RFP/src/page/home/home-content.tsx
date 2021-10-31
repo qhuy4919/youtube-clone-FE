@@ -57,11 +57,11 @@ function HomeContent() {
   return (
     <div className='home-content'>
       {isLoading ? (
-        <>
+        <div className='loader-container'>
           <div className='loader'>
             <Loader />
           </div>
-        </>
+        </div>
       ) : (
         <>
           {/* <div className='slider'>

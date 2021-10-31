@@ -3,16 +3,19 @@
   grid: auto 100px / 1fr;
   justify-items: center;
   // height: 100%;
-
   // flex-direction: column;
   // justify-content: center;
   // align-items: center;
 
   .pagination-container {
-    grid-row: 2;
+    grid-row-start: 2;
   }
 }
 
+.loader-container {
+  grid-row-start: 1;
+  min-height: 666px;
+}
 .loader {
   position: absolute;
   left: 50%;
