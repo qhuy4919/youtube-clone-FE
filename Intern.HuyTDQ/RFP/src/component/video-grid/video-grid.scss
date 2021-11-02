@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-right: calc(-1 * var(--spacing-unit-sm));
+  &:empty {
+    height: 610px;
+  }
 
   & > * {
     margin-right: var(--spacing-unit-sm);

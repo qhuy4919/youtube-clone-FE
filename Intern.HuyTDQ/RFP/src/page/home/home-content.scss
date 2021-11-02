@@ -1,13 +1,21 @@
 .home-content {
-  height: 100%;
+  display: grid;
+  grid: auto 100px / 1fr;
+  justify-items: center;
+  // height: 100%;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 
   .pagination-container {
-    position: absolute;
-    bottom: var(--spacing-unit-md);
-    right: calc(50% - var(--sidebar-left-width));
+    grid-row-start: 2;
   }
 }
 
+.loader-container {
+  grid-row-start: 1;
+  min-height: 666px;
+}
 .loader {
   position: absolute;
   left: 50%;

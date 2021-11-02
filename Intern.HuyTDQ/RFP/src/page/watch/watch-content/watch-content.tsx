@@ -1,6 +1,5 @@
-import { cleanup } from '@testing-library/react';
-import React, { useState, useEffect } from 'react';
-import API_Playlist from '../../../access/api/api-playlist';
+import { useState, useEffect } from 'react';
+import { Query } from '../../../access/api';
 import {
   Video,
   VideoMetadata,
@@ -23,10 +22,10 @@ function WatchContent(props: any) {
       setIsloading(true);
       setHasError(false);
       try {
-        const response: any = await API_Playlist.getPlaylistItem({ video_id });
+        const response: any = await Query.video.item({ video_id });
         if (response && relevant) {
-          setVideoInformation(response);
-          setChannelId(response.snippet.channelId);
+          setVideoInformation(response.data);
+          setChannelId(response.data.snippet.channelId);
         }
       } catch (error) {
         if (relevant) setHasError(true);

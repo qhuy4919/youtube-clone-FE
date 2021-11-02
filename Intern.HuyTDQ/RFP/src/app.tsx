@@ -1,6 +1,6 @@
 import './style/index.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Home, Watch } from './page/index';
+import { Home, Watch, NotFound } from './page/index';
 
 function App(props: any) {
   return (
@@ -8,6 +8,7 @@ function App(props: any) {
       <Switch>
         <Route path='/' component={Home} exact />
         <Route path='/watch/:video_id' component={Watch} exact />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

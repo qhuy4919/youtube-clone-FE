@@ -11,7 +11,6 @@ export function Watch() {
   const { video_id }: any = useParams();
   const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);
   const watchContainer = useRef<HTMLHeadingElement>(null);
-  const sidebarRef = useRef<HTMLHeadingElement>(null);
 
   if (!video_id) {
     return <div />;
@@ -32,8 +31,9 @@ export function Watch() {
     <div>
       <Header onActiveSidebar={handleActiveSidebar} />
       <div className='watch-container'>
-        <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div>
-        <WatchContent video_id={video_id} ref={watchContainer} />
+        <Sidebar />
+        {/* <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div> */}
+        <WatchContent video_id={video_id} />
       </div>
     </div>
   );

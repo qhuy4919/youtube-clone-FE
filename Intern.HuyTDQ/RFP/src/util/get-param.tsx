@@ -1,5 +1,5 @@
-export const get_param = {
-  video_param_id: (location: any, name: any) => {
+export const getParam = {
+  videoParamId: (location: any, name: any) => {
     if (!location || !location.search) {
       return null;
     }

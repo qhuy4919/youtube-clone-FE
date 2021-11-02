@@ -2,16 +2,21 @@ import { useState } from 'react';
 
 import './pagination.scss';
 
+const createPageNumber = (totalPage: number) => {
+  var pageNumber: number[] = [];
+  for (let i = 1; i <= totalPage; i++) {
+    pageNumber.push(i);
+  }
+
+  return pageNumber;
+};
 export function Pagination(props: any) {
   const { pagination, onPageChange } = props;
   const { _page, _limit, totalRow } = pagination;
   const [currentPage, setcurrentPage] = useState(1);
 
   const totalPage = Math.ceil(totalRow / _limit);
-  var pageNumber = [];
-  for (let i = 1; i <= totalPage; i++) {
-    pageNumber.push(i);
-  }
+  var pageNumber = createPageNumber(totalPage);
 
   function handlePageChange(newPage: number) {
     if (onPageChange) {

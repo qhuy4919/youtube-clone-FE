@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { VideoGrid } from '../../component/video-grid/video-grid';
 import { Loader, Pagination } from '../../component/';
-import API_list from '../../access/api/api-playlist';
-
+import { Query } from '../../access/api/index';
 import './home-content.scss';
 function HomeContent() {
-  const [video, setVideo] = useState([]);
+  const [videoList, setVideoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [pagination, setPagination] = useState({
@@ -31,13 +30,13 @@ function HomeContent() {
       setIsLoading(true);
       setHasError(false);
       try {
-        const response: any = await API_list.getPlaylist(filter);
+        const response: any = await Query.video.list(filter);
         if (response && relevant) {
-          let newPage = filter._page;
-          setVideo(response);
+          setVideoList(response.data);
           setPagination((prev) => ({
             ...prev,
-            _page: newPage,
+            _page: filter._page,
+            totalRow: response.headers['x-total-count'],
           }));
           setHasError(false);
         }
@@ -48,20 +47,20 @@ function HomeContent() {
           setIsLoading(false);
         }
       }
-      return function cleanup() {
-        relevant = false;
-      };
     };
     fetchVideo();
+    return () => {
+      relevant = false;
+    };
   }, [filter]);
   return (
     <div className='home-content'>
       {isLoading ? (
-        <>
+        <div className='loader-container'>
           <div className='loader'>
             <Loader />
           </div>
-        </>
+        </div>
       ) : (
         <>
           {/* <div className='slider'>
@@ -69,7 +68,7 @@ function HomeContent() {
             <Carousel slide={video}></Carousel>
           </div> */}
           <div className='home-content__item'>
-            <VideoGrid title='recommend' videos={video} />
+            <VideoGrid title='recommend' videos={videoList} />
           </div>
         </>
       )}

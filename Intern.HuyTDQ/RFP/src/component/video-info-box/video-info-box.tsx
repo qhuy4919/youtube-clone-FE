@@ -1,31 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Image, Button, Divider } from 'semantic-ui-react';
-import API_channel from '../../access/api/api-channel';
-
+import { Query } from '../../access/api/index';
+import Linkify from 'react-linkify';
 import './video-info-box.scss';
+
+export type DescriptionParagraphsProps = {
+  video: any;
+  descriptionTextClass: string;
+};
+export const DescriptionParagraphs = ({
+  video,
+  descriptionTextClass,
+}: DescriptionParagraphsProps) => {
+  const videoDescription = video.snippet ? video.snippet.description : null;
+  if (!videoDescription) {
+    return null;
+  }
+  return (
+    <div className={descriptionTextClass}>
+      {videoDescription.split('\n').map((paragraph: any, index: number) => (
+        <p key={index}>
+          <Linkify>{paragraph}</Linkify>
+        </p>
+      ))}
+    </div>
+  );
+};
 
 export function VideoInfoBox(props: any) {
   const { video, channelId } = props;
-  const [channel, setChannel] = useState<any>([]);
+  const [channel, setChannel] = useState<any | undefined>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState<any | undefined>();
   const [collapsed, setCollapsed] = useState(true);
 
-  const getDescriptionParagraphs = () => {
-    const videoDescription = video.snippet ? video.snippet.description : null;
-    if (!videoDescription) {
-      return null;
-    }
-    return videoDescription
-      .split('\n')
-      .map((paragraph: string, index: number) => (
-        <p key={index}>
-          <li>{paragraph}</li>
-        </p>
-      ));
-  };
-
-  const getConfig = () => {
+  const getDescriptionText = () => {
     let descriptionTextClass = 'collapsed';
     let buttonTitle = 'Show More';
     if (!collapsed) {
@@ -42,7 +51,14 @@ export function VideoInfoBox(props: any) {
     setCollapsed(!collapsed);
   };
 
-  const { descriptionTextClass, buttonTitle } = getConfig();
+  const getSubscriberButtonText = () => {
+    if (channel) {
+      // const subscriberCount = channel;
+      return `Subscribe 10M`;
+    }
+  };
+
+  const { descriptionTextClass, buttonTitle } = getDescriptionText();
   const publishedAtString = video.snippet.publishedAt;
 
   //fecth channel information
@@ -51,13 +67,15 @@ export function VideoInfoBox(props: any) {
     const fetchChannel = async () => {
       try {
         setIsLoading(true);
-        const response: any = await API_channel.getChannel({ channelId });
+        const response: any = await Query.channel.list({ channelId });
         if (response && relevant) {
-          setChannel(response.items[0]);
+          setChannel(response.data.items[0]);
           setIsLoading(false);
         }
       } catch (error) {
-        setHasError(error);
+        if (relevant) {
+          setHasError(error);
+        }
       } finally {
         if (relevant) {
           setIsLoading(false);
@@ -88,13 +106,14 @@ export function VideoInfoBox(props: any) {
               <div className='video-publication-date'>{publishedAtString}</div>
             </div>
             <Button className='subscribe' color='youtube'>
-              Subcribe
+              {getSubscriberButtonText()}
             </Button>
             <div className='video-description'>
-              <div className={descriptionTextClass}>
-                {getDescriptionParagraphs()}
-              </div>
-              <Button compact onClick={() => onToggleCollapseButtonClick()}>
+              <DescriptionParagraphs
+                video={video}
+                descriptionTextClass={descriptionTextClass}
+              />
+              <Button compact onClick={onToggleCollapseButtonClick}>
                 {buttonTitle}
               </Button>
             </div>
