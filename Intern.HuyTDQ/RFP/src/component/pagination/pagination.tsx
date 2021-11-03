@@ -13,7 +13,7 @@ const createPageNumber = (totalPage: number) => {
 export function Pagination(props: any) {
   const { pagination, onPageChange } = props;
   const { _page, _limit, totalRow } = pagination;
-  const [currentPage, setcurrentPage] = useState(1);
+  // const [currentPage, setcurrentPage] = useState(1);
 
   const totalPage = Math.ceil(totalRow / _limit);
   var pageNumber = createPageNumber(totalPage);
@@ -21,7 +21,7 @@ export function Pagination(props: any) {
   function handlePageChange(newPage: number) {
     if (onPageChange) {
       onPageChange(newPage);
-      setcurrentPage(newPage);
+      // setcurrentPage(newPage);
     }
   }
 
@@ -32,7 +32,7 @@ export function Pagination(props: any) {
           key={index}
           id={number.toString()}
           onClick={() => handlePageChange(number)}
-          className={currentPage === number ? 'active' : undefined}
+          className={_page === number ? 'active' : undefined}
         >
           {number}
         </li>
