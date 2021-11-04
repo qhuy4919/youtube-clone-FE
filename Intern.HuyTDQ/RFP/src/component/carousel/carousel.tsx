@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 
-import "./carousel.scss";
+import './carousel.scss';
 // import { ImageSlider } from "../../model/carousel";
 
 type Props = {
@@ -16,7 +16,7 @@ export function Carousel({ slide }: Props) {
   var image_list: Array<string> = [];
   if (slide) {
     image_list = slide.map((item) => {
-      return item.snippet.thumbnails.high.url
+      return item.snippet.thumbnails.high.url;
     });
   }
   //
@@ -33,22 +33,21 @@ export function Carousel({ slide }: Props) {
   }
   // TODO: index as key
   return (
-    <div className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
-      {(image_list ?? [])
-        .map((slide_item, index) => {
-          return (
-            <div
-              className={index === current ? "slide active" : "slide"}
-              key={index}
-            >
-              {index === current && (
-                <img src={slide_item} alt="video" className="image" />
-              )}
-            </div>
-          );
-        })}
+    <div className='slider'>
+      <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+      <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+      {(image_list ?? []).map((slide_item, index) => {
+        return (
+          <div
+            className={index === current ? 'slide active' : 'slide'}
+            key={index}
+          >
+            {index === current && (
+              <img src={slide_item} alt='video' className='image' />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

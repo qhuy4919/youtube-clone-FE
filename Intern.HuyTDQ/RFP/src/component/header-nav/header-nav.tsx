@@ -1,14 +1,23 @@
 import React from 'react';
-import { Form, Icon, Image, Input, Menu, SemanticICONS } from 'semantic-ui-react';
+import {
+  Form,
+  Icon,
+  Image,
+  Input,
+  Menu,
+  SemanticICONS,
+} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './header-nav.scss';
 
 type Prop = {
-  onActiveSidebar: () => void;
+  onActiveSidebar?: () => void;
 };
 export function Header({ onActiveSidebar }: Prop) {
   function handleClickMenu() {
-    onActiveSidebar();
+    if (onActiveSidebar) {
+      onActiveSidebar();
+    }
   }
   return (
     <Menu borderless className='header-nav'>
@@ -45,15 +54,16 @@ export function Header({ onActiveSidebar }: Prop) {
 
       {/* 5 */}
       <Menu.Menu className='nav-right'>
-        {[
-          'video camera',
-          'grid layout',
-          'chat',
-          'alarm'
-        ].map(entry => {
-          return <Menu.Item key={entry}>
-            <Icon className='header-icon' name={entry as SemanticICONS | undefined} size='large' />
-          </Menu.Item>
+        {['video camera', 'grid layout', 'chat', 'alarm'].map((entry) => {
+          return (
+            <Menu.Item key={entry}>
+              <Icon
+                className='header-icon'
+                name={entry as SemanticICONS | undefined}
+                size='large'
+              />
+            </Menu.Item>
+          );
         })}
         {/* 7*/}
         <Menu.Item name='avatar'>
