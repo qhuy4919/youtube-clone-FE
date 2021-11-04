@@ -14,11 +14,11 @@ export interface ResponseGenerator {
   statusText?: string;
   result?: any;
 }
-export function* fetchEntity(request: any, enity: any, ...arg: any) {
+export function* fetchEntity(request: any, entity: any, ...args: any) {
   try {
     const response: ResponseGenerator = yield call(request);
-    yield put(enity.success(response.result, ...arg));
+    yield put(entity.success(response.data, ...args));
   } catch (error) {
-    yield put(enity.failure(error, ...arg));
+    // yield put(entity.failue(error, ...args));
   }
 }

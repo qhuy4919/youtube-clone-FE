@@ -19,4 +19,15 @@ export const Query = {
       return axiosClient.get(url);
     },
   },
+  trending: {
+    list: () => {
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?`;
+      const config = {
+        params: {
+          chart: 'mostPopular',
+        },
+      };
+      return axiosClient.get(url, config);
+    },
+  },
 };
