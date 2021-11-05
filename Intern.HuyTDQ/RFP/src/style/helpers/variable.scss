@@ -40,12 +40,12 @@
 
   //pading - margin
   --spacing-unit: 8px;
-  --spacing-unit-xs: --spacing-unit; // 8px
-  --spacing-unit-sm: calc(var(--spacing-unit) * 2); // 16px Base
-  --spacing-unit-md: calc(var(--spacing-unit) * 3); // 24px
-  --spacing-unit-lg: calc(var(--spacing-unit) * 4); // 32px
-  --spacing-unit-xl: calc(var(--spacing-unit) * 5); // 40px
-  --spacing-unit-xxl: calc(var(--spacing-unit) * 8); // 64px
+  --spacing-unit-xs: 8px; // 8px
+  --spacing-unit-sm: 16px; // 16px Base
+  --spacing-unit-md: 24px; // 24px
+  --spacing-unit-lg: 32px; // 32px
+  --spacing-unit-xl: 40px; // 40px
+  --spacing-unit-xxl: 64px; // 64px
 
   //font size
   --font-size-ssmall: 10px;

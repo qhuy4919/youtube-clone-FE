@@ -10,3 +10,4 @@ export { Carousel } from './carousel/carousel';
 export { Loader } from './loader/loader';
 export { Pagination } from './pagination/pagination';
 export { RelatedVideo } from './related-video/related-video';
+export { VideoList } from './video-list/video-list';

@@ -1,0 +1,10 @@
+.video-list {
+  display: grid;
+  grid: auto / auto;
+  padding-left: 10rem;
+  padding-top: 24px;
+  margin-left: var(--sidebar-left-width);
+  margin-top: var(--header-nav-height);
+  grid-row-gap: 10px;
+  max-width: 900px;
+}

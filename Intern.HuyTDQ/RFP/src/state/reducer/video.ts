@@ -17,17 +17,16 @@ export function videoReducer(state: any = initialState, action: any) {
 }
 
 function reduceFetchMostPopularVideo(response: any, state: any) {
-  const videoList = response.items.reduce((acc: any, video: any) => {
+  const videoList = response.reduce((acc: any, video: any) => {
     acc[video.id] = video;
     return acc;
   }, {});
   let item = Object.keys(videoList);
-  // if (state.mostPopular) {
-  //   item = [...state.mostPopular.items, ...item];
-  // }
 
+  // if (Object.keys(state.mostPopular).length) {
+  //   item = [...state.mostPopular.item, ...item];
+  // }
   const mostPopular = {
-    totalResults: response.pageInfo.totalResults,
     item,
   };
 
@@ -38,17 +37,14 @@ function reduceFetchMostPopularVideo(response: any, state: any) {
   };
 }
 
-// selectors
-
-export const getMostPopular = (state: any) => state.video.mostPopular;
-
+// selector
 export const getMostPopularVideo = createSelector(
   (state: any) => state.video.byId,
-  getMostPopular,
+  (state: any) => state.video.mostPopular,
   (videoById, mostPopular) => {
-    if (!mostPopular.items || !videoById) {
+    if (!mostPopular.item) {
       return ['huhu'];
     }
-    return mostPopular.items.map((videoId: any) => videoById[videoId]);
+    return mostPopular.item.map((videoId: any) => videoById[videoId]);
   }
 );

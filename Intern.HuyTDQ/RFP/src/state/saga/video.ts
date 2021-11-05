@@ -5,18 +5,16 @@ import { Query } from '../../access/api/index';
 import { fetchEntity } from './index';
 
 //worker
-export function* fetchMostPopularVideo(amount?: any, loadDescription?: any) {
+export function* fetchMostPopularVideo(filter?: any) {
   const request = Query.trending.list;
-  yield fetchEntity(request, videoAction.mostPopular);
+  const param = filter;
+  yield fetchEntity(request, param, videoAction.mostPopular);
 }
 
 //watchcer
 export function* watchMostPopularVideo() {
   while (true) {
-    const { amount, loadDescription } = yield take(
-      videoAction.MOST_POPULAR[REQUEST]
-    );
-
-    yield fork(fetchMostPopularVideo, amount, loadDescription);
+    const { filter } = yield take(videoAction.MOST_POPULAR[REQUEST]);
+    yield fork(fetchMostPopularVideo, filter);
   }
 }

@@ -12,8 +12,11 @@
     .video-info {
       margin-top: 0;
     }
+    &.expanded {
+      grid: auto / 246px auto;
+    }
+    grid-column-gap: 10px;
 
-    grid-column-gap: var(--spacing-unit-xs);
     .video-info {
       grid-row: 1 / 2;
       grid-column: 2 / 3;
@@ -50,6 +53,14 @@
   .view-and-time {
     font-size: var(--font-size-small);
     margin-bottom: var(--spacing-unit-sm);
+  }
+
+  .semi-bold {
+    &.expanded {
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size--lg);
+    }
+    font-weight: 600;
   }
 }
 

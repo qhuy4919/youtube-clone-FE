@@ -9,10 +9,9 @@ import {
 export const MOST_POPULAR = createRequestType('MOST_POPULAR');
 
 export const mostPopular = {
-  request: (amount?: any, loadDescription?: any) =>
+  request: (filter?: any) =>
     createAction(MOST_POPULAR[REQUEST], {
-      amount,
-      loadDescription,
+      filter,
     }),
   success: (response: any) => createAction(MOST_POPULAR[SUCCESS], { response }),
   failure: (response: any) => createAction(MOST_POPULAR[FAILURE], { response }),

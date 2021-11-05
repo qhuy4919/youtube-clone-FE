@@ -20,6 +20,8 @@ function convertViewCount(viewCount: string) {
 export function VideoPreview(props: any) {
   const { video, pathname, video_id } = props;
   const duration = video.contentDetails ? video.contentDetails.duration : null;
+  const horizontal = props.horizontal ? 'horizontal' : null;
+  const expanded = props.expanded ? 'expanded' : null;
   const videoDuration = getVideoDurationString(duration);
   const video_url = pathname.concat(video_id);
 
@@ -32,7 +34,7 @@ export function VideoPreview(props: any) {
 
   return (
     <Link to={{ pathname: video_url }}>
-      <div className='video-preview'>
+      <div className={['video-preview', horizontal, expanded].join(' ')}>
         <div className='image-container'>
           <Image src={video.snippet.thumbnails.medium.url} />
           <div className='time-label'>
@@ -41,11 +43,19 @@ export function VideoPreview(props: any) {
         </div>
 
         <div className='video-info'>
-          <div>{video.snippet.title}</div>
+          <div
+            className={['semi-bold', 'show-max-two-lines', expanded].join(' ')}
+          >
+            {video.snippet.title}
+          </div>
           <div className='video-preview-metadata-container'>
             <div className='channel-title'>{video.snippet.channelTitle}</div>
             <div className='view-and-time'>{viewAndTime}</div>
-            {/* <div className='show-max-two-lines'>{description}</div> */}
+            {expanded && (
+              <div className={'show-max-two-lines'}>
+                {video.snippet.description}
+              </div>
+            )}
           </div>
         </div>
       </div>

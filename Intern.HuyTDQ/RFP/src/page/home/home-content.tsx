@@ -74,7 +74,7 @@ function HomeContent() {
       )}
       {hasError && <> no data...</>}
       <div className='pagination-container'>
-        {<Pagination pagination={pagination} onPageChange={handlePageChange} />}
+        <Pagination pagination={pagination} onPageChange={handlePageChange} />
       </div>
     </div>
   );

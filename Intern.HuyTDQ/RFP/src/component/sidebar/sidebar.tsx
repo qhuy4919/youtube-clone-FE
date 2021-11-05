@@ -8,21 +8,21 @@ import './sidebar.scss';
 export function Sidebar() {
   return (
     <Menu borderless vertical stackable fixed='left' className='side-nav'>
-      <SidebarItem path='/' label='Home' icon='home' />
-      <SidebarItem path='/feed/trending' label='Trending' icon='fire' />
-      <SidebarItem label='Followers' icon='spy' />
+      <SidebarItem pathname='/home' label='Home' icon='home' />
+      <SidebarItem pathname='/trending' label='Trending' icon='fire' />
+      <SidebarItem pathname='/home' label='Followers' icon='spy' />
       <Divider />
       <SidebarHeader title='Library' />
-      <SidebarItem label='History' icon='history' />
-      <SidebarItem label='Watch later' icon='clock' />
-      <SidebarItem label='Liked videos' icon='thumbs up' />
+      <SidebarItem pathname='/home' label='History' icon='history' />
+      <SidebarItem pathname='/home' label='Watch later' icon='clock' />
+      <SidebarItem pathname='/home' label='Liked videos' icon='thumbs up' />
       <Divider />
       <SidebarHeader title='More from Youtube' />
-      <SidebarItem label='Movies and Shows' icon='film' />
+      <SidebarItem pathname='/home' label='Movies and Shows' icon='film' />
       <Divider />
-      <SidebarItem label='Report history' icon='flag' />
-      <SidebarItem label='Help' icon='help circle' />
-      <SidebarItem label='Send feedback' icon='comment' />
+      <SidebarItem pathname='/home' label='Report history' icon='flag' />
+      <SidebarItem pathname='/home' label='Help' icon='help circle' />
+      <SidebarItem pathname='/home' label='Send feedback' icon='comment' />
       <Divider />
       <SibarFooter />
     </Menu>
