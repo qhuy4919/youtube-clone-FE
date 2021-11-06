@@ -42,17 +42,19 @@ export function Trending() {
     <div className='trending-container'>
       <Header />
       <Sidebar />
-      {!videoList || videoList.length < 2 ? (
-        <div className='loader'>
-          <Loader />
+      <div className='trending-content'>
+        {!videoList || videoList.length < 2 ? (
+          <div className='loader'>
+            <Loader />
+          </div>
+        ) : (
+          <div className='video-list-container'>
+            <VideoList video={videoList} />
+          </div>
+        )}
+        <div className='pagination-container'>
+          <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </div>
-      ) : (
-        <div className='video-list-container'>
-          <VideoList video={videoList} />
-        </div>
-      )}
-      <div className='pagination-container'>
-        <Pagination pagination={pagination} onPageChange={handlePageChange} />
       </div>
     </div>
   );
