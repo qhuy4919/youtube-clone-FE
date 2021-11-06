@@ -11,24 +11,28 @@ import {
 } from '../../component/index';
 import './trending.scss';
 
+type VideoData = {
+  data: [];
+  totalPage: number;
+};
 export function Trending() {
   const [pagination, setPagination] = useState({
     _page: 1,
     _limit: 8,
-    totalRow: 46,
+    totalRow: 12,
   });
   const [filter, setFilter] = useState({
     _page: 1,
     _limit: 8,
   });
-  const videoList = useSelector(getMostPopularVideo);
+  const videoList: VideoData = useSelector(getMostPopularVideo);
   const dispatch = useDispatch();
-  const paginated = [1];
   useEffect(() => {
     dispatch(VideoAction.mostPopular.request(filter));
     setPagination({
       ...pagination,
       _page: filter._page,
+      totalRow: videoList.totalPage,
     });
   }, [filter]);
 
@@ -43,13 +47,13 @@ export function Trending() {
       <Header />
       <Sidebar />
       <div className='trending-content'>
-        {!videoList || videoList.length < 2 ? (
+        {!videoList || videoList.data.length < 2 ? (
           <div className='loader'>
             <Loader />
           </div>
         ) : (
           <div className='video-list-container'>
-            <VideoList video={videoList} />
+            <VideoList video={videoList.data} />
           </div>
         )}
         <div className='pagination-container'>

@@ -1,4 +1,4 @@
-import { all, call, put, fork } from 'redux-saga/effects';
+import { all, put, fork } from 'redux-saga/effects';
 import { watchMostPopularVideo } from './video';
 
 export default function* () {
@@ -22,8 +22,8 @@ export function* fetchEntity(
 ) {
   try {
     const response: ResponseGenerator = yield request(param);
-    yield put(entity.success(response.data, ...args));
+    yield put(entity.success(response, ...args));
   } catch (error) {
-    // yield put(entity.failue(error, ...args));
+    yield put(entity.failue(error, ...args));
   }
 }

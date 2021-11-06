@@ -1,4 +1,4 @@
-import { fork, take, takeEvery, call, all, put } from 'redux-saga/effects';
+import { fork, take } from 'redux-saga/effects';
 import * as videoAction from '../action/video';
 import { REQUEST } from '../action';
 import { Query } from '../../access/api/index';

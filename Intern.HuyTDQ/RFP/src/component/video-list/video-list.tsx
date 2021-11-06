@@ -18,6 +18,5 @@ export function VideoList(props: any) {
         />
       ))}
     </div>
-    
   );
 }

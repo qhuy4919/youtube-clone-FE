@@ -5,6 +5,7 @@ import { MOST_POPULAR } from '../action/video';
 export const initialState = {
   byId: {},
   mostPopular: {},
+  totalPage: 12,
 };
 
 export function videoReducer(state: any = initialState, action: any) {
@@ -17,11 +18,11 @@ export function videoReducer(state: any = initialState, action: any) {
 }
 
 function reduceFetchMostPopularVideo(response: any, state: any) {
-  const videoList = response.reduce((acc: any, video: any) => {
+  const videoList = response.data.reduce((acc: any, video: any) => {
     acc[video.id] = video;
     return acc;
   }, {});
-  let item = Object.keys(videoList);
+  const item = Object.keys(videoList);
 
   // if (Object.keys(state.mostPopular).length) {
   //   item = [...state.mostPopular.item, ...item];
@@ -30,10 +31,13 @@ function reduceFetchMostPopularVideo(response: any, state: any) {
     item,
   };
 
+  const totalPage = response.headers['x-total-count'];
+
   return {
     ...state,
     mostPopular,
     byId: { ...state.byId, ...videoList },
+    totalPage: totalPage,
   };
 }
 
@@ -41,10 +45,17 @@ function reduceFetchMostPopularVideo(response: any, state: any) {
 export const getMostPopularVideo = createSelector(
   (state: any) => state.video.byId,
   (state: any) => state.video.mostPopular,
-  (videoById, mostPopular) => {
+  (state: any) => state.video.totalPage,
+  (videoById, mostPopular, totalPage) => {
     if (!mostPopular.item) {
-      return ['huhu'];
+      return {
+        data: [],
+        totalPage: 0,
+      };
     }
-    return mostPopular.item.map((videoId: any) => videoById[videoId]);
+    return {
+      data: mostPopular.item.map((videoId: any) => videoById[videoId]),
+      totalPage: parseInt(totalPage),
+    };
   }
 );
