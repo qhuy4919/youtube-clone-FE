@@ -8,7 +8,6 @@
 
   li {
     padding: var(--spacing-unit-sm);
-    border: 1px solid white;
     flex: 1;
     list-style: none;
     text-align: center;
@@ -25,7 +24,6 @@
     &:first-child,
     &:last-child {
       font-size: var(--font-size-lg);
-      margin: 0 12px;
     }
 
     button {

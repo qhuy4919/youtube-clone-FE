@@ -5,7 +5,7 @@ import { MOST_POPULAR } from '../action/video';
 export const initialState = {
   byId: {},
   mostPopular: {},
-  totalPage: 12,
+  totalPage: -1,
 };
 
 export function videoReducer(state: any = initialState, action: any) {
@@ -50,7 +50,7 @@ export const getMostPopularVideo = createSelector(
     if (!mostPopular.item) {
       return {
         data: [],
-        totalPage: 0,
+        totalPage: 50,
       };
     }
     return {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Menu, Divider } from 'semantic-ui-react';
 import SidebarItem from './sidebar-item/sidebar-item';
 import SidebarHeader from './sidebar-header/sidebar-header';

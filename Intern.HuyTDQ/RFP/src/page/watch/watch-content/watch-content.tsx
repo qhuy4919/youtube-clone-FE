@@ -6,7 +6,20 @@ import {
   VideoInfoBox,
   Loader,
 } from '../../../component/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMostPopularVideo } from '../../../state/reducer/video';
 import './watch-content.scss';
+
+function getVideoById(videoList: any, videoId: any) {
+  for (let item of videoList.data) {
+    console.log(item);
+    if (item.id === videoId) {
+      console.log(item.id);
+      return item;
+    }
+  }
+  return null;
+}
 
 function WatchContent(props: any) {
   const { video_id } = props;
@@ -14,7 +27,7 @@ function WatchContent(props: any) {
   const [channelId, setChannelId] = useState('');
   const [isLoading, setIsloading] = useState<Boolean>(true);
   const [hasError, setHasError] = useState(false);
-
+  const videoList: any = useSelector(getMostPopularVideo);
   //fetch video
   useEffect(() => {
     let relevant = true;
@@ -22,10 +35,12 @@ function WatchContent(props: any) {
       setIsloading(true);
       setHasError(false);
       try {
-        const response: any = await Query.video.item({ video_id });
+        // const response: any = await Query.video.item({ video_id });
+        const response = getVideoById(videoList, video_id);
         if (response && relevant) {
-          setVideoInformation(response.data);
-          setChannelId(response.data.snippet.channelId);
+          console.log(response);
+          setVideoInformation(response);
+          setChannelId(response.snippet.channelId);
         }
       } catch (error) {
         if (relevant) setHasError(true);
@@ -41,7 +56,6 @@ function WatchContent(props: any) {
     };
     fetchVideo();
   }, [video_id]);
-
   return (
     <div className='watch-grid'>
       {isLoading ? (
@@ -52,7 +66,7 @@ function WatchContent(props: any) {
         <>
           <Video className='video' id={video_id} />
           <VideoMetadata className='metadata' video={videoInformation} />
-          {channelId.length <= 0 ? (
+          {channelId.length < 1 ? (
             <></>
           ) : (
             <VideoInfoBox
