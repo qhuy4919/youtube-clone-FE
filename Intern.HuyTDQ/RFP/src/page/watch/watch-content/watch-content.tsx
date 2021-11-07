@@ -32,6 +32,7 @@ function WatchContent(props: any) {
   const [isLoading, setIsloading] = useState<Boolean>(true);
   const [hasError, setHasError] = useState(false);
   const [isShowing, setIsShowing] = useState(false);
+  // const [refreshPage, setRefreshPage] = useState(false);
 
   const videoList: any = useSelector(getMostPopularVideo);
 
