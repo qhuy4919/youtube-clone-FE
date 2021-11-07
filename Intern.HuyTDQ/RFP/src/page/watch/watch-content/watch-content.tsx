@@ -5,16 +5,20 @@ import {
   VideoMetadata,
   VideoInfoBox,
   Loader,
+  TrendingUpdateForm,
 } from '../../../component/index';
-import { useDispatch, useSelector } from 'react-redux';
-import { getMostPopularVideo } from '../../../state/reducer/video';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  getMostPopularVideo,
+  filterVideoById,
+} from '../../../state/reducer/video';
+import { Icon } from 'semantic-ui-react';
+
 import './watch-content.scss';
 
 function getVideoById(videoList: any, videoId: any) {
   for (let item of videoList.data) {
-    console.log(item);
     if (item.id === videoId) {
-      console.log(item.id);
       return item;
     }
   }
@@ -27,7 +31,18 @@ function WatchContent(props: any) {
   const [channelId, setChannelId] = useState('');
   const [isLoading, setIsloading] = useState<Boolean>(true);
   const [hasError, setHasError] = useState(false);
+  const [isShowing, setIsShowing] = useState(false);
+
   const videoList: any = useSelector(getMostPopularVideo);
+
+  function toggleForm() {
+    setIsShowing(!isShowing);
+  }
+
+  function closeModal() {
+    setIsShowing(false);
+  }
+
   //fetch video
   useEffect(() => {
     let relevant = true;
@@ -38,7 +53,6 @@ function WatchContent(props: any) {
         // const response: any = await Query.video.item({ video_id });
         const response = getVideoById(videoList, video_id);
         if (response && relevant) {
-          console.log(response);
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
         }
@@ -75,9 +89,23 @@ function WatchContent(props: any) {
               channelId={channelId}
             />
           )}
+          <div className='position-fixed add-button'>
+            <Icon
+              name='pencil alternate'
+              size='large'
+              className=' add-button__icon'
+              onClick={toggleForm}
+            ></Icon>
+          </div>
         </>
       )}
       {hasError && <>no data... </>}
+      <TrendingUpdateForm
+        videoInformation={videoInformation}
+        isShowing={isShowing}
+        hide={toggleForm}
+        closeModal={closeModal}
+      />
     </div>
   );
 }

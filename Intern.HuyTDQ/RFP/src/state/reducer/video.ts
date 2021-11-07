@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { SUCCESS } from '../action';
-import { MOST_POPULAR } from '../action/video';
+import { MOST_POPULAR, GET_VIDEO_ID } from '../action/video';
 
 export const initialState = {
   byId: {},
@@ -12,6 +12,8 @@ export function videoReducer(state: any = initialState, action: any) {
   switch (action.type) {
     case MOST_POPULAR[SUCCESS]:
       return reduceFetchMostPopularVideo(action.response, state);
+    case GET_VIDEO_ID['get']:
+      return filterVideoById(state, action.payload);
     default:
       return state;
   }
@@ -39,6 +41,10 @@ function reduceFetchMostPopularVideo(response: any, state: any) {
     byId: { ...state.byId, ...videoList },
     totalPage: totalPage,
   };
+}
+
+export function filterVideoById(state: any, videoId: any) {
+  return state.video.byId[videoId];
 }
 
 // selector

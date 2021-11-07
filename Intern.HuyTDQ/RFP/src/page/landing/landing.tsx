@@ -1,5 +1,6 @@
-import { Header, Carousel } from '../../component';
+import { Header } from '../../component';
 import { Link } from 'react-router-dom';
+
 import './landing.scss';
 export function Landing() {
   return (
@@ -14,7 +15,10 @@ export function Landing() {
           </Link>
         </div>
         <div id='bg-container'>
-          <Carousel />
+          <img
+            src='https://brandlogos.net/wp-content/files/nAMr39DXwW/YouTube_icon_F7801.svg'
+            alt=''
+          />
         </div>
       </div>
     </div>

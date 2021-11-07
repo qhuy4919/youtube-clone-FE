@@ -30,15 +30,24 @@ export function Trending() {
   });
   const [isShowing, setIsShowing] = useState(false);
   const videoList: VideoData = useSelector(getMostPopularVideo);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(VideoAction.mostPopular.request(filter));
-    setPagination({
-      ...pagination,
-      _page: filter._page,
-      totalRow: videoList.totalPage,
-    });
+    try {
+      dispatch(VideoAction.mostPopular.request(filter));
+      setPagination({
+        ...pagination,
+        _page: filter._page,
+        totalRow: videoList.totalPage,
+      });
+      setIsLoading(false);
+    } catch (error) {
+      setHasError(true);
+    } finally {
+      setIsLoading(false);
+    }
   }, [filter]);
 
   function handlePageChange(newPage: number) {
@@ -51,13 +60,17 @@ export function Trending() {
   function toggleForm() {
     setIsShowing(!isShowing);
   }
+
+  function closeModal() {
+    setIsShowing(false);
+  }
   return (
     <div className='trending-container'>
       <Header />
       <Sidebar />
 
       <div className='trending-content'>
-        {!videoList || videoList.data.length < 1 || videoList.totalPage < 0 ? (
+        {!videoList && isLoading ? (
           <div className='loader'>
             <Loader />
           </div>
@@ -78,7 +91,12 @@ export function Trending() {
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
         </div>
       </div>
-      <TrendingAddForm isShowing={isShowing} hide={toggleForm} />
+      {hasError && <> no data...</>}
+      <TrendingAddForm
+        isShowing={isShowing}
+        hide={toggleForm}
+        closeModal={closeModal}
+      />
     </div>
   );
 }
