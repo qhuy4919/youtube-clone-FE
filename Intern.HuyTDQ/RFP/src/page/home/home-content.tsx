@@ -3,6 +3,7 @@ import { VideoGrid } from '../../component/video-grid/video-grid';
 import { Loader, Pagination } from '../../component/';
 import { Query } from '../../access/api/index';
 import './home-content.scss';
+
 function HomeContent() {
   const [videoList, setVideoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +54,7 @@ function HomeContent() {
       relevant = false;
     };
   }, [filter]);
+
   return (
     <div className='home-content'>
       {isLoading ? (

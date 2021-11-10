@@ -2,11 +2,8 @@ import { useState, useRef } from 'react';
 import { useParams } from 'react-router';
 import WatchContent from './watch-content/watch-content';
 import { Header, Sidebar } from '../../component/index';
-
 import './watch.scss';
-// interface MatchParams {
-//   name: string;
-// }
+
 export function Watch() {
   const { video_id }: any = useParams();
   const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);

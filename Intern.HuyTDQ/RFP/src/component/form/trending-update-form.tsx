@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Command } from '../../access/api/command-api';
-import './trending-add-form.scss';
+import './trending-update-form.scss';
 
 export function TrendingUpdateForm(props: any) {
   const { videoInformation, isShowing, hide, closeModal } = props;
@@ -101,7 +101,7 @@ export function TrendingUpdateForm(props: any) {
           >
             <div className='modal'>
               <div className='modal-header'>
-                <h2 className='modal-header__title '>Alter video </h2>
+                <h2 className='modal-header__title '>Update video </h2>
                 <button
                   type='button'
                   className='modal-close-button'
@@ -112,10 +112,10 @@ export function TrendingUpdateForm(props: any) {
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <div className='l-form'>
+              <div className='form-container'>
                 <form
                   action=''
-                  className='form'
+                  className='update-form'
                   onSubmit={(e) => handleSubmitNewVideo(e)}
                 >
                   <div className='form__div'>

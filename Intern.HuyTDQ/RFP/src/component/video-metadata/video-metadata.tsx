@@ -1,5 +1,4 @@
-import React from 'react';
-import { Button, Divider, Icon } from 'semantic-ui-react';
+import { Divider } from 'semantic-ui-react';
 import './video-metadata.scss';
 
 export function VideoMetadata(props: any) {

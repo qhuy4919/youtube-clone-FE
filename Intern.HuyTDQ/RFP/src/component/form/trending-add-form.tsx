@@ -92,10 +92,10 @@ export function TrendingAddForm(props: any) {
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <div className='l-form'>
+              <div className='form-container'>
                 <form
                   action=''
-                  className='form'
+                  className='add-form'
                   onSubmit={(e) => handleSubmitNewVideo(e)}
                 >
                   <div className='form__div'>
@@ -154,10 +154,10 @@ export function TrendingAddForm(props: any) {
                     value='Adding'
                   />
                 </form>
-                {hasError && <>something wrong</>}
               </div>
             </div>
           </div>
+          {hasError && <>something wrong</>}
         </React.Fragment>,
         document.body
       )

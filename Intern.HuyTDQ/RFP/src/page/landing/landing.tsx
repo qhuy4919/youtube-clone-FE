@@ -1,7 +1,7 @@
 import { Header } from '../../component';
 import { Link } from 'react-router-dom';
-
 import './landing.scss';
+
 export function Landing() {
   return (
     <div>

@@ -2,10 +2,6 @@
   display: grid;
   grid: 180px auto / 320px; //fisrt row = 180px and onther auto
 
-  /*
-       override grid settings to make VideoPreview horizontal.
-       Vertical is default
-     */
   &.horizontal {
     grid: auto / 210px auto;
 

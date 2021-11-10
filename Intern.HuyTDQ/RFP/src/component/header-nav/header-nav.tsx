@@ -1,12 +1,4 @@
-import React from 'react';
-import {
-  Form,
-  Icon,
-  Image,
-  Input,
-  Menu,
-  SemanticICONS,
-} from 'semantic-ui-react';
+import { Icon, Image, Menu, SemanticICONS } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './header-nav.scss';
 

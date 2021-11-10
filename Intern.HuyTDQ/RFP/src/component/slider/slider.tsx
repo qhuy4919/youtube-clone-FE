@@ -1,10 +1,8 @@
-import React from "react";
-import { Image } from "semantic-ui-react";
-import VideoGridHeader from "../video-grid/video-grid-header/video-grid-header";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
-import "./slider.scss";
+import { Image } from 'semantic-ui-react';
+import VideoGridHeader from '../video-grid/video-grid-header/video-grid-header';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import './slider.scss';
 export function Slider(props: any) {
   const { title, videos } = props;
   if (!videos || !videos.length) {
@@ -27,7 +25,7 @@ export function Slider(props: any) {
           clickable: true,
         }}
         // navigation={true}
-        className="mySwiper"
+        className='mySwiper'
       >
         {trending_video.map((image: any, index: number) => {
           return (

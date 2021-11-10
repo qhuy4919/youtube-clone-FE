@@ -1,14 +1,13 @@
-import React from 'react'
 import { Menu } from 'semantic-ui-react';
 
 function SidebarHeader(props: any) {
-    const { title } = props;
+  const { title } = props;
 
-    return (
-        <Menu.Item>
-            <Menu.Header className='side-bar-header'>{title}</Menu.Header>
-        </Menu.Item>
-    )
+  return (
+    <Menu.Item>
+      <Menu.Header className='side-bar-header'>{title}</Menu.Header>
+    </Menu.Item>
+  );
 }
 
-export default SidebarHeader
+export default SidebarHeader;

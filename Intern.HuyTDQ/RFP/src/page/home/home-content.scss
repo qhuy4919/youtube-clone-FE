@@ -3,11 +3,6 @@
   grid: auto auto / 1fr;
   justify-items: center;
 
-  // height: 100%;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-
   .pagination-container {
     grid-row-start: 2;
   }
@@ -16,9 +11,10 @@
 .loader-container {
   grid-row-start: 1;
   min-height: 670px;
-}
-.loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+
+  .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
 }

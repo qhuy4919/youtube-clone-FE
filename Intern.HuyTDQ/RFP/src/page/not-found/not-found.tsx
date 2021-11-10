@@ -1,5 +1,6 @@
 import './not-found.scss';
 import { Link } from 'react-router-dom';
+
 export function NotFound() {
   return (
     <div>

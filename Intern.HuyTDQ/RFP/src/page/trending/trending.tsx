@@ -10,7 +10,6 @@ import {
   Pagination,
   TrendingAddForm,
 } from '../../component/index';
-
 import { Icon } from 'semantic-ui-react';
 import './trending.scss';
 
@@ -18,6 +17,7 @@ type VideoData = {
   data: [];
   totalPage: number;
 };
+
 export function Trending() {
   const [pagination, setPagination] = useState({
     _page: 1,
@@ -34,6 +34,7 @@ export function Trending() {
   const [hasError, setHasError] = useState(false);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     try {
       dispatch(VideoAction.mostPopular.request(filter));
