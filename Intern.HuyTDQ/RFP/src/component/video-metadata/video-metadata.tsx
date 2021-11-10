@@ -1,4 +1,4 @@
-import { Divider } from 'semantic-ui-react';
+import { Divider, Button, Icon } from 'semantic-ui-react';
 import './video-metadata.scss';
 
 export function VideoMetadata(props: any) {
@@ -13,16 +13,16 @@ export function VideoMetadata(props: any) {
       <div className='video-stats'>
         <span>100.000 views</span>
         <div className='video-actions'>
-          {/* <Button basic icon labelPosition="left">
-            <Icon name="share" />
+          <Button basic icon labelPosition='left'>
+            <Icon name='share' />
             Share
           </Button>
           <Button basic icon>
-            <Icon name="add circle" />
+            <Icon name='add circle' />
           </Button>
           <Button basic icon>
-            <Icon name="ellipsis horizontal" />
-          </Button> */}
+            <Icon name='ellipsis horizontal' />
+          </Button>
         </div>
       </div>
       <Divider />

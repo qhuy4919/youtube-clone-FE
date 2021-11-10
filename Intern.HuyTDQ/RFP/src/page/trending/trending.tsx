@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as VideoAction from '../../state/action/video';
+import * as videoAction from '../../state/action/video';
 import { getMostPopularVideo } from '../../state/reducer/video';
 import {
   Header,
@@ -34,10 +34,10 @@ export function Trending() {
   const [hasError, setHasError] = useState(false);
 
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     try {
-      dispatch(VideoAction.mostPopular.request(filter));
+      dispatch(videoAction.mostPopular.request(filter));
       setPagination({
         ...pagination,
         _page: filter._page,

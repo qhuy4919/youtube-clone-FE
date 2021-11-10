@@ -6,8 +6,10 @@ import {
   FAILURE,
 } from './index';
 
+//async action
 export const MOST_POPULAR = createRequestType('MOST_POPULAR');
-export const GET_VIDEO_ID = createRequestType('GET_VIDEO_ID');
+//sync action
+export const GET_VIDEO_ID = 'GET_VIDEO_ID';
 
 export const mostPopular = {
   request: (filter?: any) =>
@@ -19,7 +21,5 @@ export const mostPopular = {
 };
 
 export const getVideoById = {
-  get: (videoId: any) => {
-    createAction(GET_VIDEO_ID, { videoId });
-  },
+  request: (videoId: any) => createAction(GET_VIDEO_ID, { videoId }),
 };

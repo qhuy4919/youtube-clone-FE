@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Query } from '../../../access/api';
 import {
   Video,
   VideoMetadata,
@@ -8,34 +7,21 @@ import {
   TrendingUpdateForm,
 } from '../../../component/index';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  getMostPopularVideo,
-  filterVideoById,
-} from '../../../state/reducer/video';
+import * as videoAction from '../../../state/action/video';
+import { getVideoById } from '../../../state/reducer/video';
 import { Icon } from 'semantic-ui-react';
 
 import './watch-content.scss';
-
-function getVideoById(videoList: any, videoId: any) {
-  for (let item of videoList.data) {
-    if (item.id === videoId) {
-      return item;
-    }
-  }
-  return null;
-}
 
 function WatchContent(props: any) {
   const { video_id } = props;
   const [videoInformation, setVideoInformation] = useState([]);
   const [channelId, setChannelId] = useState('');
-  const [isLoading, setIsloading] = useState<Boolean>(true);
   const [hasError, setHasError] = useState(false);
   const [isShowing, setIsShowing] = useState(false);
-  // const [refreshPage, setRefreshPage] = useState(false);
 
-  const videoList: any = useSelector(getMostPopularVideo);
-
+  const dispatch = useDispatch();
+  const videoDetail: any = useSelector(getVideoById);
   function toggleForm() {
     setIsShowing(!isShowing);
   }
@@ -48,11 +34,10 @@ function WatchContent(props: any) {
   useEffect(() => {
     let relevant = true;
     const fetchVideo = async () => {
-      setIsloading(true);
       setHasError(false);
       try {
-        // const response: any = await Query.video.item({ video_id });
-        const response = getVideoById(videoList, video_id);
+        dispatch(videoAction.getVideoById.request(video_id));
+        const response = videoDetail;
         if (response && relevant) {
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
@@ -60,9 +45,6 @@ function WatchContent(props: any) {
       } catch (error) {
         if (relevant) setHasError(true);
       } finally {
-        if (relevant) {
-          setIsloading(false);
-        }
       }
 
       return function cleanup() {
@@ -70,10 +52,11 @@ function WatchContent(props: any) {
       };
     };
     fetchVideo();
-  }, [video_id]);
+  }, [videoDetail]);
+
   return (
     <div className='watch-grid'>
-      {isLoading ? (
+      {!videoDetail ? (
         <div className='loader'>
           <Loader />
         </div>
