@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as videoAction from '../../state/action/video';
-import { getMostPopularVideo } from '../../state/reducer/video';
 import {
   Header,
   Sidebar,
@@ -11,6 +9,8 @@ import {
   TrendingAddForm,
 } from '../../component/index';
 import { Icon } from 'semantic-ui-react';
+import * as videoAction from '../../state/action/video';
+import { getMostPopularVideo, getLoading } from '../../state/reducer/video';
 import './trending.scss';
 
 type VideoData = {
@@ -29,12 +29,11 @@ export function Trending() {
     _limit: 8,
   });
   const [isShowing, setIsShowing] = useState(false);
-  const videoList: VideoData = useSelector(getMostPopularVideo);
-  const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-
+  const videoList: VideoData = useSelector(getMostPopularVideo);
+  const isLoading: boolean = useSelector(getLoading);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     try {
       dispatch(videoAction.mostPopular.request(filter));
@@ -43,11 +42,9 @@ export function Trending() {
         _page: filter._page,
         totalRow: videoList.totalPage,
       });
-      setIsLoading(false);
     } catch (error) {
       setHasError(true);
     } finally {
-      setIsLoading(false);
     }
   }, [filter]);
 
@@ -71,7 +68,7 @@ export function Trending() {
       <Sidebar />
 
       <div className='trending-content'>
-        {!videoList && isLoading ? (
+        {!isLoading ? (
           <div className='loader'>
             <Loader />
           </div>

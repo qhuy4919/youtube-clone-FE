@@ -6,22 +6,28 @@ import {
   Loader,
   TrendingUpdateForm,
 } from '../../../component/index';
+import { Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as videoAction from '../../../state/action/video';
-import { getVideoById } from '../../../state/reducer/video';
-import { Icon } from 'semantic-ui-react';
-
+import * as watchAction from '../../../state/action/watch';
+import {
+  getVideoById,
+  getMostPopularVideo,
+  getLoading,
+} from '../../../state/reducer/video';
 import './watch-content.scss';
 
 function WatchContent(props: any) {
-  const { video_id } = props;
+  const { videoId } = props;
   const [videoInformation, setVideoInformation] = useState([]);
   const [channelId, setChannelId] = useState('');
   const [hasError, setHasError] = useState(false);
   const [isShowing, setIsShowing] = useState(false);
-
   const dispatch = useDispatch();
   const videoDetail: any = useSelector(getVideoById);
+  const videoList: any = useSelector(getMostPopularVideo);
+  const isLoading: boolean = useSelector(getLoading);
+
   function toggleForm() {
     setIsShowing(!isShowing);
   }
@@ -33,12 +39,16 @@ function WatchContent(props: any) {
   //fetch video
   useEffect(() => {
     let relevant = true;
-    const fetchVideo = async () => {
+    const fetchVideo = () => {
       setHasError(false);
       try {
-        dispatch(videoAction.getVideoById.request(video_id));
+        if (videoList.data.length < 1) {
+          dispatch(watchAction.watchDetail.request(videoId));
+        } else {
+          dispatch(videoAction.getVideoById.request(videoId));
+        }
         const response = videoDetail;
-        if (response && relevant) {
+        if (response && Object.keys(response).length > 0 && relevant) {
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
         }
@@ -52,17 +62,17 @@ function WatchContent(props: any) {
       };
     };
     fetchVideo();
-  }, [videoDetail]);
+  }, [JSON.stringify(videoDetail)]);
 
   return (
     <div className='watch-grid'>
-      {!videoDetail ? (
+      {!isLoading ? (
         <div className='loader'>
           <Loader />
         </div>
       ) : (
         <>
-          <Video className='video' id={video_id} />
+          <Video className='video' id={videoId} />
           <VideoMetadata className='metadata' video={videoInformation} />
           {channelId.length < 1 ? (
             <></>

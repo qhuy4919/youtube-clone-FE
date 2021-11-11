@@ -9,7 +9,7 @@ function App(props: any) {
         <Route path='/' component={Landing} exact />
         <Route path='/home' component={Home} exact />
         <Route path='/trending' component={Trending} exact />
-        <Route path='/watch/:video_id' component={Watch} exact />
+        <Route path='/watch/:videoId' component={Watch} exact />
         <Route component={NotFound} />
       </Switch>
     </Router>

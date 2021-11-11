@@ -5,11 +5,11 @@ import { Header, Sidebar } from '../../component/index';
 import './watch.scss';
 
 export function Watch() {
-  const { video_id }: any = useParams();
+  const { videoId }: any = useParams();
   const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);
   const watchContainer = useRef<HTMLHeadingElement>(null);
 
-  if (!video_id) {
+  if (!videoId) {
     return <div />;
   }
   function handleActiveSidebar() {
@@ -30,7 +30,7 @@ export function Watch() {
       <div className='watch-container'>
         <Sidebar />
         {/* <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div> */}
-        <WatchContent video_id={video_id} />
+        <WatchContent videoId={videoId} />
       </div>
     </div>
   );

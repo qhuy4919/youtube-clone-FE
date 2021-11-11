@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { SUCCESS, REQUEST } from '../action';
+import { SUCCESS } from '../action';
 import { GET_VIDEO_ID, MOST_POPULAR } from '../action/video';
 import { WATCH_DETAIL } from '../action/watch';
 
@@ -15,8 +15,8 @@ export function videoReducer(state: any = initialState, action: any) {
   switch (action.type) {
     case MOST_POPULAR[SUCCESS]:
       return fetchMostPopularVideo(action.response, state);
-    // case WATCH_DETAIL[SUCCESS]:
-    //   return fetchVideoDetail(action.response, state);
+    case WATCH_DETAIL[SUCCESS]:
+      return fetchVideoDetail(action.response, state);
     case GET_VIDEO_ID:
       return filterVideoById(action.videoId, state);
     default:
@@ -31,9 +31,6 @@ function fetchMostPopularVideo(response: any, state: any) {
   }, {});
   const item = Object.keys(videoList);
 
-  // if (Object.keys(state.mostPopular).length) {
-  //   item = [...state.mostPopular.item, ...item];
-  // }
   const mostPopular = {
     item,
   };
@@ -45,6 +42,15 @@ function fetchMostPopularVideo(response: any, state: any) {
     mostPopular,
     byId: { ...state.byId, ...videoList },
     totalPage: totalPage,
+    isloading: false,
+  };
+}
+
+export function fetchVideoDetail(response: any, state: any) {
+  return {
+    ...state,
+    currentVideo: response.data,
+    isloading: false,
   };
 }
 
@@ -77,5 +83,12 @@ export const getVideoById = createSelector(
       return videoById;
     }
     return null;
+  }
+);
+
+export const getLoading = createSelector(
+  (state: any) => state.video.isLoading,
+  (isLoading) => {
+    return isLoading;
   }
 );

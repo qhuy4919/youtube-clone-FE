@@ -14,8 +14,8 @@ export const Query = {
       const url = `${process.env.REACT_APP_API_URL}/video?${param}`;
       return axiosClient.get(url);
     },
-    item: ({ video_id }: any) => {
-      const url = `${process.env.REACT_APP_API_URL}/video/${video_id}`;
+    item: (videoId: any) => {
+      const url = `${process.env.REACT_APP_API_URL}/trending/${videoId}`;
       return axiosClient.get(url);
     },
   },
