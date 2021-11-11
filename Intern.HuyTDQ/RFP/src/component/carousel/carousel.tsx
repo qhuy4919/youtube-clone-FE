@@ -16,6 +16,7 @@ export function Carousel({ slide }: Props) {
   var image_list: Array<string> = [];
   if (slide) {
     image_list = slide.map((item) => {
+      console.log(item.snippet.thumbnails);
       return item.snippet.thumbnails.high.url;
     });
   }

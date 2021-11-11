@@ -48,11 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    img {
-      width: 50%;
-      height: 50%;
-      animation: float 3s linear infinite;
-    }
+    flex-shrink: 50px;
   }
 
   @keyframes float {

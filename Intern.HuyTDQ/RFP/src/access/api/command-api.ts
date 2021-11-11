@@ -1,5 +1,4 @@
 import axiosClient from './axios-client';
-import queryString from 'query-string';
 
 export const Command = {
   channel: {

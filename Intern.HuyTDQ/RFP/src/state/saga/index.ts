@@ -1,4 +1,4 @@
-import { all, put, fork, call } from 'redux-saga/effects';
+import { all, put, fork } from 'redux-saga/effects';
 import { watchMostPopularVideo } from './video';
 import { watchVideoDetail } from './watch';
 

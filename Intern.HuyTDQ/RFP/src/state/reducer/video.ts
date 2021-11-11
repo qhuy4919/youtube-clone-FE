@@ -42,7 +42,7 @@ function fetchMostPopularVideo(response: any, state: any) {
     mostPopular,
     byId: { ...state.byId, ...videoList },
     totalPage: totalPage,
-    isloading: false,
+    isLoading: false,
   };
 }
 
@@ -50,7 +50,7 @@ export function fetchVideoDetail(response: any, state: any) {
   return {
     ...state,
     currentVideo: response.data,
-    isloading: false,
+    isLoading: false,
   };
 }
 

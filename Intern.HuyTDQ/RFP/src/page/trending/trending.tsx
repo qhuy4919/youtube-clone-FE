@@ -35,17 +35,29 @@ export function Trending() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    try {
-      dispatch(videoAction.mostPopular.request(filter));
-      setPagination({
-        ...pagination,
-        _page: filter._page,
-        totalRow: videoList.totalPage,
-      });
-    } catch (error) {
-      setHasError(true);
-    } finally {
-    }
+    let relevant = true;
+    const fetchVideoDetail = async () => {
+      try {
+        if (relevant) {
+          dispatch(videoAction.mostPopular.request(filter));
+          setPagination({
+            ...pagination,
+            _page: filter._page,
+            totalRow: videoList.totalPage,
+          });
+        }
+      } catch (error) {
+        if (relevant) {
+          setHasError(true);
+        }
+      } finally {
+      }
+
+      return () => {
+        relevant = false;
+      };
+    };
+    fetchVideoDetail();
   }, [filter]);
 
   function handlePageChange(newPage: number) {
@@ -68,7 +80,7 @@ export function Trending() {
       <Sidebar />
 
       <div className='trending-content'>
-        {!isLoading ? (
+        {isLoading ? (
           <div className='loader'>
             <Loader />
           </div>

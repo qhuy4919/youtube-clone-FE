@@ -66,7 +66,7 @@ function WatchContent(props: any) {
 
   return (
     <div className='watch-grid'>
-      {!isLoading ? (
+      {isLoading ? (
         <div className='loader'>
           <Loader />
         </div>

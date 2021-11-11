@@ -78,6 +78,7 @@ export function TrendingUpdateForm(props: any) {
     try {
       const response = await Command.trending.update(data);
       if (response) {
+        setIsLoading(false);
         alert('item was update');
         closeModal();
       }
@@ -187,7 +188,7 @@ export function TrendingUpdateForm(props: any) {
                   <input
                     type='submit'
                     className='form__button'
-                    value='Update'
+                    value={isLoading ? 'loading...' : 'update'}
                   />
                 </form>
                 {hasError && <>something wrong</>}

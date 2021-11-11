@@ -58,6 +58,7 @@ export function TrendingAddForm(props: any) {
       const response = await Command.trending.add(newVideo);
       if (response) {
         alert('item was added in last page');
+        setIsLoading(false);
         closeModal();
         window.location.reload();
       }
@@ -151,7 +152,7 @@ export function TrendingAddForm(props: any) {
                   <input
                     type='submit'
                     className='form__button'
-                    value='Adding'
+                    value={isLoading ? 'loading...' : 'add'}
                   />
                 </form>
               </div>
