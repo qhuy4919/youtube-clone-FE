@@ -11,7 +11,6 @@ const createPageNumber = (totalPage: number) => {
 export function Pagination(props: any) {
   const { pagination, onPageChange } = props;
   const { _page, _limit, totalRow } = pagination;
-  // const [currentPage, setcurrentPage] = useState(1);
 
   const totalPage = Math.ceil(totalRow / _limit) || 10;
   var pageNumber = createPageNumber(totalPage);
@@ -19,7 +18,6 @@ export function Pagination(props: any) {
   function handlePageChange(newPage: number) {
     if (onPageChange) {
       onPageChange(newPage);
-      // setcurrentPage(newPage);
     }
   }
 
@@ -39,26 +37,22 @@ export function Pagination(props: any) {
       return null;
     }
   });
-
+  console.log(_page);
   return (
     <>
       <ul className='pageNumbers'>
-        <li>
-          <button
-            onClick={() => handlePageChange(_page - 1)}
-            disabled={_page === 1 ? true : false}
-          >
-            Prev
-          </button>
+        <li
+          onClick={() => handlePageChange(_page - 1)}
+          className={_page <= 1 ? 'disable-button' : undefined}
+        >
+          Prev
         </li>
         {renderPageNumbers}
-        <li>
-          <button
-            onClick={() => handlePageChange(_page + 1)}
-            disabled={_page === totalPage ? true : false}
-          >
-            Next
-          </button>
+        <li
+          onClick={() => handlePageChange(_page + 1)}
+          className={_page === totalPage ? 'disable-button' : undefined}
+        >
+          Next
         </li>
       </ul>
       {/* <button onClick={handleLoadMore} className="loadmore">

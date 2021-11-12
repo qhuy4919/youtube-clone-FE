@@ -25,17 +25,10 @@
     &:last-child {
       font-size: var(--font-size-sm);
     }
+  }
 
-    button {
-      background-color: transparent;
-      border: none;
-      color: black;
-      font-size: var(--font-size-ssmall);
-      cursor: pointer;
-
-      &:focus {
-        outline: none;
-      }
-    }
+  .disable-button {
+    pointer-events: none;
+    opacity: 0.4;
   }
 }

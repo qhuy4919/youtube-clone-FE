@@ -5,6 +5,7 @@
 
   .home-content__list {
     min-height: 720px;
+    grid-template-rows: 1;
   }
   //
   .pagination-container {
@@ -16,5 +17,4 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  // grid-row-start: 1;
 }
