@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-right: calc(-1 * var(--spacing-unit-sm));
+  margin-right: calc(var(--spacing-unit-sm) * -1);
+  min-height: 660px;
 
   & > * {
     margin-right: var(--spacing-unit-sm);

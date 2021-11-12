@@ -9,9 +9,7 @@ export function Watch() {
   const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);
   const watchContainer = useRef<HTMLHeadingElement>(null);
 
-  if (!videoId) {
-    return <div />;
-  }
+  //
   function handleActiveSidebar() {
     setActiveSidebar(!acitveSidebar);
     if (acitveSidebar) {
@@ -24,6 +22,12 @@ export function Watch() {
       }
     }
   }
+
+  //
+  if (!videoId) {
+    return <div />;
+  }
+
   return (
     <div>
       <Header onActiveSidebar={handleActiveSidebar} />

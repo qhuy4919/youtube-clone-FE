@@ -1,8 +1,8 @@
 @import '../../style/helpers/variable.scss';
 
-.video-metadata {
+.video-metadata-container {
   color: var(--primary-text-color);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-md);
 
   h3 {
     font-weight: var(--font-weight-bold);
@@ -19,7 +19,7 @@
       display: flex;
       align-items: center;
       & > *:not(:last-child) {
-        margin-right: 8px;
+        margin-right: var(--font-size-sx);
       }
     }
   }

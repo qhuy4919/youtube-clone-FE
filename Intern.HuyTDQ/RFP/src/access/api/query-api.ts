@@ -9,7 +9,7 @@ export const Query = {
     },
   },
   video: {
-    list: (filter: any) => {
+    list: (filter?: any) => {
       const param = queryString.stringify(filter);
       const url = `${process.env.REACT_APP_API_URL}/video?${param}`;
       return axiosClient.get(url);

@@ -57,27 +57,27 @@ function HomeContent() {
 
   return (
     <div className='home-content'>
-      {isLoading ? (
-        <div className='loader-container'>
+      <div className='home-content__list'>
+        {isLoading ? (
           <div className='loader'>
             <Loader />
           </div>
-        </div>
-      ) : (
-        <>
-          {/* <div className='slider'>
+        ) : (
+          <>
+            {/* <div className='slider'>
             <Slider title="trending" videos={video} />
             <Carousel slide={video}></Carousel>
           </div> */}
-          <div className='home-content__item'>
-            <VideoGrid title='recommend' videos={videoList} />
-          </div>
-        </>
-      )}
-      {hasError && <> no data...</>}
+            <div className='home-content__item'>
+              <VideoGrid title='recommend' videos={videoList} />
+            </div>
+          </>
+        )}
+      </div>
       <div className='pagination-container'>
         <Pagination pagination={pagination} onPageChange={handlePageChange} />
       </div>
+      {hasError && <> no data...</>}
     </div>
   );
 }

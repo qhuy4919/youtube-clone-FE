@@ -17,6 +17,7 @@ function convertViewCount(viewCount: string) {
   }
   return res;
 }
+
 export function VideoPreview(props: any) {
   const { video, pathname, video_id } = props;
   const duration = video.contentDetails ? video.contentDetails.duration : null;
@@ -24,9 +25,10 @@ export function VideoPreview(props: any) {
   const expanded = props.expanded ? 'expanded' : null;
   const videoDuration = getVideoDurationString(duration);
   const video_url = pathname.concat(video_id);
-
   let viewAndTime = '';
   const viewCount = video.statistics ? video.statistics.viewCount : null;
+
+  //
   if (viewCount) {
     const viewCountShort = video.statistics.viewCount;
     viewAndTime = `${convertViewCount(viewCountShort)} views • 1 year ago`;

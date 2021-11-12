@@ -34,6 +34,7 @@ export function Trending() {
   const isLoading: boolean = useSelector(getLoading);
   const dispatch = useDispatch();
 
+  //
   useEffect(() => {
     let relevant = true;
     const fetchVideoDetail = async () => {
@@ -74,22 +75,24 @@ export function Trending() {
   function closeModal() {
     setIsShowing(false);
   }
+
   return (
     <div className='trending-container'>
       <Header />
       <Sidebar />
-
       <div className='trending-content'>
-        {isLoading ? (
-          <div className='loader'>
-            <Loader />
-          </div>
-        ) : (
-          <div className='video-list-container'>
-            <VideoList video={videoList.data} />
-          </div>
-        )}
-        <div className='position-fixed add-button'>
+        <div className='trending-content__list'>
+          {isLoading ? (
+            <div className='loader'>
+              <Loader />
+            </div>
+          ) : (
+            <div className='video-list-container'>
+              <VideoList video={videoList.data} />
+            </div>
+          )}
+        </div>
+        <div className='modal position-fixed add-button'>
           <Icon
             name='add'
             size='large'

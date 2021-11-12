@@ -13,7 +13,7 @@ export function Pagination(props: any) {
   const { _page, _limit, totalRow } = pagination;
   // const [currentPage, setcurrentPage] = useState(1);
 
-  const totalPage = Math.ceil(totalRow / _limit);
+  const totalPage = Math.ceil(totalRow / _limit) || 10;
   var pageNumber = createPageNumber(totalPage);
 
   function handlePageChange(newPage: number) {

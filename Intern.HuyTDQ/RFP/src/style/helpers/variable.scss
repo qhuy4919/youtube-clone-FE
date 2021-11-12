@@ -1,9 +1,11 @@
 :root {
   //header
   --header-nav-height: 64px;
+
   //sidebar
   --sidebar-hover-color: #ebebeb;
   --sidebar-left-width: 17rem;
+
   //video avatar
   --avatar-diameter: 48px;
   --avatar-margin: 10px;
@@ -13,9 +15,6 @@
   --light-theme-primary-color: #f9f9f9;
   --light-theme-secondary-color: #737373;
   --light-theme-tertiary-color: rgb(66, 66, 66);
-
-  // background color
-  --light-theme-background-color: #f9f9f9;
 
   //text-color
   --primary-text-color: #212121;
@@ -48,11 +47,12 @@
   --spacing-unit-xxl: 64px; // 64px
 
   //font size
-  --font-size-ssmall: 10px;
-  --font-size-small: 16px;
-  --font-size-medium: 20px;
-  --font-size-large: 32px;
-  --font-size-xlarge: 60px;
+  --font-size-sx: 8px;
+  --font-size-sm: 16px;
+  --font-size-md: 20px;
+  --font-size-lg: 32px;
+  --font-size-xl: 40px;
+  --font-size-xxl: 64px;
 
   //font weight
   --font-weight-regular: 400;

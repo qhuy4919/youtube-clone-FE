@@ -2,8 +2,8 @@
   display: grid;
   grid: auto auto / var(--avatar-diameter) auto max-content;
   align-items: center;
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
+  grid-row-gap: var(--spacing-unit-sm);
+  grid-column-gap: var(--spacing-unit-sm);
 
   .channel-image {
     grid-row: 1 / 2;
@@ -17,12 +17,13 @@
     grid-column: 2 / 3;
 
     .channel-name {
-      font-weight: 600;
+      color: var(--primary-text-color);
+      font-weight: var(--font-weight-bold);
       cursor: pointer;
     }
     .video-publication-date {
-      font-size: 13px;
-      color: #707070;
+      font-size: var(--font-size-sm);
+      color: var(--secondary-text-color);
     }
   }
 
@@ -37,7 +38,7 @@
     grid-column: 2 / 3;
 
     button {
-      margin: 8px 0;
+      margin: var(--spacing-unit-xs) 0;
     }
 
     p {

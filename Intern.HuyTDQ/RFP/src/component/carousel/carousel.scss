@@ -1,13 +1,30 @@
-.slider {
+.slider-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .image {
-    width: 1000px;
+  .slider-image {
+    width: 800px;
     height: 600px;
     border-radius: 10px;
+
+    .image {
+      width: 800px;
+      height: 600px;
+      border-radius: 10px;
+    }
+
+    .slide {
+      opacity: 0;
+      transition-duration: 1s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transition-duration: 1s;
+      transform: scale(1.08);
+    }
   }
 
   .right-arrow {
@@ -30,16 +47,5 @@
     z-index: 10;
     cursor: pointer;
     user-select: none;
-  }
-
-  .slide {
-    opacity: 0;
-    transition-duration: 1s ease;
-  }
-
-  .slide.active {
-    opacity: 1;
-    transition-duration: 1s;
-    transform: scale(1.08);
   }
 }

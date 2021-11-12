@@ -8,6 +8,10 @@
     flex-direction: column;
     justify-self: center;
 
+    .trending-content__list {
+      min-height: 900px;
+    }
+
     .pagination-container {
       margin: var(--spacing-unit-md) auto;
     }

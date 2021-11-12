@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-
 import { Command } from '../../access/api/command-api';
 import './trending-update-form.scss';
 
@@ -19,7 +18,6 @@ export function TrendingUpdateForm(props: any) {
       },
     },
   });
-
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState<any | undefined>();
 
@@ -29,6 +27,7 @@ export function TrendingUpdateForm(props: any) {
   const videoDescriptionRef = useRef<any>(null);
   const videoImageRef = useRef<any>(null);
 
+  //
   function handleIdChange(e: any) {
     let field = e.target.name;
     setNewVideo({
@@ -46,6 +45,7 @@ export function TrendingUpdateForm(props: any) {
       },
     }));
   }
+
   function handleImageChange(e: any) {
     setNewVideo((prev) => ({
       ...prev,

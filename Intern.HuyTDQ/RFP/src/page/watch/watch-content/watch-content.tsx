@@ -28,14 +28,6 @@ function WatchContent(props: any) {
   const videoList: any = useSelector(getMostPopularVideo);
   const isLoading: boolean = useSelector(getLoading);
 
-  function toggleForm() {
-    setIsShowing(!isShowing);
-  }
-
-  function closeModal() {
-    setIsShowing(false);
-  }
-
   //fetch video
   useEffect(() => {
     let relevant = true;
@@ -63,6 +55,14 @@ function WatchContent(props: any) {
     };
     fetchVideo();
   }, [JSON.stringify(videoDetail)]);
+
+  function toggleForm() {
+    setIsShowing(!isShowing);
+  }
+
+  function closeModal() {
+    setIsShowing(false);
+  }
 
   return (
     <div className='watch-grid'>
