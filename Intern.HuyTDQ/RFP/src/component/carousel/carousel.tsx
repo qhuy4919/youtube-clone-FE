@@ -17,11 +17,12 @@ export function Carousel() {
   const length = videoList.data.length || 0;
   const skeleton = videoList.data.length > 0 ? '' : 'skeleton';
 
+  //
   useEffect(() => {
     let relevant = true;
     const fetchVideo = () => {
       try {
-        dispatch(videoAction.mostPopular.request());
+        dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 8 }));
       } catch (error) {
         if (relevant) setHasError(true);
       } finally {
@@ -48,6 +49,7 @@ export function Carousel() {
   //
   var image_list: Array<string> = [];
   if (slide) {
+    console.log(image_list);
     image_list = slide.map((item: any) => {
       return item.snippet.thumbnails.high.url;
     });

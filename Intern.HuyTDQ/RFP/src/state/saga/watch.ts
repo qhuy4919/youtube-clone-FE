@@ -11,7 +11,7 @@ export function* fetchVideoDetail(videoId: string) {
   yield fetchEntity(request, param, watchAction.watchDetail);
 }
 
-export function* fetchVideoUpdated(data: any) {
+export function* putVideoUpdated(data: any) {
   const request = Command.trending.update;
   const param = data;
   yield fetchEntity(request, param, watchAction.updateWatch);
@@ -26,9 +26,9 @@ export function* watchVideoDetail() {
   }
 }
 
-export function* updateVideoDetail() {
+export function* watchUpdateVideoDetail() {
   while (true) {
     const { data } = yield take(watchAction.WATCH_UPDATE[REQUEST]);
-    yield fork(fetchVideoUpdated, data);
+    yield fork(putVideoUpdated, data);
   }
 }

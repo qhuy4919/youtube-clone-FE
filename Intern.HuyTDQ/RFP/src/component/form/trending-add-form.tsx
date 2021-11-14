@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLoading } from '../../state/reducer/video';
+import * as videoAction from '../../state/action/video';
 import './trending-add-form.scss';
-import { Command } from '../../access/api/command-api';
 
 export function TrendingAddForm(props: any) {
   const { isShowing, hide, closeModal } = props;
@@ -18,9 +20,11 @@ export function TrendingAddForm(props: any) {
       },
     },
   });
-  const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState<any | undefined>();
+  const isLoading = useSelector(getLoading);
+  const dispatch = useDispatch();
 
+  //
   function handleIdChange(e: any) {
     let field = e.target.name;
     setNewVideo({
@@ -28,6 +32,7 @@ export function TrendingAddForm(props: any) {
       [field]: e.target.value,
     });
   }
+
   function handleSnippetChange(e: any) {
     let field = e.target.name;
     setNewVideo((prev) => ({
@@ -38,6 +43,7 @@ export function TrendingAddForm(props: any) {
       },
     }));
   }
+
   function handleImageChange(e: any) {
     setNewVideo((prev) => ({
       ...prev,
@@ -51,17 +57,12 @@ export function TrendingAddForm(props: any) {
       },
     }));
   }
+
   async function handleSubmitNewVideo(e: any) {
-    setIsLoading(true);
     e.preventDefault();
     try {
-      const response = await Command.trending.add(newVideo);
-      if (response) {
-        alert('item was added in last page');
-        setIsLoading(false);
-        closeModal();
-        window.location.reload();
-      }
+      dispatch(videoAction.createNewVideo.request(newVideo));
+      closeModal();
     } catch (error) {
       alert(error);
       closeModal();
