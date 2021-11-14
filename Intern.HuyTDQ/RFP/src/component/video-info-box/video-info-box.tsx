@@ -8,6 +8,7 @@ export type DescriptionParagraphsProps = {
   video: any;
   descriptionTextClass: string;
 };
+
 export const DescriptionParagraphs = ({
   video,
   descriptionTextClass,
@@ -16,6 +17,7 @@ export const DescriptionParagraphs = ({
   if (!videoDescription) {
     return null;
   }
+
   return (
     <div className={descriptionTextClass}>
       {videoDescription.split('\n').map((paragraph: any, index: number) => (
@@ -34,7 +36,11 @@ export function VideoInfoBox(props: any) {
   const [hasError, setHasError] = useState<any | undefined>();
   const [collapsed, setCollapsed] = useState(true);
 
-  const getDescriptionText = () => {
+  const { descriptionTextClass, buttonTitle } = getDescriptionText();
+  const publishedAtString = video.snippet.publishedAt;
+
+  //
+  function getDescriptionText() {
     let descriptionTextClass = 'collapsed';
     let buttonTitle = 'Show More';
     if (!collapsed) {
@@ -45,7 +51,7 @@ export function VideoInfoBox(props: any) {
       descriptionTextClass,
       buttonTitle,
     };
-  };
+  }
 
   const onToggleCollapseButtonClick = () => {
     setCollapsed(!collapsed);
@@ -57,9 +63,6 @@ export function VideoInfoBox(props: any) {
       return `Subscribe 10M`;
     }
   };
-
-  const { descriptionTextClass, buttonTitle } = getDescriptionText();
-  const publishedAtString = video.snippet.publishedAt;
 
   //fecth channel information
   useEffect(() => {
@@ -91,6 +94,7 @@ export function VideoInfoBox(props: any) {
   if (!video) {
     return <div />;
   }
+
   return (
     <div>
       {!isLoading && (

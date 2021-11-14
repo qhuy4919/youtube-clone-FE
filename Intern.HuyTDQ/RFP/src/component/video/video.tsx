@@ -1,4 +1,3 @@
-import React from 'react';
 import './video.scss';
 
 const BASE_EMBED_URL = 'https://www.youtube.com/embed/';

@@ -33,7 +33,6 @@ export function Watch() {
       <Header onActiveSidebar={handleActiveSidebar} />
       <div className='watch-container'>
         <Sidebar />
-        {/* <div className='home-sidebar'>{acitveSidebar && <Sidebar />}</div> */}
         <WatchContent videoId={videoId} />
       </div>
     </div>

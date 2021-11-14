@@ -9,6 +9,7 @@ const createPageNumber = (totalPage: number) => {
 
   return pageNumber;
 };
+
 export function Pagination(props: any) {
   const { pagination, onPageChange } = props;
   const { _page, _limit, totalRow } = pagination;
