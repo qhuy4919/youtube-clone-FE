@@ -1,3 +1,4 @@
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import './pagination.scss';
 
 const createPageNumber = (totalPage: number) => {
@@ -37,7 +38,7 @@ export function Pagination(props: any) {
       return null;
     }
   });
-  console.log(_page);
+
   return (
     <>
       <ul className='pageNumbers'>
@@ -45,14 +46,14 @@ export function Pagination(props: any) {
           onClick={() => handlePageChange(_page - 1)}
           className={_page <= 1 ? 'disable-button' : undefined}
         >
-          Prev
+          <AiOutlineArrowLeft />
         </li>
         {renderPageNumbers}
         <li
           onClick={() => handlePageChange(_page + 1)}
           className={_page === totalPage ? 'disable-button' : undefined}
         >
-          Next
+          <AiOutlineArrowRight />
         </li>
       </ul>
       {/* <button onClick={handleLoadMore} className="loadmore">

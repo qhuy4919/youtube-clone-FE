@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Command } from '../../access/api/command-api';
+import { useDispatch, useSelector } from 'react-redux';
+import * as watchAction from '../../state/action/watch';
+import { getLoading } from '../../state/reducer/video';
 import './trending-update-form.scss';
 
 export function TrendingUpdateForm(props: any) {
@@ -18,8 +20,9 @@ export function TrendingUpdateForm(props: any) {
       },
     },
   });
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector(getLoading);
   const [hasError, setHasError] = useState<any | undefined>();
+  const dispatch = useDispatch();
 
   const videoIdRef = useRef<any>(null);
   const ChannelIdRef = useRef<any>(null);
@@ -35,6 +38,7 @@ export function TrendingUpdateForm(props: any) {
       [field]: e.target.value,
     });
   }
+
   function handleSnippetChange(e: any) {
     let field = e.target.name;
     setNewVideo((prev) => ({
@@ -59,8 +63,8 @@ export function TrendingUpdateForm(props: any) {
       },
     }));
   }
+
   async function handleSubmitNewVideo(e: any) {
-    setIsLoading(true);
     e.preventDefault();
     const data = {
       id: videoIdRef.current.value,
@@ -76,12 +80,8 @@ export function TrendingUpdateForm(props: any) {
       },
     };
     try {
-      const response = await Command.trending.update(data);
-      if (response) {
-        setIsLoading(false);
-        alert('item was update');
-        closeModal();
-      }
+      dispatch(watchAction.updateWatch.request(data));
+      closeModal();
     } catch (error) {
       alert(error);
       closeModal();

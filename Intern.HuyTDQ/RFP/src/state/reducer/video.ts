@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { SUCCESS } from '../action';
+import { REQUEST, SUCCESS } from '../action';
 import { GET_VIDEO_ID, MOST_POPULAR } from '../action/video';
-import { WATCH_DETAIL } from '../action/watch';
+import { WATCH_DETAIL, WATCH_UPDATE } from '../action/watch';
 
 export const initialState = {
   byId: {},
@@ -16,6 +16,10 @@ export function videoReducer(state: any = initialState, action: any) {
     case MOST_POPULAR[SUCCESS]:
       return fetchMostPopularVideo(action.response, state);
     case WATCH_DETAIL[SUCCESS]:
+      return fetchVideoDetail(action.response, state);
+    case WATCH_UPDATE[REQUEST]:
+      return resetLoadingState(state);
+    case WATCH_UPDATE[SUCCESS]:
       return fetchVideoDetail(action.response, state);
     case GET_VIDEO_ID:
       return filterVideoById(action.videoId, state);
@@ -57,6 +61,13 @@ export function fetchVideoDetail(response: any, state: any) {
 export function filterVideoById(videoId: any, state: any) {
   return { ...state, currentVideo: state.byId[videoId] };
 }
+
+export function resetLoadingState(state: any) {
+  return {
+    ...state,
+    isLoading: true,
+  };
+}
 // selector
 export const getMostPopularVideo = createSelector(
   (state: any) => state.video.byId,
@@ -69,6 +80,7 @@ export const getMostPopularVideo = createSelector(
         totalPage: 50,
       };
     }
+    console.log(videoById);
     return {
       data: mostPopular.item.map((videoId: any) => videoById[videoId]),
       totalPage: parseInt(totalPage),
@@ -79,6 +91,7 @@ export const getMostPopularVideo = createSelector(
 export const getVideoById = createSelector(
   (state: any) => state.video.currentVideo,
   (videoById) => {
+    console.log(videoById);
     if (videoById) {
       return videoById;
     }

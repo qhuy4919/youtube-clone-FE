@@ -39,7 +39,7 @@ function WatchContent(props: any) {
         } else {
           dispatch(videoAction.getVideoById.request(videoId));
         }
-        const response = videoDetail;
+        const response = videoList.data.currentVideo || videoDetail;
         if (response && Object.keys(response).length > 0 && relevant) {
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
@@ -48,7 +48,6 @@ function WatchContent(props: any) {
         if (relevant) setHasError(true);
       } finally {
       }
-
       return function cleanup() {
         relevant = false;
       };
