@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoading } from '../../state/reducer/video';
@@ -20,9 +20,15 @@ export function TrendingAddForm(props: any) {
       },
     },
   });
-  const [hasError, setHasError] = useState<any | undefined>();
+  const [hasError, setHasError] = useState<any | undefined>(null);
   const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
+
+  const videoIdRef = useRef<any>(null);
+  const ChannelIdRef = useRef<any>(null);
+  const videoTitleRef = useRef<any>(null);
+  const videoDescriptionRef = useRef<any>(null);
+  const videoImageRef = useRef<any>(null);
 
   //
   function handleIdChange(e: any) {
@@ -58,15 +64,32 @@ export function TrendingAddForm(props: any) {
     }));
   }
 
+  function formValidation() {
+    if (
+      !videoIdRef.current.value ||
+      !ChannelIdRef.current.value ||
+      !videoTitleRef.current.value ||
+      !videoDescriptionRef.current.value ||
+      !videoImageRef.current.value
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   async function handleSubmitNewVideo(e: any) {
     e.preventDefault();
-    try {
-      dispatch(videoAction.createNewVideo.request(newVideo));
-      closeModal();
-    } catch (error) {
-      alert(error);
-      closeModal();
-      setHasError(error);
+    if (!formValidation()) {
+      alert('Invalid Fields');
+    } else {
+      try {
+        dispatch(videoAction.createNewVideo.request(newVideo));
+        closeModal();
+      } catch (error) {
+        alert(error);
+        closeModal();
+        setHasError(error);
+      }
     }
   }
 
@@ -102,6 +125,7 @@ export function TrendingAddForm(props: any) {
                 >
                   <div className='form__div'>
                     <input
+                      ref={videoIdRef}
                       type='text'
                       className='form__input'
                       placeholder=' '
@@ -112,6 +136,7 @@ export function TrendingAddForm(props: any) {
                   </div>
                   <div className='form__div'>
                     <input
+                      ref={videoTitleRef}
                       type='text'
                       className='form__input'
                       placeholder=' '
@@ -122,6 +147,7 @@ export function TrendingAddForm(props: any) {
                   </div>
                   <div className='form__div'>
                     <input
+                      ref={videoImageRef}
                       type='text'
                       className='form__input'
                       placeholder=' '
@@ -132,6 +158,7 @@ export function TrendingAddForm(props: any) {
                   </div>
                   <div className='form__div'>
                     <input
+                      ref={ChannelIdRef}
                       type='text'
                       className='form__input'
                       placeholder=' '
@@ -142,6 +169,7 @@ export function TrendingAddForm(props: any) {
                   </div>
                   <div className='form__div'>
                     <input
+                      ref={videoDescriptionRef}
                       type='text'
                       className='form__input'
                       placeholder=' '

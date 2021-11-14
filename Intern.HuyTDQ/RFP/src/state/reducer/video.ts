@@ -15,6 +15,8 @@ export function videoReducer(state: any = initialState, action: any) {
   switch (action.type) {
     case MOST_POPULAR[SUCCESS]:
       return fetchMostPopularVideo(action.response, state);
+    case MOST_POPULAR[REQUEST]:
+      return resetLoadingState(state);
     case WATCH_DETAIL[SUCCESS]:
       return fetchVideoDetail(action.response, state);
     case WATCH_UPDATE[REQUEST]:
@@ -45,7 +47,7 @@ function fetchMostPopularVideo(response: any, state: any) {
 
   const totalPage = response.headers['x-total-count'];
 
-  return {  
+  return {
     ...state,
     mostPopular,
     byId: { ...state.byId, ...videoList },
@@ -67,7 +69,6 @@ export function filterVideoById(videoId: any, state: any) {
 }
 
 export function updateVideoList(response: any, state: any) {
-  console.log(response);
   const newVideoId = response.data.id;
   const newVideoDetail = response.data.snippet;
   const newVideo = { [newVideoId]: newVideoDetail };

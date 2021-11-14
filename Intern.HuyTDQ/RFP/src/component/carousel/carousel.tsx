@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as videoAction from '../../state/action/video';
-import { getMostPopularVideo, getLoading } from '../../state/reducer/video';
+import { getMostPopularVideo } from '../../state/reducer/video';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import './carousel.scss';
-// type Props = {
-//   slide: Array<any>;
-// };
 
 export function Carousel() {
   const [current, setCurrent] = useState(0);
@@ -25,9 +22,6 @@ export function Carousel() {
         dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 8 }));
       } catch (error) {
         if (relevant) setHasError(true);
-      } finally {
-        if (relevant) {
-        }
       }
 
       return function cleanup() {
@@ -49,13 +43,11 @@ export function Carousel() {
   //
   var image_list: Array<string> = [];
   if (slide) {
-    console.log(image_list);
     image_list = slide.map((item: any) => {
       return item.snippet.thumbnails.high.url;
     });
   }
 
-  console.log('render');
   return (
     <div className='slider-container'>
       <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />

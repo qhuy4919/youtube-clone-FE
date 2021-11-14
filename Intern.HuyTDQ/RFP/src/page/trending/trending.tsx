@@ -59,7 +59,7 @@ export function Trending() {
       };
     };
     fetchVideoDetail();
-  }, [filter, isLoading]);
+  }, [filter, JSON.stringify(videoList)]);
 
   function handlePageChange(newPage: number) {
     setFilter({
