@@ -27,7 +27,6 @@ function WatchContent(props: any) {
   const videoDetail: any = useSelector(getVideoById);
   const videoList: any = useSelector(getMostPopularVideo);
   const isLoading: boolean = useSelector(getLoading);
-
   //fetch video
   useEffect(() => {
     let relevant = true;
@@ -62,7 +61,6 @@ function WatchContent(props: any) {
   function closeModal() {
     setIsShowing(false);
   }
-
   return (
     <div className='watch-grid'>
       {isLoading ? (

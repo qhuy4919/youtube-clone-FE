@@ -23,6 +23,11 @@ export function TrendingAddForm(props: any) {
   const [hasError, setHasError] = useState<any | undefined>(null);
   const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
+  const optionSelect = [
+    'UCGwu0nbY2wSkW8N-cghnLpA',
+    'UCANLZYMidaCbLQFWXBC95Jg',
+    'UCSpfz1IyUA1NBH-cgj8ygUw',
+  ];
 
   const videoIdRef = useRef<any>(null);
   const ChannelIdRef = useRef<any>(null);
@@ -157,14 +162,22 @@ export function TrendingAddForm(props: any) {
                     <label className='form__label'>Image</label>
                   </div>
                   <div className='form__div'>
-                    <input
+                    <select
                       ref={ChannelIdRef}
-                      type='text'
                       className='form__input'
-                      placeholder=' '
                       name='channelId'
+                      defaultValue={'DEFAULT'}
                       onChange={(e) => handleSnippetChange(e)}
-                    />
+                    >
+                      <option value='DEFAULT' disabled>
+                        Select an Option
+                      </option>
+                      {optionSelect.map((i) => (
+                        <option value={i} key={i}>
+                          {i}
+                        </option>
+                      ))}
+                    </select>
                     <label className='form__label'>Channel id</label>
                   </div>
                   <div className='form__div'>
