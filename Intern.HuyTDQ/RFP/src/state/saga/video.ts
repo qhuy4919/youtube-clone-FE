@@ -1,4 +1,4 @@
-import { fork, take } from 'redux-saga/effects';
+import { fork, take, delay, takeLatest } from 'redux-saga/effects';
 import * as videoAction from '../action/video';
 import { REQUEST } from '../action';
 import { Query } from '../../access/api/index';
@@ -8,7 +8,7 @@ import { fetchEntity } from './index';
 //worker
 export function* fetchMostPopularVideo(filter?: any) {
   const request = Query.trending.list;
-  const param = filter;
+  const param = filter.filter;
   yield fetchEntity(request, param, videoAction.mostPopular);
 }
 
@@ -20,10 +20,11 @@ export function* postNewVideo(data: any) {
 
 //watchcer
 export function* watchMostPopularVideo() {
-  while (true) {
-    const { filter } = yield take(videoAction.MOST_POPULAR[REQUEST]);
-    yield fork(fetchMostPopularVideo, filter);
-  }
+  // while (true) {
+  //   const { filter } = yield take(videoAction.MOST_POPULAR[REQUEST]);
+  //   yield fork(fetchMostPopularVideo, filter);
+  // }
+  yield takeLatest(videoAction.MOST_POPULAR[REQUEST], fetchMostPopularVideo);
 }
 
 export function* watchCreateNewVideo() {

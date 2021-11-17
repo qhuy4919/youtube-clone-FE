@@ -3,11 +3,8 @@ import './related-video.scss';
 
 export function RelatedVideo(props: any) {
   const { video } = props;
-  if (!video || !video.length) {
-    return <div className='related-videos' />;
-  }
-
-  const relatedVideosPreviews = video.map((relatedVideo: any) => (
+  const remainingVideos = video.slice(1);
+  const relatedVideosPreviews = remainingVideos.map((relatedVideo: any) => (
     <VideoPreview
       video={relatedVideo}
       key={relatedVideo.id}
@@ -16,5 +13,11 @@ export function RelatedVideo(props: any) {
       horizontal={true}
     />
   ));
-  return <div className='related-videos'>{relatedVideosPreviews}</div>;
+
+  //
+  if (!video || !video.length) {
+    return <div className='related-video' />;
+  }
+
+  return <div className='related-video'>{relatedVideosPreviews}</div>;
 }

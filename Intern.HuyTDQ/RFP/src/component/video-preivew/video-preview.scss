@@ -1,6 +1,7 @@
 .video-preview {
   display: grid;
   grid: 180px auto / 320px; //fisrt row = 180px and onther auto
+  cursor: pointer;
 
   &.horizontal {
     grid: auto / 210px auto;

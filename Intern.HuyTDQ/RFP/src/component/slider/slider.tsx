@@ -1,5 +1,5 @@
 import { Image } from 'semantic-ui-react';
-import VideoGridHeader from '../video-grid/video-grid-header/video-grid-header';
+import { VideoGridHeader } from '../video-grid/video-grid-header/video-grid-header';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import './slider.scss';

@@ -1,5 +1,4 @@
-.related-videos {
-  a > div {
-    margin-top: 8px;
-  }
+.related-video {
+  display: grid;
+  grid-row-gap: var(--spacing-unit-xs);
 }

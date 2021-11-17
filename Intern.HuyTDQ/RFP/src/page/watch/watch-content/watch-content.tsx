@@ -5,6 +5,7 @@ import {
   VideoInfoBox,
   Loader,
   TrendingUpdateForm,
+  RelatedVideo,
 } from '../../../component/index';
 import { Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -80,6 +81,8 @@ function WatchContent(props: any) {
               channelId={channelId}
             />
           )}
+          <RelatedVideo className='related-video' video={videoList.data} />
+
           <div className='position-fixed add-button'>
             <Icon
               name='pencil alternate'

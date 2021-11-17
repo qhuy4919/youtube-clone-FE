@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { ContentModal } from '../modal/content-modal';
+import { useModal } from '../../hook';
+import { VideoMetadata } from '../video-metadata/video-metadata';
+import { VideoDescription } from '../video-description/video-description';
 import { getVideoDurationString } from '../../util/time-format';
 import './video-preview.scss';
 
-function convertViewCount(viewCount: string) {
+function convertViewCount(viewCount: string): string {
   const formatView = ['N', 'Tr', 'T'];
   const x = Math.floor(viewCount.length / 3);
   let res =
@@ -19,14 +23,33 @@ function convertViewCount(viewCount: string) {
 }
 
 export function VideoPreview(props: any) {
-  const { video, pathname, video_id } = props;
+  const { video, pathname, videoId } = props;
+  const { isShow, toggleModal } = useModal();
   const duration = video.contentDetails ? video.contentDetails.duration : null;
   const horizontal = props.horizontal ? 'horizontal' : null;
   const expanded = props.expanded ? 'expanded' : null;
   const videoDuration = getVideoDurationString(duration);
-  const video_url = pathname.concat(video_id);
-  let viewAndTime = '';
+  const videoURL = pathname.concat(videoId);
   const viewCount = video.statistics ? video.statistics.viewCount : null;
+  let viewAndTime = '';
+  const modalHeader = <>{video.snippet.title}</>;
+  const modalBody = (
+    <>
+      <div className='modal-body__item'>
+        <VideoMetadata video={video} />
+      </div>
+      <div className='modal-body__item'>
+        <VideoDescription video={video} />
+      </div>
+    </>
+  );
+  const modalFooter = (
+    <div className='modal-footer__item'>
+      <Link to={{ pathname: videoURL }} className='detail-button button'>
+        Detail
+      </Link>
+    </div>
+  );
 
   //
   if (viewCount) {
@@ -35,32 +58,43 @@ export function VideoPreview(props: any) {
   } else viewAndTime = '';
 
   return (
-    <Link to={{ pathname: video_url }}>
-      <div className={['video-preview', horizontal, expanded].join(' ')}>
-        <div className='image-container'>
-          <Image src={video.snippet.thumbnails.medium.url} />
-          <div className='time-label'>
-            <span>{videoDuration}</span>
-          </div>
-        </div>
-
-        <div className='video-info'>
-          <div
-            className={['semi-bold', 'show-max-two-lines', expanded].join(' ')}
-          >
-            {video.snippet.title}
-          </div>
-          <div className='video-preview-metadata-container'>
-            <div className='channel-title'>{video.snippet.channelTitle}</div>
-            <div className='view-and-time'>{viewAndTime}</div>
-            {expanded && (
-              <div className={'show-max-two-lines'}>
-                {video.snippet.description}
-              </div>
-            )}
-          </div>
+    <div
+      className={['video-preview', horizontal, expanded].join(' ')}
+      onClick={toggleModal}
+    >
+      <div className='image-container'>
+        <Image src={video.snippet.thumbnails.medium.url} />
+        <div className='time-label'>
+          <span>{videoDuration}</span>
         </div>
       </div>
-    </Link>
+
+      <div className='video-info'>
+        <div
+          className={['semi-bold', 'show-max-two-lines', expanded].join(' ')}
+        >
+          {video.snippet.title}
+        </div>
+        <div className='video-preview-metadata-container'>
+          <div className='channel-title'>{video.snippet.channelTitle}</div>
+          <div className='view-and-time'>{viewAndTime}</div>
+          {expanded && (
+            <div className={'show-max-two-lines'}>
+              {video.snippet.description}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <>
+        <ContentModal
+          isShown={isShow}
+          hide={toggleModal}
+          headerContent={modalHeader}
+          bodyContent={modalBody}
+          footerContent={modalFooter}
+        />
+      </>
+    </div>
   );
 }

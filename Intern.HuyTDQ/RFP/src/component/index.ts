@@ -13,3 +13,4 @@ export { RelatedVideo } from './related-video/related-video';
 export { VideoList } from './video-list/video-list';
 export { TrendingAddForm } from './form/trending-add-form';
 export { TrendingUpdateForm } from './form/trending-update-form';
+export { ContentModal } from './modal/content-modal';

@@ -19,6 +19,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
+  animation: modalAnimation 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   .modal {
     z-index: 100;
@@ -143,5 +144,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes modalAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

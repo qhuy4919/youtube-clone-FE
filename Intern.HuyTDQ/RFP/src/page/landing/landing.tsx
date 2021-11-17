@@ -1,11 +1,8 @@
-import { Header } from '../../component';
 import { Link } from 'react-router-dom';
-import { Carousel } from '../../component';
-
+import { Header, Carousel } from '../../component';
 import './landing.scss';
 
 export function Landing() {
- 
   return (
     <div>
       <Header />
@@ -18,7 +15,7 @@ export function Landing() {
           </Link>
         </div>
         <div id='bg-container'>
-           <Carousel />
+          <Carousel />
         </div>
       </div>
     </div>

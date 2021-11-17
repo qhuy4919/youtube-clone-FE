@@ -11,6 +11,18 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
+  .metadata {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .video-info-box {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+  .related-video {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+  }
 
   .add-button {
     position: fixed;

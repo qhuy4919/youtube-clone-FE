@@ -1,6 +1,6 @@
 import './video-grid-header.scss';
 
-export default function VideoGridHeader(props: any) {
+export function VideoGridHeader(props: any) {
   const { title } = props;
 
   return (

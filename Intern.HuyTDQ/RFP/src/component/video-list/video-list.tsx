@@ -15,7 +15,7 @@ export function VideoList(props: any) {
           key={item.id}
           video={item}
           pathname='/watch/'
-          video_id={item.id}
+          videoId={item.id}
           horizontal={true}
           expanded={true}
         />
