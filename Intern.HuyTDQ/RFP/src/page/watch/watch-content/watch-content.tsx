@@ -53,7 +53,10 @@ function WatchContent(props: any) {
       };
     };
     fetchVideo();
-  }, [JSON.stringify(videoDetail)]);
+  }, [
+    JSON.stringify(videoDetail),
+    JSON.stringify(videoList.data.currentVideo),
+  ]);
 
   function toggleForm() {
     setIsShowing(!isShowing);

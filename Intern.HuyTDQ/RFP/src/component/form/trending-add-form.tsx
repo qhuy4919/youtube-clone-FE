@@ -136,7 +136,6 @@ export function TrendingAddForm(props: any) {
                       className='form__input'
                       placeholder=' '
                       name='id'
-                      pattern='[0-9]+([\,|\.][0-9]+)?'
                       onChange={(e) => handleIdChange(e)}
                     />
                     <label className='form__label'>Id</label>
@@ -168,10 +167,10 @@ export function TrendingAddForm(props: any) {
                       ref={ChannelIdRef}
                       className='form__input'
                       name='channelId'
-                      defaultValue={'DEFAULT'}
+                      defaultValue={''}
                       onChange={(e) => handleSnippetChange(e)}
                     >
-                      <option value='DEFAULT' disabled>
+                      <option value='' disabled>
                         Select an Option
                       </option>
                       {optionSelect.map((i) => (
