@@ -20,5 +20,5 @@ type snipptKey =
   | 'defaultAudioLanguage';
 
 type snippet = {
-  [key in snipptKey]: string;
+  [key in snipptKey]: any;
 };

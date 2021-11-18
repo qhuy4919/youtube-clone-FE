@@ -1,6 +1,5 @@
 import { VideoGridHeader } from './video-grid-header/video-grid-header';
 import { VideoPreview } from '../video-preivew/video-preview';
-import { ContentModal } from '../modal/content-modal';
 import './video-grid.scss';
 
 export function VideoGrid(props: any) {
@@ -16,6 +15,7 @@ export function VideoGrid(props: any) {
         video={video}
         pathname='/watch/'
         videoId={video.id}
+        detailPreview={false}
       />
     );
   });

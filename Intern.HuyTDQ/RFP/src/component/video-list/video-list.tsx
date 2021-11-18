@@ -18,6 +18,7 @@ export function VideoList(props: any) {
           videoId={item.id}
           horizontal={true}
           expanded={true}
+          detailPreview={true}
         />
       ))}
     </div>

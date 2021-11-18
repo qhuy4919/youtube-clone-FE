@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as watchAction from '../../state/action/watch';
 import { getLoading } from '../../state/reducer/video';
+import { ToastContainer, toast } from 'react-toastify';
 import './trending-update-form.scss';
 
 export function TrendingUpdateForm(props: any) {
@@ -64,28 +65,45 @@ export function TrendingUpdateForm(props: any) {
     }));
   }
 
+  function handleformValidation() {
+    if (
+      !videoIdRef.current.value ||
+      !ChannelIdRef.current.value ||
+      !videoTitleRef.current.value ||
+      !videoDescriptionRef.current.value ||
+      !videoImageRef.current.value
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   async function handleSubmitNewVideo(e: any) {
     e.preventDefault();
-    const data = {
-      id: videoIdRef.current.value,
-      snippet: {
-        channelId: ChannelIdRef.current.value,
-        title: videoTitleRef.current.value,
-        description: videoDescriptionRef.current.value,
-        thumbnails: {
-          medium: {
-            url: videoImageRef.current.value,
+    if (!handleformValidation()) {
+      toast.error('Invalid form');
+    } else {
+      const data = {
+        id: videoIdRef.current.value,
+        snippet: {
+          channelId: ChannelIdRef.current.value,
+          title: videoTitleRef.current.value,
+          description: videoDescriptionRef.current.value,
+          thumbnails: {
+            medium: {
+              url: videoImageRef.current.value,
+            },
           },
         },
-      },
-    };
-    try {
-      dispatch(watchAction.updateWatch.request(data));
-      closeModal();
-    } catch (error) {
-      alert(error);
-      closeModal();
-      setHasError(error);
+      };
+      try {
+        dispatch(watchAction.updateWatch.request(data));
+        closeModal();
+      } catch (error) {
+        alert(error);
+        closeModal();
+        setHasError(error);
+      }
     }
   }
 
@@ -195,6 +213,7 @@ export function TrendingUpdateForm(props: any) {
               </div>
             </div>
           </div>
+          <ToastContainer />
         </React.Fragment>,
         document.body
       )

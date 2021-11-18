@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { REQUEST, SUCCESS } from '../action';
+import { FAILURE, REQUEST, SUCCESS } from '../action';
 import { GET_VIDEO_ID, MOST_POPULAR, CREATE_NEW_VIDEO } from '../action/video';
 import { WATCH_DETAIL, WATCH_UPDATE } from '../action/watch';
 
@@ -9,6 +9,7 @@ export const initialState = {
   totalPage: -1,
   currentVideo: {},
   isLoading: true,
+  hasError: null,
 };
 
 export function videoReducer(state: any = initialState, action: any) {
@@ -17,6 +18,8 @@ export function videoReducer(state: any = initialState, action: any) {
       return fetchMostPopularVideo(action.response, state);
     case MOST_POPULAR[REQUEST]:
       return resetLoadingState(state);
+    case MOST_POPULAR[FAILURE]:
+      return handleErrorResponse(action.response, state);
     case WATCH_DETAIL[SUCCESS]:
       return fetchVideoDetail(action.response, state);
     case WATCH_UPDATE[REQUEST]:
@@ -56,7 +59,7 @@ function fetchMostPopularVideo(response: any, state: any) {
   };
 }
 
-export function fetchVideoDetail(response: any, state: any) {
+function fetchVideoDetail(response: any, state: any) {
   return {
     ...state,
     currentVideo: response.data,
@@ -64,11 +67,11 @@ export function fetchVideoDetail(response: any, state: any) {
   };
 }
 
-export function filterVideoById(videoId: any, state: any) {
+function filterVideoById(videoId: any, state: any) {
   return { ...state, currentVideo: state.byId[videoId] };
 }
 
-export function updateVideoList(response: any, state: any) {
+function updateVideoList(response: any, state: any) {
   const newVideoId = response.data.id;
   const newVideoDetail = response.data.snippet;
   const newVideo = { [newVideoId]: newVideoDetail };
@@ -78,13 +81,21 @@ export function updateVideoList(response: any, state: any) {
     byId: { ...state.byId, newVideo },
     mostPopular: [...state.mostPopular.item, newVideoId],
     isLoading: false,
+    hasError: null
   };
 }
 
-export function resetLoadingState(state: any) {
+function resetLoadingState(state: any) {
   return {
     ...state,
     isLoading: true,
+  };
+}
+
+function handleErrorResponse(response: any, state: any) {
+  return {
+    ...state,
+    hasError: response,
   };
 }
 
@@ -121,5 +132,12 @@ export const getLoading = createSelector(
   (state: any) => state.video.isLoading,
   (isLoading) => {
     return isLoading;
+  }
+);
+
+export const getError = createSelector(
+  (state: any) => state.video.hasError,
+  (hasError) => {
+    return hasError;
   }
 );

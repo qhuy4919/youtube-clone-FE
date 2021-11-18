@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoading } from '../../state/reducer/video';
 import * as videoAction from '../../state/action/video';
+import { ToastContainer, toast } from 'react-toastify';
 import './trending-add-form.scss';
 
 export function TrendingAddForm(props: any) {
@@ -69,7 +70,7 @@ export function TrendingAddForm(props: any) {
     }));
   }
 
-  function formValidation() {
+  function handleformValidation() {
     if (
       !videoIdRef.current.value ||
       !ChannelIdRef.current.value ||
@@ -84,8 +85,8 @@ export function TrendingAddForm(props: any) {
 
   async function handleSubmitNewVideo(e: any) {
     e.preventDefault();
-    if (!formValidation()) {
-      alert('Invalid Fields');
+    if (!handleformValidation()) {
+      toast.error('Invalid form');
     } else {
       try {
         dispatch(videoAction.createNewVideo.request(newVideo));
@@ -135,6 +136,7 @@ export function TrendingAddForm(props: any) {
                       className='form__input'
                       placeholder=' '
                       name='id'
+                      pattern='[0-9]+([\,|\.][0-9]+)?'
                       onChange={(e) => handleIdChange(e)}
                     />
                     <label className='form__label'>Id</label>
@@ -201,6 +203,7 @@ export function TrendingAddForm(props: any) {
             </div>
           </div>
           {hasError && <>something wrong</>}
+          <ToastContainer />
         </React.Fragment>,
         document.body
       )

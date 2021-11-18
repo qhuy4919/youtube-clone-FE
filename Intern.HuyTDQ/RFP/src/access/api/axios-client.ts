@@ -1,5 +1,6 @@
 import axios from 'axios';
 import queryString from 'query-string';
+import { toast } from 'react-toastify';
 
 const axiosClient = axios.create({
   headers: {
@@ -15,8 +16,6 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(async (config) => {
-  // Handle token here ...
-  
   return config;
 });
 
@@ -28,9 +27,15 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 401) {
-      throw error;
-    }
+    toast.error(error, {
+      position: 'top-center',
+      autoClose: false,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 0,
+    });
   }
 );
 

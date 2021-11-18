@@ -10,8 +10,13 @@ import {
 } from '../../component/index';
 import { Icon } from 'semantic-ui-react';
 import * as videoAction from '../../state/action/video';
-import { getMostPopularVideo, getLoading } from '../../state/reducer/video';
+import {
+  getMostPopularVideo,
+  getLoading,
+  getError,
+} from '../../state/reducer/video';
 import './trending.scss';
+import { ToastContainer, toast } from 'react-toastify';
 
 type VideoData = {
   data: [];
@@ -29,37 +34,24 @@ export function Trending() {
     _limit: 8,
   });
   const [isShowing, setIsShowing] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const videoList: VideoData = useSelector(getMostPopularVideo);
   const isLoading: boolean = useSelector(getLoading);
+  const hasError: any = useSelector(getError);
   const dispatch = useDispatch();
 
   //
   useEffect(() => {
-    let relevant = true;
-    const fetchVideoDetail = async () => {
-      try {
-        if (relevant) {
-          dispatch(videoAction.mostPopular.request(filter));
-          setPagination({
-            ...pagination,
-            _page: filter._page,
-            totalRow: videoList.totalPage,
-          });
-        }
-      } catch (error) {
-        if (relevant) {
-          setHasError(true);
-        }
-      } finally {
-      }
-
-      return () => {
-        relevant = false;
-      };
-    };
-    fetchVideoDetail();
-  }, [JSON.stringify(filter)]);
+    dispatch(videoAction.mostPopular.request(filter));
+    if (videoList.data.length > 0) {
+      setPagination({
+        ...pagination,
+        _page: filter._page,
+        totalRow: videoList.totalPage,
+      });
+    } else if (hasError) {
+      toast.error(JSON.stringify(hasError));
+    }
+  }, [JSON.stringify(filter), JSON.stringify(videoList)]);
 
   function handlePageChange(newPage: number) {
     setFilter({
@@ -105,6 +97,7 @@ export function Trending() {
         </div>
       </div>
       {hasError && <> no data...</>}
+      <ToastContainer />
       <TrendingAddForm
         isShowing={isShowing}
         hide={toggleForm}

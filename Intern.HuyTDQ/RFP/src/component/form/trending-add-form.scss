@@ -88,6 +88,14 @@
             padding: 1rem;
             background: none;
             z-index: 1;
+
+            &:invalid {
+              background-color: var(--error-color);
+            }
+
+            &:valid {
+              background-color: transparent;
+            }
           }
           .form__label {
             position: absolute;

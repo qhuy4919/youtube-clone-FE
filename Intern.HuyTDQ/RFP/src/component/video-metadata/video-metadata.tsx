@@ -1,3 +1,4 @@
+import React from 'react';
 import { Divider, Button, Icon } from 'semantic-ui-react';
 import './video-metadata.scss';
 

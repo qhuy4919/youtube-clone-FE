@@ -5,6 +5,7 @@ import { useModal } from '../../hook';
 import { VideoMetadata } from '../video-metadata/video-metadata';
 import { VideoDescription } from '../video-description/video-description';
 import { getVideoDurationString } from '../../util/time-format';
+import { videoPreviewProp } from '../../model/video-preview-prop';
 import './video-preview.scss';
 
 function convertViewCount(viewCount: string): string {
@@ -22,8 +23,8 @@ function convertViewCount(viewCount: string): string {
   return res;
 }
 
-export function VideoPreview(props: any) {
-  const { video, pathname, videoId } = props;
+export function VideoPreview(props: videoPreviewProp) {
+  const { video, pathname, videoId, detailPreview } = props;
   const { isShow, toggleModal } = useModal();
   const duration = video.contentDetails ? video.contentDetails.duration : null;
   const horizontal = props.horizontal ? 'horizontal' : null;
@@ -43,12 +44,14 @@ export function VideoPreview(props: any) {
       </div>
     </>
   );
-  const modalFooter = (
+  const modalFooter = detailPreview ? (
     <div className='modal-footer__item'>
       <Link to={{ pathname: videoURL }} className='detail-button button'>
         Detail
       </Link>
     </div>
+  ) : (
+    <></>
   );
 
   //

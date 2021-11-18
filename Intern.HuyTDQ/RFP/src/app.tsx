@@ -1,6 +1,8 @@
-import './style/index.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home, Watch, Trending, NotFound, Landing } from './page/index';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './style/index.scss';
 
 function App(props: any) {
   return (

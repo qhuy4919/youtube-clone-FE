@@ -22,7 +22,6 @@ export const Query = {
   trending: {
     list: (filter?: any) => {
       const param = queryString.stringify(filter);
-      // const url = `https://youtube.googleapis.com/youtube/v3/videos?`;
       const url = `${process.env.REACT_APP_API_URL}/trending?${param}`;
       const config = {
         params: {
