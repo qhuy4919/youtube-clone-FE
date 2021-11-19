@@ -20,18 +20,31 @@ export function videoReducer(state: any = initialState, action: any) {
       return resetLoadingState(state);
     case MOST_POPULAR[FAILURE]:
       return handleErrorResponse(action.response, state);
+    //
     case WATCH_DETAIL[SUCCESS]:
       return fetchVideoDetail(action.response, state);
+    case WATCH_DETAIL[REQUEST]:
+      return resetLoadingState(state);
+    case WATCH_DETAIL[FAILURE]:
+      return handleErrorResponse(action.response, state);
+    //
     case WATCH_UPDATE[REQUEST]:
       return resetLoadingState(state);
+    case WATCH_UPDATE[FAILURE]:
+      return handleErrorResponse(action.response, state);
     case WATCH_UPDATE[SUCCESS]:
       return fetchVideoDetail(action.response, state);
+    //
     case CREATE_NEW_VIDEO[REQUEST]:
       return resetLoadingState(state);
     case CREATE_NEW_VIDEO[SUCCESS]:
       return updateVideoList(action.response, state);
+    case CREATE_NEW_VIDEO[FAILURE]:
+      return handleErrorResponse(action.response, state);
+    //
     case GET_VIDEO_ID:
       return filterVideoById(action.videoId, state);
+    //
     default:
       return state;
   }
@@ -81,7 +94,7 @@ function updateVideoList(response: any, state: any) {
     byId: { ...state.byId, newVideo },
     mostPopular: [...state.mostPopular.item, newVideoId],
     isLoading: false,
-    hasError: null
+    hasError: null,
   };
 }
 
@@ -95,7 +108,7 @@ function resetLoadingState(state: any) {
 function handleErrorResponse(response: any, state: any) {
   return {
     ...state,
-    hasError: response,
+    hasError: JSON.stringify(response.data) || 'not found',
   };
 }
 

@@ -64,10 +64,6 @@ function HomeContent() {
           </div>
         ) : (
           <>
-            {/* <div className='slider'>
-            <Slider title="trending" videos={video} />
-            <Carousel slide={video}></Carousel>
-          </div> */}
             <div className='home-content__item'>
               <VideoGrid title='recommend' videos={videoList} />
             </div>

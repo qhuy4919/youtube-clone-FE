@@ -2,6 +2,8 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { toast } from 'react-toastify';
 
+// const cancelTokenSource = axios.CancelToken.source();
+
 const axiosClient = axios.create({
   headers: {
     // 'content-type': 'application/json',

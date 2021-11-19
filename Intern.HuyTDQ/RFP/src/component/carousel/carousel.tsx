@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as videoAction from '../../state/action/video';
-import { getMostPopularVideo } from '../../state/reducer/video';
+import { getMostPopularVideo, getError } from '../../state/reducer/video';
+import { toast, ToastContainer } from 'react-toastify';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import './carousel.scss';
 
 export function Carousel() {
   const [current, setCurrent] = useState(0);
-  const [hasError, setHasError] = useState(false);
   const videoList: any = useSelector(getMostPopularVideo);
+  const hasError: any = useSelector(getError);
   const dispatch = useDispatch();
   const slide = videoList.data;
   const length = videoList.data.length || 0;
@@ -18,10 +19,9 @@ export function Carousel() {
   useEffect(() => {
     let relevant = true;
     const fetchVideo = () => {
-      try {
-        dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 8 }));
-      } catch (error) {
-        if (relevant) setHasError(true);
+      dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 8 }));
+      if (hasError) {
+        toast.error(hasError);
       }
 
       return function cleanup() {
@@ -65,6 +65,8 @@ export function Carousel() {
             </div>
           );
         })}
+        <ToastContainer />
+        {hasError && <> no data...</>}
       </div>
     </div>
   );

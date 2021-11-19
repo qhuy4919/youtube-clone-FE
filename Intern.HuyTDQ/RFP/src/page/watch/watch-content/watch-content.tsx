@@ -32,7 +32,6 @@ function WatchContent(props: any) {
   useEffect(() => {
     let relevant = true;
     const fetchVideo = () => {
-      setHasError(false);
       try {
         if (videoList.data.length < 1) {
           dispatch(watchAction.watchDetail.request(videoId));
@@ -46,7 +45,6 @@ function WatchContent(props: any) {
         }
       } catch (error) {
         if (relevant) setHasError(true);
-      } finally {
       }
       return function cleanup() {
         relevant = false;
