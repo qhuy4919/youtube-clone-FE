@@ -13,20 +13,24 @@ export function RelatedVideo(props: any) {
 
   //
   useEffect(() => {
-    let relevant = true;
-    const abortCtrl = new AbortController();
-    const response: any = Query.video
-      .list({ _page: 1, _limit: 10 })
-      .then((result: any) => {
-        if (relevant && result) {
-          setRelateVideo(result.data);
+    const relevant = true;
+    const fetchRelateVideo = async () => {
+      try {
+        const response: any = await Query.trending.list({
+          _page: 1,
+          _limit: 10,
+        });
+        if (relevant && response) {
+          setRelateVideo(response.data);
           setIsloading(false);
         }
-      });
-    return () => {
-      relevant = false;
-      abortCtrl.abort();
+      } catch (error) {
+        if (relevant) {
+          setHasError(true);
+        }
+      }
     };
+    fetchRelateVideo();
   }, []);
 
   if (relateVideo) {
@@ -42,11 +46,6 @@ export function RelatedVideo(props: any) {
     ));
   }
 
-  //
-  // if (!video || !video.length) {
-  //   return <div className='related-video' />;
-  // }
-
   return (
     <div className='related-video'>
       {isLoading ? (
@@ -56,6 +55,7 @@ export function RelatedVideo(props: any) {
       ) : (
         <>{relatedVideosPreviews} </>
       )}
+      {hasError && <>no data...</>}
     </div>
   );
 }

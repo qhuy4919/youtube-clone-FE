@@ -22,6 +22,13 @@ export function TrendingAddForm(props: any) {
     },
   });
   const [hasError, setHasError] = useState<any | undefined>(null);
+  const [isFormValid, setIsFormValid] = useState({
+    id: '',
+    title: '',
+    image: '',
+    channelId: '',
+    description: '',
+  });
   const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
   const optionSelect = [
@@ -31,7 +38,7 @@ export function TrendingAddForm(props: any) {
   ];
 
   const videoIdRef = useRef<any>(null);
-  const ChannelIdRef = useRef<any>(null);
+  const channelIdRef = useRef<any>(null);
   const videoTitleRef = useRef<any>(null);
   const videoDescriptionRef = useRef<any>(null);
   const videoImageRef = useRef<any>(null);
@@ -73,7 +80,7 @@ export function TrendingAddForm(props: any) {
   function handleformValidation() {
     if (
       !videoIdRef.current.value ||
-      !ChannelIdRef.current.value ||
+      !channelIdRef.current.value ||
       !videoTitleRef.current.value ||
       !videoDescriptionRef.current.value ||
       !videoImageRef.current.value
@@ -85,6 +92,22 @@ export function TrendingAddForm(props: any) {
 
   async function handleSubmitNewVideo(e: any) {
     e.preventDefault();
+    setIsFormValid({
+      ...isFormValid,
+      id: videoIdRef.current.value ? videoIdRef.current.value : 'invalid',
+      title: videoTitleRef.current.value
+        ? videoTitleRef.current.value
+        : 'invalid',
+      image: videoImageRef.current.value
+        ? videoImageRef.current.value
+        : 'invalid',
+      channelId: channelIdRef.current.value
+        ? channelIdRef.current.value
+        : 'invalid',
+      description: videoDescriptionRef.current.value
+        ? videoDescriptionRef.current.value
+        : 'invalid',
+    });
     if (!handleformValidation()) {
       toast.error('Invalid form');
     } else {
@@ -125,7 +148,6 @@ export function TrendingAddForm(props: any) {
               </div>
               <div className='form-container'>
                 <form
-                  action=''
                   className='add-form'
                   onSubmit={(e) => handleSubmitNewVideo(e)}
                 >
@@ -133,7 +155,7 @@ export function TrendingAddForm(props: any) {
                     <input
                       ref={videoIdRef}
                       type='text'
-                      className='form__input'
+                      className={[isFormValid['id'], 'form__input'].join(' ')}
                       placeholder=' '
                       name='id'
                       onChange={(e) => handleIdChange(e)}
@@ -144,7 +166,9 @@ export function TrendingAddForm(props: any) {
                     <input
                       ref={videoTitleRef}
                       type='text'
-                      className='form__input'
+                      className={[isFormValid['title'], 'form__input'].join(
+                        ' '
+                      )}
                       placeholder=' '
                       name='title'
                       onChange={(e) => handleSnippetChange(e)}
@@ -155,7 +179,9 @@ export function TrendingAddForm(props: any) {
                     <input
                       ref={videoImageRef}
                       type='text'
-                      className='form__input'
+                      className={[isFormValid['image'], 'form__input'].join(
+                        ' '
+                      )}
                       placeholder=' '
                       name='url'
                       onChange={(e) => handleImageChange(e)}
@@ -164,8 +190,10 @@ export function TrendingAddForm(props: any) {
                   </div>
                   <div className='form__div'>
                     <select
-                      ref={ChannelIdRef}
-                      className='form__input'
+                      ref={channelIdRef}
+                      className={[isFormValid['channelId'], 'form__input'].join(
+                        ' '
+                      )}
                       name='channelId'
                       defaultValue={''}
                       onChange={(e) => handleSnippetChange(e)}
@@ -185,7 +213,10 @@ export function TrendingAddForm(props: any) {
                     <input
                       ref={videoDescriptionRef}
                       type='text'
-                      className='form__input'
+                      className={[
+                        isFormValid['description'],
+                        'form__input',
+                      ].join(' ')}
                       placeholder=' '
                       name='description'
                       onChange={(e) => handleSnippetChange(e)}

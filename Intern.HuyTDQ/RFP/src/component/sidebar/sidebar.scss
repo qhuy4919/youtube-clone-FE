@@ -3,6 +3,7 @@
   margin-top: var(--header-nav-height);
   overflow-y: auto;
   padding-bottom: var(--header-nav-height);
+
   .sidebar-item:hover {
     background: var(--sidebar-hover-color);
   }
@@ -15,4 +16,10 @@
 
 .side-nav.ui.vertical.menu {
   width: var(--sidebar-left-width);
+}
+
+@media screen and (max-width: 1028px) {
+  .ui.menu.fixed.side-nav {
+    display: none;
+  }
 }

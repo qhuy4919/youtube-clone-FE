@@ -1,3 +1,4 @@
+import { current } from 'immer';
 import { createSelector } from 'reselect';
 import { FAILURE, REQUEST, SUCCESS } from '../action';
 import { GET_VIDEO_ID, MOST_POPULAR, CREATE_NEW_VIDEO } from '../action/video';
@@ -28,12 +29,12 @@ export function videoReducer(state: any = initialState, action: any) {
     case WATCH_DETAIL[FAILURE]:
       return handleErrorResponse(action.response, state);
     //
+    case WATCH_UPDATE[SUCCESS]:
+      return fetchVideoDetail(action.response, state);
     case WATCH_UPDATE[REQUEST]:
       return resetLoadingState(state);
     case WATCH_UPDATE[FAILURE]:
       return handleErrorResponse(action.response, state);
-    case WATCH_UPDATE[SUCCESS]:
-      return fetchVideoDetail(action.response, state);
     //
     case CREATE_NEW_VIDEO[REQUEST]:
       return resetLoadingState(state);
@@ -69,19 +70,28 @@ function fetchMostPopularVideo(response: any, state: any) {
     byId: { ...state.byId, ...videoList },
     totalPage: totalPage,
     isLoading: false,
+    hasError: null,
   };
 }
 
 function fetchVideoDetail(response: any, state: any) {
   return {
     ...state,
-    currentVideo: response.data,
+    byId: {},
+    mostPopular: {},
+    currentVideo: { ...state.currentVideo, ...response.data },
     isLoading: false,
+    hasError: null,
   };
 }
 
 function filterVideoById(videoId: any, state: any) {
-  return { ...state, currentVideo: state.byId[videoId] };
+  return {
+    ...state,
+    currentVideo: state.byId[videoId],
+    isLoading: false,
+    hasError: null,
+  };
 }
 
 function updateVideoList(response: any, state: any) {
@@ -92,7 +102,8 @@ function updateVideoList(response: any, state: any) {
   return {
     ...state,
     byId: { ...state.byId, newVideo },
-    mostPopular: [...state.mostPopular.item, newVideoId],
+    mostPopular: { ...state.mostPopular.item, newVideoId },
+    currentVideo: { ...state.currentVideo, newVideo },
     isLoading: false,
     hasError: null,
   };

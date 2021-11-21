@@ -6,5 +6,10 @@
   padding-left: var(--sidebar-left-width);
   padding-top: var(--header-nav-height);
   height: 100vh;
-  transition: all 0.2s linear;
+}
+
+@media screen and (max-width: 1028px) {
+  .home-container {
+    padding-left: 0;
+  }
 }

@@ -15,19 +15,22 @@ import {
   getVideoById,
   getMostPopularVideo,
   getLoading,
+  getError,
 } from '../../../state/reducer/video';
+import { toast, ToastContainer } from 'react-toastify';
 import './watch-content.scss';
 
 function WatchContent(props: any) {
   const { videoId } = props;
   const [videoInformation, setVideoInformation] = useState([]);
   const [channelId, setChannelId] = useState('');
-  const [hasError, setHasError] = useState(false);
   const [isShowing, setIsShowing] = useState(false);
   const dispatch = useDispatch();
   const videoDetail: any = useSelector(getVideoById);
   const videoList: any = useSelector(getMostPopularVideo);
   const isLoading: boolean = useSelector(getLoading);
+  const hasError: any = useSelector(getError);
+
   //fetch video
   useEffect(() => {
     let relevant = true;
@@ -38,23 +41,20 @@ function WatchContent(props: any) {
         } else {
           dispatch(videoAction.getVideoById.request(videoId));
         }
-        const response = videoList.data.currentVideo || videoDetail;
+        const response = videoDetail;
+        console.log(videoDetail);
+        console.log(response);
         if (response && Object.keys(response).length > 0 && relevant) {
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
         }
-      } catch (error) {
-        if (relevant) setHasError(true);
-      }
+      } catch (error) {}
       return function cleanup() {
         relevant = false;
       };
     };
     fetchVideo();
-  }, [
-    JSON.stringify(videoDetail),
-    JSON.stringify(videoList.data.currentVideo),
-  ]);
+  }, [JSON.stringify(videoDetail), videoId]);
 
   function toggleForm() {
     setIsShowing(!isShowing);
@@ -63,6 +63,7 @@ function WatchContent(props: any) {
   function closeModal() {
     setIsShowing(false);
   }
+
   return (
     <div className='watch-grid'>
       {isLoading ? (
@@ -95,6 +96,7 @@ function WatchContent(props: any) {
         </>
       )}
       {hasError && <>no data... </>}
+      <ToastContainer />
       <TrendingUpdateForm
         videoInformation={videoInformation}
         isShowing={isShowing}

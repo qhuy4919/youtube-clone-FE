@@ -6,3 +6,9 @@
     transition: all 0.2s linear;
   }
 }
+
+@media screen and (max-width: 1028px) {
+  .watch-container {
+    margin-left: 0;
+  }
+}

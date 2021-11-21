@@ -11,7 +11,7 @@ export function Carousel() {
   const videoList: any = useSelector(getMostPopularVideo);
   const hasError: any = useSelector(getError);
   const dispatch = useDispatch();
-  const slide = videoList.data;
+  var image_list: Array<any> = videoList.data;
   const length = videoList.data.length || 0;
   const skeleton = videoList.data.length > 0 ? '' : 'skeleton';
 
@@ -19,7 +19,7 @@ export function Carousel() {
   useEffect(() => {
     let relevant = true;
     const fetchVideo = () => {
-      dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 8 }));
+      dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 5 }));
       if (hasError) {
         toast.error(hasError);
       }
@@ -41,9 +41,8 @@ export function Carousel() {
   };
 
   //
-  var image_list: Array<string> = [];
-  if (slide) {
-    image_list = slide.map((item: any) => {
+  if (image_list.length > 0) {
+    image_list = image_list.map((item: any) => {
       return item.snippet.thumbnails.high.url;
     });
   }

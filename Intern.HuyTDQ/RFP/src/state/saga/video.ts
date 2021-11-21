@@ -1,4 +1,4 @@
-import { fork, take, delay, takeLatest } from 'redux-saga/effects';
+import { fork, take, takeLatest } from 'redux-saga/effects';
 import * as videoAction from '../action/video';
 import { REQUEST } from '../action';
 import { Query } from '../../access/api/index';

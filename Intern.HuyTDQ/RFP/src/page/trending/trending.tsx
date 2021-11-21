@@ -52,7 +52,7 @@ export function Trending() {
       console.log(hasError);
       toast.error(hasError);
     }
-  }, [JSON.stringify(filter), JSON.stringify(videoList), hasError]);
+  }, [filter._page, JSON.stringify(videoList), hasError]);
 
   function handlePageChange(newPage: number) {
     setFilter({

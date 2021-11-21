@@ -29,14 +29,8 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    toast.error(error, {
-      position: 'top-center',
-      autoClose: false,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: 0,
+    toast.error('not found', {
+      position: 'top-right',
     });
   }
 );
