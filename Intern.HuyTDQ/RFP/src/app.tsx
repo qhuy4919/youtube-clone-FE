@@ -3,7 +3,7 @@ import { Home, Watch, Trending, NotFound, Landing } from './page/index';
 import 'react-toastify/dist/ReactToastify.css';
 import './style/index.scss';
 
-function App(props: any) {
+function App() {
   return (
     <Router>
       <Switch>

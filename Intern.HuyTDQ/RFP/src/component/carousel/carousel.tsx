@@ -4,32 +4,28 @@ import * as videoAction from '../../state/action/video';
 import { getMostPopularVideo, getError } from '../../state/reducer/video';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { responseVideo } from '../../model/video';
 import './carousel.scss';
 
 export function Carousel() {
   const [current, setCurrent] = useState(0);
   const videoList: any = useSelector(getMostPopularVideo);
   const hasError: any = useSelector(getError);
-  const dispatch = useDispatch();
   var image_list: Array<any> = videoList.data;
   const length = videoList.data.length || 0;
   const skeleton = videoList.data.length > 0 ? '' : 'skeleton';
+  const dispatch = useDispatch();
 
   //
   useEffect(() => {
-    let relevant = true;
     const fetchVideo = () => {
       dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 5 }));
       if (hasError) {
         toast.error(hasError);
       }
-
-      return function cleanup() {
-        relevant = false;
-      };
     };
     fetchVideo();
-  }, []);
+  }, [dispatch, hasError]);
 
   //
   const nextSlide = () => {
@@ -42,8 +38,8 @@ export function Carousel() {
 
   //
   if (image_list.length > 0) {
-    image_list = image_list.map((item: any) => {
-      return item.snippet.thumbnails.high.url;
+    image_list = image_list.map((item: responseVideo) => {
+      return item.snippet.thumbnails.medium.url;
     });
   }
 

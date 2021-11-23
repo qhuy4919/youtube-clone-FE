@@ -5,6 +5,7 @@ import './header-nav.scss';
 type Prop = {
   onActiveSidebar?: () => void;
 };
+
 export function Header({ onActiveSidebar }: Prop) {
   function handleClickMenu() {
     if (onActiveSidebar) {

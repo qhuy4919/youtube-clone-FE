@@ -1,6 +1,5 @@
 import axios from 'axios';
 import queryString from 'query-string';
-import { toast } from 'react-toastify';
 
 // const cancelTokenSource = axios.CancelToken.source();
 
@@ -29,9 +28,7 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    toast.error('not found', {
-      position: 'top-right',
-    });
+    alert(error.message);
   }
 );
 

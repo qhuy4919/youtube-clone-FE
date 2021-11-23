@@ -42,13 +42,13 @@ function WatchContent(props: any) {
           dispatch(videoAction.getVideoById.request(videoId));
         }
         const response = videoDetail;
-        console.log(videoDetail);
-        console.log(response);
         if (response && Object.keys(response).length > 0 && relevant) {
           setVideoInformation(response);
           setChannelId(response.snippet.channelId);
         }
-      } catch (error) {}
+      } catch (error) {
+        toast.error(JSON.stringify(error));
+      }
       return function cleanup() {
         relevant = false;
       };
@@ -83,7 +83,7 @@ function WatchContent(props: any) {
               channelId={channelId}
             />
           )}
-          <RelatedVideo className='related-video' video={videoList.data} />
+          <RelatedVideo />
 
           <div className='position-fixed add-button'>
             <Icon

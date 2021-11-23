@@ -5,6 +5,7 @@ import './content-modal.scss';
 
 export function ContentModal(props: modalProp) {
   const { isShown, hide, headerContent, bodyContent, footerContent } = props;
+
   return isShown
     ? ReactDOM.createPortal(
         <React.Fragment>

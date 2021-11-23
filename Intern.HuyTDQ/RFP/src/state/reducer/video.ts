@@ -1,4 +1,3 @@
-import { current } from 'immer';
 import { createSelector } from 'reselect';
 import { FAILURE, REQUEST, SUCCESS } from '../action';
 import { GET_VIDEO_ID, MOST_POPULAR, CREATE_NEW_VIDEO } from '../action/video';

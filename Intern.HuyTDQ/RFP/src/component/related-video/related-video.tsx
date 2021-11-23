@@ -5,7 +5,7 @@ import { responseVideo } from '../../model/video';
 import { Query } from '../../access/api/query-api';
 import './related-video.scss';
 
-export function RelatedVideo(props: any) {
+export function RelatedVideo() {
   const [relateVideo, setRelateVideo] = useState<Array<responseVideo>>();
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsloading] = useState(true);
