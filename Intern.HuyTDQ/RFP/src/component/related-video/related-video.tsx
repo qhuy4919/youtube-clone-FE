@@ -36,8 +36,8 @@ export function RelatedVideo() {
   if (relateVideo) {
     relatedVideosPreviews = relateVideo.map((relatedVideo: any) => (
       <VideoPreview
-        video={relatedVideo}
         key={relatedVideo.id}
+        video={relatedVideo}
         pathname='/watch/'
         videoId={relatedVideo.id}
         horizontal={true}

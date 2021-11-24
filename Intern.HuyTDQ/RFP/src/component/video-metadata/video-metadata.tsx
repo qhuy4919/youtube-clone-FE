@@ -1,5 +1,5 @@
-import React from 'react';
 import { Divider, Icon } from 'semantic-ui-react';
+import { Button } from '..';
 import './video-metadata.scss';
 
 export function VideoMetadata(props: any) {
@@ -16,16 +16,16 @@ export function VideoMetadata(props: any) {
       <div className='video-stats'>
         <span>100.000 views</span>
         <div className='video-actions'>
-          <button>
+          <Button basic='basic' icon='icon'>
             <Icon name='share' />
             Share
-          </button>
-          <button>
+          </Button>
+          <Button basic='basic' icon='icon'>
             <Icon name='add circle' />
-          </button>
-          <button>
+          </Button>
+          <Button basic='basic' icon='icon'>
             <Icon name='ellipsis horizontal' />
-          </button>
+          </Button>
         </div>
       </div>
       <Divider />

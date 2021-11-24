@@ -20,10 +20,6 @@ export function* postNewVideo(data: any) {
 
 //watchcer
 export function* watchMostPopularVideo() {
-  // while (true) {
-  //   const { filter } = yield take(videoAction.MOST_POPULAR[REQUEST]);
-  //   yield fork(fetchMostPopularVideo, filter);
-  // }
   yield takeLatest(videoAction.MOST_POPULAR[REQUEST], fetchMostPopularVideo);
 }
 

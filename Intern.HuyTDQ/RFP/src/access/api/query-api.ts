@@ -5,7 +5,13 @@ export const Query = {
   channel: {
     list: ({ channelId }: any) => {
       const url = `https://youtube.googleapis.com/youtube/v3/channels?id=${channelId}`;
-      return axiosClient.get(url);
+      const config = {
+        params: {
+          part: ['snippet,contentDetails,statistics'],
+          key: `${process.env.REACT_APP_YOUTUBE_KEY}`,
+        },
+      };
+      return axiosClient.get(url, config);
     },
   },
   video: {
@@ -23,12 +29,7 @@ export const Query = {
     list: (filter?: any) => {
       const param = queryString.stringify(filter);
       const url = `${process.env.REACT_APP_API_URL}/trending?${param}`;
-      const config = {
-        params: {
-          // chart: 'mostPopular',
-        },
-      };
-      return axiosClient.get(url, config);
+      return axiosClient.get(url);
     },
   },
 };

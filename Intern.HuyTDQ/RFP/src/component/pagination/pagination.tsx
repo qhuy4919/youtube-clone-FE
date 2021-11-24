@@ -43,17 +43,11 @@ export function Pagination(props: any) {
   return (
     <>
       <ul className='pageNumbers'>
-        <li
-          onClick={() => handlePageChange(_page - 1)}
-          className={_page <= 1 ? 'disable-button' : undefined}
-        >
+        <li onClick={() => handlePageChange(_page - 1)} className={_page <= 1 ? 'disable-button' : undefined}>
           <AiOutlineArrowLeft />
         </li>
         {renderPageNumbers}
-        <li
-          onClick={() => handlePageChange(_page + 1)}
-          className={_page === totalPage ? 'disable-button' : undefined}
-        >
+        <li onClick={() => handlePageChange(_page + 1)} className={_page === totalPage ? 'disable-button' : undefined}>
           <AiOutlineArrowRight />
         </li>
       </ul>

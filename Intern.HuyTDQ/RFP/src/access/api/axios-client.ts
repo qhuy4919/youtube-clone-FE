@@ -10,10 +10,6 @@ const axiosClient = axios.create({
   },
   timeout: 30000,
   paramsSerializer: (params) => queryString.stringify(params),
-  params: {
-    part: ['snippet,contentDetails,statistics'],
-    key: `${process.env.REACT_APP_YOUTUBE_KEY}`,
-  },
 });
 
 axiosClient.interceptors.request.use(async (config) => {

@@ -9,10 +9,7 @@ export type DescriptionParagraphsProps = {
   descriptionTextClass: string;
 };
 
-export const DescriptionParagraphs = ({
-  video,
-  descriptionTextClass,
-}: DescriptionParagraphsProps) => {
+export const DescriptionParagraphs = ({ video, descriptionTextClass }: DescriptionParagraphsProps) => {
   const videoDescription = video.snippet ? video.snippet.description : null;
   if (!videoDescription) {
     return null;
@@ -100,11 +97,7 @@ export function VideoInfoBox(props: any) {
       {!isLoading && (
         <>
           <div className='video-info-box'>
-            <Image
-              className='channel-image'
-              src={channel.snippet.thumbnails.medium.url}
-              circular
-            />
+            <Image className='channel-image' src={channel.snippet.thumbnails.medium.url} circular />
             <div className='video-info'>
               <div className='channel-name'>{channel.snippet.title}</div>
               <div className='video-publication-date'>{publishedAtString}</div>
@@ -113,10 +106,7 @@ export function VideoInfoBox(props: any) {
               {getSubscriberButtonText()}
             </Button>
             <div className='video-description'>
-              <DescriptionParagraphs
-                video={video}
-                descriptionTextClass={descriptionTextClass}
-              />
+              <DescriptionParagraphs video={video} descriptionTextClass={descriptionTextClass} />
               <Button compact onClick={onToggleCollapseButtonClick}>
                 {buttonTitle}
               </Button>

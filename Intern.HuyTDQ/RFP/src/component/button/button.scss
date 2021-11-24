@@ -1,0 +1,17 @@
+.basic {
+  background: transparent none !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: var(--font-weight-regular);
+  border-radius: 0.3rem;
+  text-transform: none;
+  text-shadow: none !important;
+  box-shadow: 0 0 0 1px rbg(34 36 38 / 15%) inset;
+  font-size: 15px;
+}
+
+.icon {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  justify-content: flex-start;
+}

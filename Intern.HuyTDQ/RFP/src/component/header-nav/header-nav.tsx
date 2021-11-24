@@ -17,12 +17,7 @@ export function Header({ onActiveSidebar }: Prop) {
       {/* 2 */}
       <Menu.Menu className='nav-left'>
         <Menu.Item>
-          <Icon
-            className='header-icon'
-            name='list'
-            size='large'
-            onClick={() => handleClickMenu()}
-          />
+          <Icon className='header-icon' name='list' size='large' onClick={() => handleClickMenu()} />
         </Menu.Item>
         <Menu.Item header className='logo'>
           <Link to='/'>
@@ -50,11 +45,7 @@ export function Header({ onActiveSidebar }: Prop) {
         {['video camera', 'grid layout', 'chat', 'alarm'].map((entry) => {
           return (
             <Menu.Item key={entry}>
-              <Icon
-                className='header-icon'
-                name={entry as SemanticICONS | undefined}
-                size='large'
-              />
+              <Icon className='header-icon' name={entry as SemanticICONS | undefined} size='large' />
             </Menu.Item>
           );
         })}

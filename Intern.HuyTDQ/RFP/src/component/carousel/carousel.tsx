@@ -50,13 +50,8 @@ export function Carousel() {
       <div className={['slider-image', skeleton].join(' ')}>
         {(image_list ?? []).map((slide_item, index) => {
           return (
-            <div
-              className={index === current ? 'slide active' : 'slide'}
-              key={index}
-            >
-              {index === current && (
-                <img src={slide_item} alt='video' className='image' />
-              )}
+            <div key={index} className={index === current ? 'slide active' : 'slide'}>
+              {index === current && <img src={slide_item} alt='video' className='image' />}
             </div>
           );
         })}
