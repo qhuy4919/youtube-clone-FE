@@ -2,7 +2,7 @@ import { button } from '../../model/button';
 import './button.scss';
 
 export function Button(props: button): JSX.Element {
-  const { border, color, radius, children, disable, height, width, basic, icon } = props;
+  const { color, children, disable, height, width, basic, icon } = props;
   //
   const classProperties = [basic, icon].join(' ');
   //

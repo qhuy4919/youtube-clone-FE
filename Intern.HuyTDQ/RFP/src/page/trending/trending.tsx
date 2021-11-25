@@ -1,20 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Header,
-  Sidebar,
-  VideoList,
-  Loader,
-  Pagination,
-  TrendingAddForm,
-} from '../../component/index';
+import { Header, Sidebar, VideoList, Loader, Pagination, TrendingAddForm } from '../../component/index';
 import { Icon } from 'semantic-ui-react';
 import * as videoAction from '../../state/action/video';
-import {
-  getMostPopularVideo,
-  getLoading,
-  getError,
-} from '../../state/reducer/video';
+import { getMostPopularVideo, getLoading, getError } from '../../state/reducer/video';
 import './trending.scss';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -86,12 +75,7 @@ export function Trending() {
           )}
         </div>
         <div className='modal position-fixed add-button'>
-          <Icon
-            name='add'
-            size='large'
-            className=' add-button__icon'
-            onClick={toggleForm}
-          ></Icon>
+          <Icon name='add' size='large' className=' add-button__icon' onClick={toggleForm}></Icon>
         </div>
         <div className='pagination-container'>
           <Pagination pagination={pagination} onPageChange={handlePageChange} />
@@ -99,11 +83,7 @@ export function Trending() {
       </div>
       {hasError && <> no data...</>}
       <ToastContainer />
-      <TrendingAddForm
-        isShowing={isShowing}
-        hide={toggleForm}
-        closeModal={closeModal}
-      />
+      <TrendingAddForm isShowing={isShowing} hide={toggleForm} closeModal={closeModal} />
     </div>
   );
 }

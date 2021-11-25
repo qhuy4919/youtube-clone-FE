@@ -24,7 +24,7 @@ export function TrendingUpdateForm(props: any) {
   const isLoading = useSelector(getLoading);
   const [hasError, setHasError] = useState<any | undefined>();
   const dispatch = useDispatch();
-  
+
   const videoIdRef = useRef<any>(null);
   const ChannelIdRef = useRef<any>(null);
   const videoTitleRef = useRef<any>(null);
@@ -111,13 +111,7 @@ export function TrendingUpdateForm(props: any) {
     ? ReactDOM.createPortal(
         <React.Fragment>
           <div className='modal-overlay' />
-          <div
-            className='modal-wrapper'
-            aria-modal
-            aria-hidden
-            tabIndex={-1}
-            role='dialog'
-          >
+          <div className='modal-wrapper' aria-modal aria-hidden tabIndex={-1} role='dialog'>
             <div className='modal'>
               <div className='modal-header'>
                 <h2 className='modal-header__title '>Update video </h2>
@@ -132,11 +126,7 @@ export function TrendingUpdateForm(props: any) {
                 </button>
               </div>
               <div className='form-container'>
-                <form
-                  action=''
-                  className='update-form'
-                  onSubmit={(e) => handleSubmitNewVideo(e)}
-                >
+                <form action='' className='update-form' onSubmit={(e) => handleSubmitNewVideo(e)}>
                   <div className='form__div'>
                     <input
                       ref={videoIdRef}
@@ -168,9 +158,7 @@ export function TrendingUpdateForm(props: any) {
                       className='form__input'
                       placeholder=' '
                       name='url'
-                      defaultValue={
-                        videoInformation.snippet.thumbnails.medium.url ?? 'none'
-                      }
+                      defaultValue={videoInformation.snippet.thumbnails.medium.url ?? 'none'}
                       onChange={(e) => handleImageChange(e)}
                     />
                     <label className='form__label'>Image</label>
@@ -182,9 +170,7 @@ export function TrendingUpdateForm(props: any) {
                       className='form__input'
                       placeholder=' '
                       name='channelId'
-                      defaultValue={
-                        videoInformation.snippet.channelId ?? 'none'
-                      }
+                      defaultValue={videoInformation.snippet.channelId ?? 'none'}
                       onChange={(e) => handleSnippetChange(e)}
                     />
                     <label className='form__label'>Channel id</label>
@@ -196,18 +182,12 @@ export function TrendingUpdateForm(props: any) {
                       className='form__input'
                       placeholder=' '
                       name='description'
-                      defaultValue={
-                        videoInformation.snippet.description ?? 'none'
-                      }
+                      defaultValue={videoInformation.snippet.description ?? 'none'}
                       onChange={(e) => handleSnippetChange(e)}
                     />
                     <label className='form__label'>Description</label>
                   </div>
-                  <input
-                    type='submit'
-                    className='form__button'
-                    value={isLoading ? 'loading...' : 'update'}
-                  />
+                  <input type='submit' className='form__button' value={isLoading ? 'loading...' : 'update'} />
                 </form>
                 {hasError && <>something wrong</>}
               </div>

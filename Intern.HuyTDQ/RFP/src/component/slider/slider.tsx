@@ -8,6 +8,7 @@ export function Slider(props: any) {
   if (!videos || !videos.length) {
     return <div />;
   }
+
   const trending_video = videos?.map((video: any) => {
     return video.snippet.thumbnails;
   });

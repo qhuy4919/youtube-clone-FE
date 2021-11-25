@@ -13,9 +13,7 @@ export function ContentModal(props: modalProp) {
           <div className='content-modal-wrapper'>
             <div className='content-modal-content'>
               <div className='content-modal-header'>
-                <div className='content-modal-header__text'>
-                  {headerContent}
-                </div>
+                <div className='content-modal-header__text'>{headerContent}</div>
                 <button
                   type='button'
                   className='modal-close-button'

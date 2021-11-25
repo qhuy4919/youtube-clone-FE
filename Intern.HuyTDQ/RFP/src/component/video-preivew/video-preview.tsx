@@ -11,10 +11,7 @@ import './video-preview.scss';
 function convertViewCount(viewCount: string): string {
   const formatView = ['N', 'Tr', 'T'];
   const x = Math.floor(viewCount.length / 3);
-  let res =
-    viewCount.length % 3 === 0
-      ? viewCount.slice(0, 3)
-      : viewCount.slice(0, viewCount.length - 3 * x);
+  let res = viewCount.length % 3 === 0 ? viewCount.slice(0, 3) : viewCount.slice(0, viewCount.length - 3 * x);
   if (viewCount.length % 3) {
     res = res.concat(formatView[Math.floor(viewCount.length / 3) - 1]);
   } else {
@@ -61,10 +58,7 @@ export function VideoPreview(props: videoPreviewProp) {
   } else viewAndTime = '';
 
   return (
-    <div
-      className={['video-preview', horizontal, expanded].join(' ')}
-      onClick={toggleModal}
-    >
+    <div className={['video-preview', horizontal, expanded].join(' ')} onClick={toggleModal}>
       <div className='image-container'>
         <Image src={video.snippet.thumbnails.medium.url} />
         <div className='time-label'>
@@ -73,19 +67,11 @@ export function VideoPreview(props: videoPreviewProp) {
       </div>
 
       <div className='video-info'>
-        <div
-          className={['semi-bold', 'show-max-two-lines', expanded].join(' ')}
-        >
-          {video.snippet.title}
-        </div>
+        <div className={['semi-bold', 'show-max-two-lines', expanded].join(' ')}>{video.snippet.title}</div>
         <div className='video-preview-metadata-container'>
           <div className='channel-title'>{video.snippet.channelTitle}</div>
           <div className='view-and-time'>{viewAndTime}</div>
-          {expanded && (
-            <div className={'show-max-two-lines'}>
-              {video.snippet.description}
-            </div>
-          )}
+          {expanded && <div className={'show-max-two-lines'}>{video.snippet.description}</div>}
         </div>
       </div>
 

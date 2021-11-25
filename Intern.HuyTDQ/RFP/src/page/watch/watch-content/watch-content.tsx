@@ -1,22 +1,10 @@
 import { useState, useEffect } from 'react';
-import {
-  Video,
-  VideoMetadata,
-  VideoInfoBox,
-  Loader,
-  TrendingUpdateForm,
-  RelatedVideo,
-} from '../../../component/index';
+import { Video, VideoMetadata, VideoInfoBox, Loader, TrendingUpdateForm, RelatedVideo } from '../../../component/index';
 import { Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as videoAction from '../../../state/action/video';
 import * as watchAction from '../../../state/action/watch';
-import {
-  getVideoById,
-  getMostPopularVideo,
-  getLoading,
-  getError,
-} from '../../../state/reducer/video';
+import { getVideoById, getMostPopularVideo, getLoading, getError } from '../../../state/reducer/video';
 import { toast, ToastContainer } from 'react-toastify';
 import './watch-content.scss';
 
@@ -77,21 +65,12 @@ function WatchContent(props: any) {
           {channelId.length < 1 ? (
             <></>
           ) : (
-            <VideoInfoBox
-              className='video-info-box'
-              video={videoInformation}
-              channelId={channelId}
-            />
+            <VideoInfoBox className='video-info-box' video={videoInformation} channelId={channelId} />
           )}
           <RelatedVideo />
 
           <div className='position-fixed add-button'>
-            <Icon
-              name='pencil alternate'
-              size='large'
-              className=' add-button__icon'
-              onClick={toggleForm}
-            ></Icon>
+            <Icon name='pencil alternate' size='large' className=' add-button__icon' onClick={toggleForm}></Icon>
           </div>
         </>
       )}

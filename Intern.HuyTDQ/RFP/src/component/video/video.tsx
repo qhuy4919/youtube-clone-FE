@@ -8,11 +8,7 @@ export function Video(props: any) {
       <div className='video'>
         <iframe
           className='video-player'
-          src={
-            id
-              ? `${BASE_EMBED_URL}${id}`
-              : `https://www.youtube.com/embed/tvLpfycqPqM`
-          }
+          src={id ? `${BASE_EMBED_URL}${id}` : `https://www.youtube.com/embed/tvLpfycqPqM`}
           frameBorder='0'
           allow='autoplay; encrypted-media'
           allowFullScreen

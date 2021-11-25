@@ -60,6 +60,7 @@
     .modal-body__item {
       max-height: 300px;
       overflow: auto;
+      width: 100%;
     }
   }
 
@@ -71,6 +72,7 @@
 
     .modal-footer__item {
       margin-top: var(--spacing-unit-xs);
+      width: 100%;
     }
   }
 }
