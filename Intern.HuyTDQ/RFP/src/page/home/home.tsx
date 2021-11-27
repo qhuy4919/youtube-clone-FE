@@ -1,11 +1,13 @@
 import { useState, useRef } from 'react';
-import { Header, Sidebar } from '../../component/index';
-import HomeContent from './home-content';
+import { Header, Sidebar } from '../../component';
+import HomeContent from './home-content/home-content';
 import './home.scss';
 
 export function Home() {
   const [acitveSidebar, setActiveSidebar] = useState<Boolean>(true);
   const homeContainer = useRef<HTMLDivElement>(null);
+
+  //
   function handleActiveSidebar() {
     setActiveSidebar(!acitveSidebar);
     if (acitveSidebar) {

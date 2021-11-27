@@ -13,12 +13,12 @@ export function RelatedVideo() {
 
   //
   useEffect(() => {
-    const relevant = true;
+    let relevant = true;
     const fetchRelateVideo = async () => {
       try {
         const response: any = await Query.trending.list({
           _page: 1,
-          _limit: 10,
+          _limit: 25,
         });
         if (relevant && response) {
           setRelateVideo(response.data);
@@ -31,6 +31,9 @@ export function RelatedVideo() {
       }
     };
     fetchRelateVideo();
+    return () => {
+      relevant = false;
+    };
   }, []);
 
   if (relateVideo) {

@@ -32,4 +32,17 @@ export const Query = {
       return axiosClient.get(url);
     },
   },
+  comment: {
+    list: (videoId: string) => {
+      const url = `https://youtube.googleapis.com/youtube/v3/commentThreads?videoId=${videoId}`;
+      const config = {
+        params: {
+          part: ['snippet,replies'],
+          key: `${process.env.REACT_APP_YOUTUBE_KEY}`,
+          maxResults: 20,
+        },
+      };
+      return axiosClient.get(url, config);
+    },
+  },
 };

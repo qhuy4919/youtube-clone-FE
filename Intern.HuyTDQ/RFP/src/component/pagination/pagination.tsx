@@ -30,8 +30,6 @@ export function Pagination(props: any) {
     }
   }
 
-  // trunctated
-
   return (
     <>
       <ul className='pageNumbers'>

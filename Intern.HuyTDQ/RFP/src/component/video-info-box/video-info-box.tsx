@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Image, Button, Divider } from 'semantic-ui-react';
+import { Image, Divider } from 'semantic-ui-react';
 import { Query } from '../../access/api/index';
 import Linkify from 'react-linkify';
+import { Button } from '../button/button';
 import './video-info-box.scss';
 
 export type DescriptionParagraphsProps = {
@@ -93,29 +94,24 @@ export function VideoInfoBox(props: any) {
   }
 
   return (
-    <div>
+    <>
       {!isLoading && (
-        <>
-          <div className='video-info-box'>
-            <Image className='channel-image' src={channel.snippet.thumbnails.medium.url} circular />
-            <div className='video-info'>
-              <div className='channel-name'>{channel.snippet.title}</div>
-              <div className='video-publication-date'>{publishedAtString}</div>
-            </div>
-            <Button className='subscribe' color='youtube'>
-              {getSubscriberButtonText()}
-            </Button>
-            <div className='video-description'>
-              <DescriptionParagraphs video={video} descriptionTextClass={descriptionTextClass} />
-              <Button compact onClick={onToggleCollapseButtonClick}>
-                {buttonTitle}
-              </Button>
-            </div>
+        <div className='video-info-box'>
+          <Image className='channel-image' src={channel.snippet.thumbnails.medium.url} circular />
+          <div className='video-info'>
+            <div className='channel-name'>{channel.snippet.title}</div>
+            <div className='video-publication-date'>{publishedAtString}</div>
           </div>
-          <Divider />
-        </>
+          <Button type='subscribe' color='youtube'>
+            {getSubscriberButtonText()}
+          </Button>
+          <div className='video-description'>
+            <DescriptionParagraphs video={video} descriptionTextClass={descriptionTextClass} />
+            <Button onClick={onToggleCollapseButtonClick}>{buttonTitle}</Button>
+          </div>
+        </div>
       )}
       {hasError && <>something wrong</>}
-    </div>
+    </>
   );
 }

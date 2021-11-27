@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Video, VideoMetadata, VideoInfoBox, Loader, TrendingUpdateForm, RelatedVideo } from '../../../component/index';
+import {
+  Video,
+  VideoMetadata,
+  VideoInfoBox,
+  Loader,
+  TrendingUpdateForm,
+  RelatedVideo,
+  Comment,
+} from '../../../component/index';
 import { Icon } from 'semantic-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as videoAction from '../../../state/action/video';
@@ -63,11 +71,12 @@ function WatchContent(props: any) {
           <Video className='video' id={videoId} />
           <VideoMetadata className='metadata' video={videoInformation} />
           {channelId.length < 1 ? (
-            <></>
+            <>no data...</>
           ) : (
             <VideoInfoBox className='video-info-box' video={videoInformation} channelId={channelId} />
           )}
           <RelatedVideo />
+          <Comment className='comment' videoId={videoId} />
 
           <div className='position-fixed add-button'>
             <Icon name='pencil alternate' size='large' className=' add-button__icon' onClick={toggleForm}></Icon>

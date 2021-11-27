@@ -4,8 +4,8 @@ import { Header, Sidebar, VideoList, Loader, Pagination, TrendingAddForm } from 
 import { Icon } from 'semantic-ui-react';
 import * as videoAction from '../../state/action/video';
 import { getMostPopularVideo, getLoading, getError } from '../../state/reducer/video';
-import './trending.scss';
 import { ToastContainer, toast } from 'react-toastify';
+import './trending.scss';
 
 type VideoData = {
   data: [];
@@ -38,7 +38,6 @@ export function Trending() {
         totalRow: videoList.totalPage,
       });
     } else if (hasError) {
-      console.log(hasError);
       toast.error(hasError);
     }
   }, [filter._page, JSON.stringify(videoList), hasError]);

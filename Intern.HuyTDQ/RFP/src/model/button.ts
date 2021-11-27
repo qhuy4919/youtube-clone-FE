@@ -3,9 +3,10 @@ export type button = {
   border?: string;
   color?: string;
   children?: React.ReactNode;
-  width?: string;
-  height?: string;
+  onClick?: () => void;
   radius?: string;
   basic?: string;
   icon?: string;
+  size?: string;
+  type?: string;
 };

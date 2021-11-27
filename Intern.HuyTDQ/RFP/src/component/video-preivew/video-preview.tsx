@@ -17,6 +17,7 @@ function convertViewCount(viewCount: string): string {
   } else {
     res = res.concat(formatView[Math.floor(viewCount.length / 3) - 2]);
   }
+  
   return res;
 }
 

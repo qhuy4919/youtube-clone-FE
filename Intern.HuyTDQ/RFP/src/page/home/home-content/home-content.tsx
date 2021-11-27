@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { VideoGrid } from '../../component/video-grid/video-grid';
-import { Loader, Pagination } from '../../component/';
-import { Query } from '../../access/api/index';
+import { VideoGrid, Loader, Pagination } from '../../../component';
+import { Query } from '../../../access/api';
 import './home-content.scss';
 
 function HomeContent() {
@@ -18,6 +17,7 @@ function HomeContent() {
     _limit: 8,
   });
 
+  //
   function handlePageChange(newPage: number) {
     setFilter({
       ...filter,
@@ -28,8 +28,6 @@ function HomeContent() {
   useEffect(() => {
     let relevant = true;
     const fetchVideo = async () => {
-      setIsLoading(true);
-      setHasError(false);
       try {
         const response: any = await Query.video.list(filter);
         if (response && relevant) {

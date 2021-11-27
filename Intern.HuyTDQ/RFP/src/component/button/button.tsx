@@ -2,17 +2,16 @@ import { button } from '../../model/button';
 import './button.scss';
 
 export function Button(props: button): JSX.Element {
-  const { color, children, disable, height, width, basic, icon } = props;
+  const { color, children, disable, onClick, basic, icon, type, size } = props;
   //
-  const classProperties = [basic, icon].join(' ');
+  const classProperties = [basic, icon, type, size].join(' ');
   //
   return (
     <button
       className={classProperties}
+      onClick={onClick}
       style={{
         backgroundColor: color,
-        height: height,
-        width: width,
       }}
       disabled={disable}
     >

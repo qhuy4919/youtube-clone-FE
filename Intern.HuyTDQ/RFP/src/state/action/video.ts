@@ -1,10 +1,4 @@
-import {
-  createRequestType,
-  createAction,
-  REQUEST,
-  SUCCESS,
-  FAILURE,
-} from './index';
+import { createRequestType, createAction, REQUEST, SUCCESS, FAILURE } from './index';
 
 //async action
 export const MOST_POPULAR = createRequestType('MOST_POPULAR');
@@ -28,8 +22,6 @@ export const getVideoById = {
 
 export const createNewVideo = {
   request: (data: any) => createAction(CREATE_NEW_VIDEO[REQUEST], { data }),
-  success: (response: any) =>
-    createAction(CREATE_NEW_VIDEO[SUCCESS], { response }),
-  failure: (response: any) =>
-    createAction(CREATE_NEW_VIDEO[FAILURE], { response }),
+  success: (response: any) => createAction(CREATE_NEW_VIDEO[SUCCESS], { response }),
+  failure: (response: any) => createAction(CREATE_NEW_VIDEO[FAILURE], { response }),
 };
