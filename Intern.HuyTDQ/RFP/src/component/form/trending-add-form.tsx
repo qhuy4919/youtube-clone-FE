@@ -6,6 +6,8 @@ import * as videoAction from '../../state/action/video';
 import { ToastContainer, toast } from 'react-toastify';
 import './trending-add-form.scss';
 
+const optionSelect = ['UCGwu0nbY2wSkW8N-cghnLpA', 'UCANLZYMidaCbLQFWXBC95Jg', 'UCSpfz1IyUA1NBH-cgj8ygUw'];
+
 export function TrendingAddForm(props: any) {
   const { isShowing, hide, closeModal } = props;
   const [newVideo, setNewVideo] = useState({
@@ -31,8 +33,6 @@ export function TrendingAddForm(props: any) {
   });
   const isLoading = useSelector(getLoading);
   const dispatch = useDispatch();
-
-  const optionSelect = ['UCGwu0nbY2wSkW8N-cghnLpA', 'UCANLZYMidaCbLQFWXBC95Jg', 'UCSpfz1IyUA1NBH-cgj8ygUw'];
 
   const videoIdRef = useRef<any>(null);
   const channelIdRef = useRef<any>(null);

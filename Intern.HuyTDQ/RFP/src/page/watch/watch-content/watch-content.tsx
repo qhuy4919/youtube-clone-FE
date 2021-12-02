@@ -18,7 +18,7 @@ import './watch-content.scss';
 
 function WatchContent(props: any) {
   const { videoId } = props;
-  const [videoInformation, setVideoInformation] = useState([]);
+  const [videoInformation, setVideoInformation] = useState(null);
   const [channelId, setChannelId] = useState('');
   const [isShowing, setIsShowing] = useState(false);
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function WatchContent(props: any) {
           setChannelId(response.snippet.channelId);
         }
       } catch (error) {
-        toast.error(JSON.stringify(error));
+        toast.error(JSON.stringify('something wrong'));
       }
       return function cleanup() {
         relevant = false;
@@ -62,7 +62,7 @@ function WatchContent(props: any) {
 
   return (
     <div className='watch-grid'>
-      {isLoading ? (
+      {isLoading || !videoInformation ? (
         <div className='loader'>
           <Loader />
         </div>
@@ -76,7 +76,9 @@ function WatchContent(props: any) {
             <VideoInfoBox className='video-info-box' video={videoInformation} channelId={channelId} />
           )}
           <RelatedVideo />
-          <Comment className='comment' videoId={videoId} />
+          <div className='comment'>
+            <Comment videoId={videoId} />
+          </div>
 
           <div className='position-fixed add-button'>
             <Icon name='pencil alternate' size='large' className=' add-button__icon' onClick={toggleForm}></Icon>

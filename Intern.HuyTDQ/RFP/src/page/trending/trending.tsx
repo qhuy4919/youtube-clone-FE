@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header, Sidebar, VideoList, Loader, Pagination, TrendingAddForm } from '../../component/index';
 import { Icon } from 'semantic-ui-react';
 import * as videoAction from '../../state/action/video';
-import { getMostPopularVideo, getLoading, getError } from '../../state/reducer/video';
+import { getMostPopularVideo, getLoading, getError} from '../../state/reducer/video';
 import { ToastContainer, toast } from 'react-toastify';
 import './trending.scss';
 
@@ -30,7 +30,7 @@ export function Trending() {
 
   //
   useEffect(() => {
-    dispatch(videoAction.mostPopular.request(filter));
+    dispatch(videoAction.mostPopularOnline.request(filter));
     if (videoList.data.length > 0) {
       setPagination({
         ...pagination,
@@ -40,7 +40,7 @@ export function Trending() {
     } else if (hasError) {
       toast.error(hasError);
     }
-  }, [filter._page, JSON.stringify(videoList), hasError]);
+  }, [filter._page, hasError]);
 
   function handlePageChange(newPage: number) {
     setFilter({

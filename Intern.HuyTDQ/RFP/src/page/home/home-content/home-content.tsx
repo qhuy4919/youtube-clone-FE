@@ -27,6 +27,7 @@ function HomeContent() {
 
   useEffect(() => {
     let relevant = true;
+    setIsLoading(true);
     const fetchVideo = async () => {
       try {
         const response: any = await Query.video.list(filter);
@@ -37,6 +38,7 @@ function HomeContent() {
             _page: filter._page,
             totalRow: response.headers['x-total-count'],
           }));
+          setIsLoading(false);
           setHasError(false);
         }
       } catch (error) {

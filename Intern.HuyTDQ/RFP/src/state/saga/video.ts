@@ -9,7 +9,7 @@ import { fetchEntity } from './index';
 export function* fetchMostPopularVideo(filter?: any) {
   const request = Query.trending.list;
   const param = filter.filter;
-  yield fetchEntity(request, param, videoAction.mostPopular);
+  yield fetchEntity(request, param, videoAction.mostPopularOnline);
 }
 
 export function* postNewVideo(data: any) {
@@ -20,7 +20,7 @@ export function* postNewVideo(data: any) {
 
 //watchcer
 export function* watchMostPopularVideo() {
-  yield takeLatest(videoAction.MOST_POPULAR[REQUEST], fetchMostPopularVideo);
+  yield takeLatest(videoAction.MOST_POPULAR_ONLINE[REQUEST], fetchMostPopularVideo);
 }
 
 export function* watchCreateNewVideo() {

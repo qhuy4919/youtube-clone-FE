@@ -17,7 +17,7 @@ function convertViewCount(viewCount: string): string {
   } else {
     res = res.concat(formatView[Math.floor(viewCount.length / 3) - 2]);
   }
-  
+
   return res;
 }
 
@@ -61,7 +61,9 @@ export function VideoPreview(props: videoPreviewProp) {
   return (
     <div className={['video-preview', horizontal, expanded].join(' ')} onClick={toggleModal}>
       <div className='image-container'>
-        <Image src={video.snippet.thumbnails.medium.url} />
+        <div className='image-content'>
+          <Image src={video.snippet.thumbnails.medium.url} className='zoom-out' />
+        </div>
         <div className='time-label'>
           <span>{videoDuration}</span>
         </div>

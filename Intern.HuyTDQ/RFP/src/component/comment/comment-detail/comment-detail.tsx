@@ -18,9 +18,9 @@ export function CommentDetail(props: any) {
         <div className='user-name'>{authorDisplayName}</div>
         <span>{textOriginal}</span>
         <div className='comment-actions'>
-          <Button size='mini' compact>
+          {/* <Button size='mini' compact>
             REPLY
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>

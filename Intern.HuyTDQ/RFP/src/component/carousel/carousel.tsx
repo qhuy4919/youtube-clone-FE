@@ -19,7 +19,7 @@ export function Carousel() {
   //
   useEffect(() => {
     const fetchVideo = () => {
-      dispatch(videoAction.mostPopular.request({ _page: 1, _limit: 5 }));
+      dispatch(videoAction.mostPopularOnline.request({ _page: 1, _limit: 5 }));
       if (hasError) {
         toast.error(hasError);
       }

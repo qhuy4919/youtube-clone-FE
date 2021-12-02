@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 import { FAILURE, REQUEST, SUCCESS } from '../action';
-import { GET_VIDEO_ID, MOST_POPULAR, CREATE_NEW_VIDEO } from '../action/video';
+import { GET_VIDEO_ID, MOST_POPULAR_ONLINE, CREATE_NEW_VIDEO } from '../action/video';
 import { WATCH_DETAIL, WATCH_UPDATE } from '../action/watch';
 
 export const initialState = {
   byId: {},
-  mostPopular: {},
+  mostPopular: [],
   totalPage: -1,
   currentVideo: {},
   isLoading: true,
@@ -14,11 +14,11 @@ export const initialState = {
 
 export function videoReducer(state: any = initialState, action: any) {
   switch (action.type) {
-    case MOST_POPULAR[SUCCESS]:
+    case MOST_POPULAR_ONLINE[SUCCESS]:
       return fetchMostPopularVideo(action.response, state);
-    case MOST_POPULAR[REQUEST]:
+    case MOST_POPULAR_ONLINE[REQUEST]:
       return resetLoadingState(state);
-    case MOST_POPULAR[FAILURE]:
+    case MOST_POPULAR_ONLINE[FAILURE]:
       return handleErrorResponse(action.response, state);
     //
     case WATCH_DETAIL[SUCCESS]:
@@ -57,15 +57,11 @@ function fetchMostPopularVideo(response: any, state: any) {
   }, {});
   const item = Object.keys(videoList);
 
-  const mostPopular = {
-    item,
-  };
-
   const totalPage = response.headers['x-total-count'];
 
   return {
     ...state,
-    mostPopular,
+    mostPopular: item,
     byId: { ...state.byId, ...videoList },
     totalPage: totalPage,
     isLoading: false,
@@ -76,8 +72,6 @@ function fetchMostPopularVideo(response: any, state: any) {
 function fetchVideoDetail(response: any, state: any) {
   return {
     ...state,
-    byId: {},
-    mostPopular: {},
     currentVideo: { ...state.currentVideo, ...response.data },
     isLoading: false,
     hasError: null,
@@ -95,14 +89,13 @@ function filterVideoById(videoId: any, state: any) {
 
 function updateVideoList(response: any, state: any) {
   const newVideoId = response.data.id;
-  const newVideoDetail = response.data.snippet;
-  const newVideo = { [newVideoId]: newVideoDetail };
-
+  const newVideoDetail = response.data;
+  const newVideo: any = {};
+  newVideo[newVideoId] = newVideoDetail;
   return {
     ...state,
-    byId: { ...state.byId, newVideo },
-    mostPopular: { ...state.mostPopular.item, newVideoId },
-    currentVideo: { ...state.currentVideo, newVideo },
+    byId: { ...state.byId, ...newVideo },
+    mostPopular: [newVideoId, ...state.mostPopular],
     isLoading: false,
     hasError: null,
   };
@@ -128,16 +121,23 @@ export const getMostPopularVideo = createSelector(
   (state: any) => state.video.mostPopular,
   (state: any) => state.video.totalPage,
   (videoById, mostPopular, totalPage) => {
-    if (!mostPopular.item) {
+    if (!mostPopular) {
       return {
         data: [],
         totalPage: 50,
       };
     }
     return {
-      data: mostPopular.item.map((videoId: any) => videoById[videoId]),
+      data: mostPopular.map((videoId: any) => videoById[videoId]),
       totalPage: parseInt(totalPage),
     };
+  }
+);
+
+export const getVideoListId = createSelector(
+  (state: any) => state.video.mostPopular,
+  (videoListId: any) => {
+    return videoListId;
   }
 );
 

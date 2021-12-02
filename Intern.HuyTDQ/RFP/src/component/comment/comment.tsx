@@ -3,7 +3,7 @@ import * as commentAction from '../../state/action/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCommentForVideo } from '../../state/reducer/comment';
 import { CommentDetail } from './comment-detail/comment-detail';
-import { CommentsHeader } from './comment-header/comment-header';
+import { CommentHeader } from './comment-header/comment-header';
 
 export function Comment(props: any) {
   const { videoId } = props;
@@ -14,7 +14,8 @@ export function Comment(props: any) {
   //
   useEffect(() => {
     dispatch(commentAction.commentList.request(videoId));
-  }, []);
+  }, [videoId]);
+
   if (!commentList) {
     return <>no data... </>;
   }
@@ -24,7 +25,7 @@ export function Comment(props: any) {
 
   return (
     <div>
-      <CommentsHeader amountComments={commentList.length} />
+      <CommentHeader amountComments={commentList.length} />
       {comment}
     </div>
   );
