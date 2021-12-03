@@ -65,14 +65,16 @@
 
       .update-form {
         width: 100%;
-        padding: 4rem 2rem;
+        padding-top: 3rem;
         border-radius: 1rem;
-        box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 
         .form__div {
           position: relative;
           height: 48px;
-          margin-bottom: 1.5rem;
+
+          &:not(:last-child) {
+            margin-bottom: 1.5rem;
+          }
 
           .form__input {
             position: absolute;

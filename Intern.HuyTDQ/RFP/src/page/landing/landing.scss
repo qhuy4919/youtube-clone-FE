@@ -1,9 +1,9 @@
 #landing-container {
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
-  padding-top: var(--spacing-unit-lg);
+  padding-top: var(--spacing-unit-xxl);
   height: calc(100vh - var(--header-nav-height));
 
   #content-container {

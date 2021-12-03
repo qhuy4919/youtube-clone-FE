@@ -115,13 +115,7 @@ export function TrendingUpdateForm(props: any) {
             <div className='modal'>
               <div className='modal-header'>
                 <h2 className='modal-header__title '>Update video </h2>
-                <button
-                  type='button'
-                  className='modal-close-button'
-                  data-dismiss='modal'
-                  aria-label='Close'
-                  onClick={hide}
-                >
+                <button type='button' className='modal-close-button' data-dismiss='modal' aria-label='Close' onClick={hide}>
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
@@ -187,7 +181,11 @@ export function TrendingUpdateForm(props: any) {
                     />
                     <label className='form__label'>Description</label>
                   </div>
-                  <input type='submit' className='form__button' value={isLoading ? 'loading...' : 'update'} />
+                  {isLoading ? (
+                    <input type='submit' disabled className='form__button disable' value={'loading...'} />
+                  ) : (
+                    <input type='submit' className='form__button' value={'UPDATE'} />
+                  )}{' '}
                 </form>
                 {hasError && <>something wrong</>}
               </div>

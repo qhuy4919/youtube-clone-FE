@@ -40,6 +40,8 @@ export function TrendingAddForm(props: any) {
   const videoDescriptionRef = useRef<any>(null);
   const videoImageRef = useRef<any>(null);
 
+  const diasble = isLoading ? 'disable' : '';
+
   //
   function handleIdChange(e: any) {
     let field = e.target.name;
@@ -119,13 +121,7 @@ export function TrendingAddForm(props: any) {
             <div className='modal'>
               <div className='modal-header'>
                 <h2 className='modal-header__title '>New video </h2>
-                <button
-                  type='button'
-                  className='modal-close-button'
-                  data-dismiss='modal'
-                  aria-label='Close'
-                  onClick={hide}
-                >
+                <button type='button' className='modal-close-button' data-dismiss='modal' aria-label='Close' onClick={hide}>
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
@@ -194,7 +190,11 @@ export function TrendingAddForm(props: any) {
                     />
                     <label className='form__label'>Description</label>
                   </div>
-                  <input type='submit' className='form__button' value={isLoading ? 'loading...' : 'add'} />
+                  {isLoading ? (
+                    <input type='submit' disabled className='form__button disable' value={'loading...'} />
+                  ) : (
+                    <input type='submit' className='form__button' value={'ADD'} />
+                  )}
                 </form>
               </div>
             </div>
