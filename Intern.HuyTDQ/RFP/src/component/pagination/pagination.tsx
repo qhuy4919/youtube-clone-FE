@@ -23,7 +23,11 @@ export function Pagination(props: any) {
     const distanceToCurrent = Math.abs(page - currentPage);
 
     if (currentPage !== page && distanceToCurrent > 1) {
-      return <li className='page truncated'>...</li>;
+      return (
+        <li key={pageIndex} className='page truncated'>
+          ...
+        </li>
+      );
     } else
       return (
         <li

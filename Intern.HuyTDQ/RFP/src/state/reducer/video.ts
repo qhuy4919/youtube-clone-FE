@@ -70,8 +70,15 @@ function fetchMostPopularVideo(response: any, state: any) {
 }
 
 function fetchVideoDetail(response: any, state: any) {
+  const videoId = response.data.id;
   return {
     ...state,
+    byId: {
+      ...state.byId,
+      [videoId]: {
+        ...response.data,
+      },
+    },
     currentVideo: { ...state.currentVideo, ...response.data },
     isLoading: false,
     hasError: null,

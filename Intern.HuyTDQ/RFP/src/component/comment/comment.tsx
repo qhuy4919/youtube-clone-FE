@@ -19,7 +19,7 @@ export function Comment(props: any) {
   if (!commentList) {
     return <>no data... </>;
   }
-  const comment = commentList.map((commentDetail: any) => {
+  const comment = commentList?.map((commentDetail: any) => {
     return <CommentDetail comment={commentDetail} key={commentDetail.id} />;
   });
 

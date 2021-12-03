@@ -61,8 +61,10 @@ export function VideoPreview(props: videoPreviewProp) {
   return (
     <div className={['video-preview', horizontal, expanded].join(' ')} onClick={toggleModal}>
       <div className='image-container'>
-        <div className='image-content'>
-          <Image src={video.snippet.thumbnails.medium.url} className='zoom-out' />
+        <div className='image-wrapper'>
+          <div className='frame'>
+            <Image src={video.snippet.thumbnails.medium.url} className='zoom-out' />
+          </div>
         </div>
         <div className='time-label'>
           <span>{videoDuration}</span>

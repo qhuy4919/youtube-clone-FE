@@ -35,7 +35,7 @@ export function VideoInfoBox(props: any) {
   const [collapsed, setCollapsed] = useState(true);
 
   const { descriptionTextClass, buttonTitle } = getDescriptionText();
-  const publishedAtString = video.snippet.publishedAt;
+  const publishedAtString = video.snippet.publishedAt || '';
 
   //
   function getDescriptionText() {
